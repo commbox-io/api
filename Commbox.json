@@ -1608,7 +1608,7 @@
         }
       }
     },
-    "/users/objects": {
+    "/users/objects/{USER_IDENTITY_ID}": {
       "get": {
         "tags": [
           "Users"
@@ -1618,10 +1618,10 @@
         "operationId": "Get_User_Objects",
         "parameters": [
           {
-            "name": "userIdentityId",
-            "in": "query",
-            "required": true,
+            "name": "USER_IDENTITY_ID",
+            "in": "path",
             "description": "Only return objects created by this user",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int64"
