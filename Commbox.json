@@ -1704,306 +1704,313 @@
                       "example": "2014-08-06T07:51:52.2581942Z"
                     },
                     "data": {
-                      "type": "object",
-                      "properties": {
-                        "objectId": {
-                          "type": "integer",
-                          "example": 1234
-                        },
-                        "streamId": {
-                          "type": "integer",
-                          "example": 4444
-                        },
-                        "subStreamId": {
-                          "type": "integer",
-                          "example": 0
-                        },
-                        "streamProviderId": {
-                          "type": "string",
-                          "example": "11111111_222222"
-                        },
-                        "streamProviderType": {
-                          "type": "integer",
-                          "example": 1
-                        },
-                        "user_identity": {
-                          "type": "integer",
-                          "example": 528986
-                        },
-                        "firstName": {
-                          "type": "string",
-                          "example": "Yuval"
-                        },
-                        "lastName": {
-                          "type": "string",
-                          "example": "Hakim"
-                        },
-                        "userStreamProviderId": {
-                          "type": "string",
-                          "example": "972505555555_by"
-                        },
-                        "userStreamProviderType": {
-                          "type": "integer",
-                          "example": 4
-                        },
-                        "content": {
-                          "type": "string",
-                          "example": "{\"num_likes\":5,\"user_likes\":false,\"num_shares\":2}"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "some message"
-                        },
-                        "createdTime": {
-                          "type": "string",
-                          "example": "2014-08-06T07:51:52.2581942Z"
-                        },
-                        "updatedTime": {
-                          "type": "string",
-                          "example": "2014-08-07T06:51:52.2581942Z"
-                        },
-                        "closedTime": {
-                          "type": "string",
-                          "example": "2014-08-07T07:51:52.2581942Z"
-                        },
-                        "firstResponseTime": {
-                          "type": "string",
-                          "example": "2014-08-06T08:00:52.2581942Z"
-                        },
-                        "lastResponseTime": {
-                          "type": "string",
-                          "example": "2014-08-06T08:00:52.2581942Z"
-                        },
-                        "statusId": {
-                          "type": "integer",
-                          "example": 1
-                        },
-                        "assignedManagerId": {
-                          "type": "integer",
-                          "example": 0
-                        },
-                        "type": {
-                          "type": "integer",
-                          "example": 0
-                        },
-                        "user": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "example": "1769668,"
-                            },
-                            "firstName": {
-                              "type": "string",
-                              "example": "Bob"
-                            },
-                            "lastName": {
-                              "type": "string",
-                              "example": "Cohen"
-                            },
-                            "gender": {
-                              "type": "string",
-                              "example": "Male"
-                            },
-                            "phone1": {
-                              "type": "string",
-                              "example": 972547724967
-                            },
-                            "phone2": {
-                              "type": "string",
-                              "example": null
-                            },
-                            "uniqueId": {
-                              "type": "string",
-                              "example": 266684
-                            },
-                            "email": {
-                              "type": "string",
-                              "example": "redlich@appnext.com"
-                            },
-                            "content": {
-                              "type": "string",
-                              "example": "{}"
-                            },
-                            "locale": {
-                              "type": "string",
-                              "example": "en_US"
-                            },
-                            "remarks": {
-                              "type": "string",
-                              "example": "test remark.."
-                            },
-                            "birthday": {
-                              "type": "string",
-                              "example": "01/01/1990"
-                            },
-                            "numberIdentities": {
-                              "type": "integer",
-                              "example": 3
-                            }
-                          }
-                        },
-                        "isManager": {
-                          "type": "boolean",
-                          "example": false
-                        },
-                        "childs": {
-                          "type": "array",
-                          "items": {
-                            "oneOf": [
-                              {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "objectId": {
+                                "type": "integer",
+                                "example": 1234
+                              },
+                              "streamId": {
+                                "type": "integer",
+                                "example": 4444
+                              },
+                              "subStreamId": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": "11111111_222222"
+                              },
+                              "streamProviderType": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "user_identity": {
+                                "type": "integer",
+                                "example": 528986
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "example": "Yuval"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "example": "Hakim"
+                              },
+                              "userStreamProviderId": {
+                                "type": "string",
+                                "example": "972505555555_by"
+                              },
+                              "userStreamProviderType": {
+                                "type": "integer",
+                                "example": 4
+                              },
+                              "content": {
+                                "type": "string",
+                                "example": "{\"num_likes\":5,\"user_likes\":false,\"num_shares\":2}"
+                              },
+                              "message": {
+                                "type": "string",
+                                "example": "some message"
+                              },
+                              "createdTime": {
+                                "type": "string",
+                                "example": "2014-08-06T07:51:52.2581942Z"
+                              },
+                              "updatedTime": {
+                                "type": "string",
+                                "example": "2014-08-07T06:51:52.2581942Z"
+                              },
+                              "closedTime": {
+                                "type": "string",
+                                "example": "2014-08-07T07:51:52.2581942Z"
+                              },
+                              "firstResponseTime": {
+                                "type": "string",
+                                "example": "2014-08-06T08:00:52.2581942Z"
+                              },
+                              "lastResponseTime": {
+                                "type": "string",
+                                "example": "2014-08-06T08:00:52.2581942Z"
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "assignedManagerId": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "type": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "user": {
                                 "type": "object",
                                 "properties": {
                                   "id": {
                                     "type": "integer",
-                                    "example": 123456
+                                    "example": "1769668,"
                                   },
-                                  "object_id": {
-                                    "type": "integer",
-                                    "example": 1234
+                                  "firstName": {
+                                    "type": "string",
+                                    "example": "Bob"
+                                  },
+                                  "lastName": {
+                                    "type": "string",
+                                    "example": "Cohen"
+                                  },
+                                  "gender": {
+                                    "type": "string",
+                                    "example": "Male"
+                                  },
+                                  "phone1": {
+                                    "type": "string",
+                                    "example": 972547724967
+                                  },
+                                  "phone2": {
+                                    "type": "string",
+                                    "example": null
+                                  },
+                                  "uniqueId": {
+                                    "type": "string",
+                                    "example": 266684
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "example": "redlich@appnext.com"
                                   },
                                   "content": {
                                     "type": "string",
                                     "example": "{}"
                                   },
-                                  "message": {
+                                  "locale": {
                                     "type": "string",
-                                    "example": "some message..."
+                                    "example": "en_US"
                                   },
-                                  "createdTime": {
+                                  "remarks": {
                                     "type": "string",
-                                    "example": "2014-08-06T07:51:52.2581942Z"
+                                    "example": "test remark.."
                                   },
-                                  "streamProviderType": {
+                                  "birthday": {
+                                    "type": "string",
+                                    "example": "01/01/1990"
+                                  },
+                                  "numberIdentities": {
                                     "type": "integer",
-                                    "example": "5"
-                                  },
-                                  "user": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer",
-                                        "example": 520760
-                                      },
-                                      "managerId": {
-                                        "type": "integer",
-                                        "example": 0
-                                      },
-                                      "isManager": {
-                                        "type": "boolean",
-                                        "example": false
-                                      },
-                                      "identity": {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "integer",
-                                            "example": 531826
-                                          },
-                                          "streamProviderId": {
-                                            "type": "string",
-                                            "example": "972505555555"
-                                          },
-                                          "streamProviderType": {
-                                            "type": "integer",
-                                            "example": "5"
-                                          },
-                                          "firstName": {
-                                            "type": "string",
-                                            "example": null
-                                          },
-                                          "lastName": {
-                                            "type": "string",
-                                            "example": null
-                                          },
-                                          "thumbnailUrl": {
-                                            "type": "string",
-                                            "example": null
-                                          }
-                                        }
-                                      }
-                                    }
+                                    "example": 3
                                   }
                                 }
                               },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "example": 978944
-                                  },
-                                  "object_id": {
-                                    "type": "integer",
-                                    "example": 1234
-                                  },
-                                  "content": {
-                                    "type": "string",
-                                    "example": "{}"
-                                  },
-                                  "message": {
-                                    "type": "string",
-                                    "example": "some other message..."
-                                  },
-                                  "createdTime": {
-                                    "type": "string",
-                                    "example": "2014-08-06T07:55:52.2581942Z"
-                                  },
-                                  "streamProviderType": {
-                                    "type": "integer",
-                                    "example": "5"
-                                  },
-                                  "user": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer",
-                                        "example": 520803
-                                      },
-                                      "managerId": {
-                                        "type": "integer",
-                                        "example": 520803
-                                      },
-                                      "isManager": {
-                                        "type": "boolean",
-                                        "example": true
-                                      },
-                                      "identity": {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "integer",
-                                            "example": 531811
-                                          },
-                                          "streamProviderId": {
-                                            "type": "string",
-                                            "example": "michae12@commbox.io"
-                                          },
-                                          "streamProviderType": {
-                                            "type": "integer",
-                                            "example": 0
-                                          },
-                                          "firstName": {
-                                            "type": "string",
-                                            "example": "michael"
-                                          },
-                                          "lastName": {
-                                            "type": "string",
-                                            "example": "null"
-                                          },
-                                          "thumbnailUrl": {
-                                            "type": "string",
-                                            "example": null
+                              "isManager": {
+                                "type": "boolean",
+                                "example": false
+                              },
+                              "childs": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "example": 123456
+                                        },
+                                        "object_id": {
+                                          "type": "integer",
+                                          "example": 1234
+                                        },
+                                        "content": {
+                                          "type": "string",
+                                          "example": "{}"
+                                        },
+                                        "message": {
+                                          "type": "string",
+                                          "example": "some message..."
+                                        },
+                                        "createdTime": {
+                                          "type": "string",
+                                          "example": "2014-08-06T07:51:52.2581942Z"
+                                        },
+                                        "streamProviderType": {
+                                          "type": "integer",
+                                          "example": "5"
+                                        },
+                                        "user": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "example": 520760
+                                            },
+                                            "managerId": {
+                                              "type": "integer",
+                                              "example": 0
+                                            },
+                                            "isManager": {
+                                              "type": "boolean",
+                                              "example": false
+                                            },
+                                            "identity": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "integer",
+                                                  "example": 531826
+                                                },
+                                                "streamProviderId": {
+                                                  "type": "string",
+                                                  "example": "972505555555"
+                                                },
+                                                "streamProviderType": {
+                                                  "type": "integer",
+                                                  "example": "5"
+                                                },
+                                                "firstName": {
+                                                  "type": "string",
+                                                  "example": null
+                                                },
+                                                "lastName": {
+                                                  "type": "string",
+                                                  "example": null
+                                                },
+                                                "thumbnailUrl": {
+                                                  "type": "string",
+                                                  "example": null
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "example": 978944
+                                        },
+                                        "object_id": {
+                                          "type": "integer",
+                                          "example": 1234
+                                        },
+                                        "content": {
+                                          "type": "string",
+                                          "example": "{}"
+                                        },
+                                        "message": {
+                                          "type": "string",
+                                          "example": "some other message..."
+                                        },
+                                        "createdTime": {
+                                          "type": "string",
+                                          "example": "2014-08-06T07:55:52.2581942Z"
+                                        },
+                                        "streamProviderType": {
+                                          "type": "integer",
+                                          "example": "5"
+                                        },
+                                        "user": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "example": 520803
+                                            },
+                                            "managerId": {
+                                              "type": "integer",
+                                              "example": 520803
+                                            },
+                                            "isManager": {
+                                              "type": "boolean",
+                                              "example": true
+                                            },
+                                            "identity": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "integer",
+                                                  "example": 531811
+                                                },
+                                                "streamProviderId": {
+                                                  "type": "string",
+                                                  "example": "michae12@commbox.io"
+                                                },
+                                                "streamProviderType": {
+                                                  "type": "integer",
+                                                  "example": 0
+                                                },
+                                                "firstName": {
+                                                  "type": "string",
+                                                  "example": "michael"
+                                                },
+                                                "lastName": {
+                                                  "type": "string",
+                                                  "example": "null"
+                                                },
+                                                "thumbnailUrl": {
+                                                  "type": "string",
+                                                  "example": null
+                                                }
+                                              }
+                                            }
                                           }
                                         }
                                       }
                                     }
-                                  }
+                                  ]
                                 }
                               }
-                            ]
+                            }
                           }
-                        }
+                        ]
                       }
                     }
                   }
