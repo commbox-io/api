@@ -1266,7 +1266,7 @@
           "Users"
         ],
         "summary": "Get User",
-        "description": "Get user information</br></br>In order to get data, must use either UserId or both streamProviderId and streamProviderType",
+        "description": "Get user information</br></br>In order to get data, must use either UserId or both streamProviderId and streamProviderType of the user identity",
         "operationId": "Get_User",
         "parameters": [
           {
@@ -1276,6 +1276,22 @@
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/USER_ID"
+            }
+          },
+          {
+            "name": "streamProviderId",
+            "in": "query",
+            "description": "Only return objects created by this user. Represents the user identity. Must supply streamProviderType as well (optional)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streamProviderType",
+            "in": "query",
+            "description": "Only return objects created by this user. Represents the user identity. Must supply streamProviderId as well (optional)",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -1598,7 +1614,7 @@
           "Users"
         ],
         "summary": "Get User Objects",
-        "description": "Get user objects</br></br>In order to get data, must use either userIdentityId or both streamProviderId and streamProviderType",
+        "description": "Get user objects</br></br>In order to get data, must use either userIdentityId or both streamProviderId and streamProviderType of the user identity",
         "operationId": "Get_User_Objects",
         "parameters": [
           {
@@ -1612,10 +1628,20 @@
             }
           },
           {
-            "$ref": "#/components/parameters/identityStreamProviderId"
+            "name": "streamProviderId",
+            "in": "query",
+            "description": "Only return objects created by this user. Represents the user identity. Must supply streamProviderType as well (optional)",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/identityStreamProviderType"
+            "name": "streamProviderType",
+            "in": "query",
+            "description": "Only return objects created by this user. Represents the user identity. Must supply streamProviderId as well (optional)",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "stream",
