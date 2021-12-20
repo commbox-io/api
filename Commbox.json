@@ -1843,7 +1843,7 @@
         }
       }
     },
-      "/objects/{OBJECT_ID}/remark": {
+      "/objects/{OBJECT_ID}/remarks": {
       "post": {
         "tags": [
           "Objects"
