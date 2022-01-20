@@ -1608,7 +1608,7 @@
         }
       }
     },
-    "/users/objects/{USER_IDENTITY_ID}": {
+    "/users/identities/{USER_IDENTITY_ID}/objects": {
       "get": {
         "tags": [
           "Users"
