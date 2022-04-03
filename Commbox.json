@@ -5013,6 +5013,160 @@
         }
       }
     },
+    "/v2/whatsapp/sendtemplatedmessage/{ENCRYPTED_STREAM_ID}": {
+      "post": {
+        "tags": [
+          "WhatsApp"
+        ],
+        "summary": "Send WhatsApp Templated Message V2",
+        "description": "<ul><li>Enhance the current API to support new fields <br></li><li>Create a new type of user API and add it to each brand<br></li><li>Multi recipients support<br></li><li>Option to send header<br></li><li>Allow option to send dynamic parameter or Media <br></li><li>Each object will have his own header parameter/media<br></li><li>Each object will have his own body parameters<br></li><li>Always create a Commbox Object/s<br></li><li>Sub Channel support<br><li>Option to send content<br></li><li>User info Array<br><li>Allow scheduled publish<br></li></ul>",
+        "operationId": "Send_Templated_Message_V2",
+        "parameters": [
+          {
+            "name": "ENCRYPTED_STREAM_ID",
+            "in": "path",
+            "description": "ENCRYPTED STREAM ID. This is a commbox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "schedule": {
+                              "type": "integer",
+                              "example": 1646922284,
+                              "required": false,
+                              "description": "schedule the sending of the template to a specific date and time"
+                            },
+                            "template_data": {
+                              "type": "object",
+                              "properties": {
+                                "to": {
+                                  "type": "string",
+                                  "example": "972544555232",
+                                  "description": "recipient number"
+                                },
+                                "template": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "example": "call2url",
+                                      "description": "the exact name of the template"
+                                    },
+                                    "language": {
+                                      "type": "object",
+                                      "properties": {
+                                        "code": {
+                                          "type": "string",
+                                          "example": "he",
+                                          "description": "the language of the template"
+                                        }
+                                      }
+                                    },
+                                    "components": {
+                                      "type": "array"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "object_data": {
+                              "type": "object",
+                              "properties": {
+                                "SubStreamId": {
+                                  "type": "integer",
+                                  "example": 231233,
+                                  "description": "The sub channel Id"
+                                },
+                                "StatusId": {
+                                  "type": "integer",
+                                  "example": 1,
+                                  "description": "The status of the created object"
+                                },
+                                "Content": {
+                                  "type": "object",
+                                  "description": "The content of the created object"
+                                },
+                                "User": {
+                                  "$ref": "#/components/schemas/User_Short"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2014-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": "gBEGlyUFcWM1AglR5QFZKmMxwjc"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
     "/whatsapp/validatecontact/{ENCRYPTED_STREAM_ID}/{PHONE_NUMBER}": {
       "get": {
         "tags": [
@@ -6723,7 +6877,7 @@
           "Email": {
             "type": "string",
             "format": "255",
-            "description": "User ID. This is a commbox generated number"
+            "description": "User's Email."
           },
           "FirstName": {
             "type": "string",
@@ -6764,6 +6918,35 @@
           "Identity": {
             "type": "object",
             "description": "Identity object that is connected to the user"
+          }
+        }
+      },
+      "User_Short": {
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string",
+            "format": "50",
+            "description": "User’s unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
+          },
+          "Email": {
+            "type": "string",
+            "format": "255",
+            "description": "User's Email."
+          },
+          "FirstName": {
+            "type": "string",
+            "format": "100",
+            "description": "User’s first name"
+          },
+          "LastName": {
+            "type": "string",
+            "format": "100",
+            "description": "User’s last name"
+          },
+          "Remarks": {
+            "type": "string",
+            "description": "Free text containing general remarks about the user"
           }
         }
       },
