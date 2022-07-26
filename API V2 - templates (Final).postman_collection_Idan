@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "36910b4a-f11b-4231-8b6d-95700ae7900b",
+		"name": "API V2 - templates (Final)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "simple request",
+			"item": [
+				{
+					"name": "Test 1 - text only",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"schedual\": 1680164118,\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"customer_service\",\r\n                    \"language\": {\r\n                        \"code\": \"he\"\r\n                    },\r\n                    \"components\": []\r\n                }\r\n            },\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test 2 - text + param",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dbd3968484ff4ba2988128646709c35e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            // \"schedual\": 1680164118,\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"aaaaa\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            } /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": {{create child - true or false}},\r\n                \"SubStreamId\": {{Sub channel Id - can be taken from the Commbox UI}},\r\n                \"StatusId\": {{The status that the object will be create with - can be taken from Enum}},\r\n                \"Content\": {{Can transfer specific content on the object - e.g.campaign}},\r\n                \"User\": {\r\n                    \"FirstName\": {{Cfirst name of the end customer}},\r\n                    \"LastName\": {{last name of the end customer}},\r\n                    \"Email\": {{email address of the end customer}},\r\n                    \"Remarks\": {{remark you want to write}},\r\n                    \"UniqueId\": {{custom field of the end customer}}\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test 2 - text + params",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dbd3968484ff4ba2988128646709c35e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            // \"schedual\": 1680164118,\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"libra\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"param1\"\r\n                                },\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"param2\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            } /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "buttons",
+			"item": [
+				{
+					"name": "simple buttons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dbd3968484ff4ba2988128646709c35e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            // \"schedual\": 1680164118,\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"api_test1\",\r\n                    \"language\": {\r\n                        \"code\": \"he\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            } /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "complex button",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dbd3968484ff4ba2988128646709c35e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            // \"schedual\": 1680164118,\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"url_dyn\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"button\",\r\n                            \"sub_type\": \"url\",\r\n                            \"index\": 0,\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"api\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"Irina\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            } /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Header",
+			"item": [
+				{
+					"name": "media ID",
+					"item": [
+						{
+							"name": "create ID for doc/imag/video",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api.commbox.io/whatsapp/uploadmedia/5cETROJyuU_bWGQB1ebdZtQ%3d%3d",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commbox",
+										"io"
+									],
+									"path": [
+										"whatsapp",
+										"uploadmedia",
+										"5cETROJyuU_bWGQB1ebdZtQ%3d%3d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "image",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"discount_image2\",\r\n                    \"language\": {\r\n                        \"code\": \"he\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"image\",\r\n                                    \"image\": {\r\n                                        \"id\": \"a4712234-cdbd-40ce-a68e-c9213562c636\",\r\n                                        \"filename\": \"rwrwrwr_1cec6dfc7e.png\"\r\n                                    }\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n       /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commbox",
+										"io"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"{{ENCRYPTED_STREAM_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "video",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"data\": [\r\n      {\r\n         \"template_data\": {\r\n   \"to\": \"972548118919\",\r\n   \"template\": {\r\n      \"name\": \"header_video\",\r\n      \"language\": {\r\n         \"code\": \"en\"\r\n      },\r\n      \"components\": [\r\n         {\r\n            \"type\": \"header\",\r\n            \"parameters\": [\r\n               {\r\n                  \"type\": \"video\",\r\n                  \"video\": {\r\n                    \"id\": \"aafa1e1c-a237-4e98-839f-438f117ba8f2\",\r\n                     \"filename\": \"rwrwrwr_1cec6dfc7e.png\"\r\n                  }\r\n               }\r\n            ]\r\n         },\r\n         {\r\n            \"type\": \"body\",\r\n            \"parameters\": [\r\n               {\r\n                  \"type\": \"text\",\r\n                  \"text\": \"https://www.commbox.io\"\r\n               }\r\n            ]\r\n         }\r\n      ]\r\n   }\r\n}\r\n/*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commbox",
+										"io"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"{{ENCRYPTED_STREAM_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "document",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"header_doc\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"document\",\r\n                                    \"document\": {\r\n                                        \"id\": \"f043f40d-19c1-498a-a901-147bcfaa23e9\",\r\n                                        \"filename\": \"itzik.pdf\"\r\n                                    }\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"AAAA\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n            \r\n        /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commbox",
+										"io"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"{{ENCRYPTED_STREAM_ID}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "media URL",
+					"item": [
+						{
+							"name": "image",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"discount_image2\",\r\n                    \"language\": {\r\n                        \"code\": \"he\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"image\",\r\n                                    \"image\": {\r\n                                        \"link\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIOTG1T-8J-rYj_01S8R7Nb8dQGyki9Wmj9g&usqp=CAU\",\r\n                                        \"filename\": \"rwrwrwr_1cec6dfc7e.png\"\r\n                                    }\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.commboxtest.com/v2/whatsapp/sendtemplatedmessage/5cETROJyuU_bWGQB1ebdZtQ%3d%3d",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commboxtest",
+										"com"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"5cETROJyuU_bWGQB1ebdZtQ%3d%3d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "video",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"header_video\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"video\",\r\n                                    \"video\": {\r\n                                        \"link\": \"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4\",\r\n                                        \"filename\": \"rwrwrwr_1cec6dfc7e.png\"\r\n                                    }\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.commboxtest.com/v2/whatsapp/sendtemplatedmessage/5cETROJyuU_bWGQB1ebdZtQ%3d%3d",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commboxtest",
+										"com"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"5cETROJyuU_bWGQB1ebdZtQ%3d%3d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "document",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "dbd3968484ff4ba2988128646709c35e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"header_doc\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"document\",\r\n                                    \"document\": {\r\n                                        \"link\": \"http://www.africau.edu/images/default/sample.pdf\",\r\n                                        \"filename\": \"itzik.pdf\"\r\n                                    }\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"AAAA\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.commboxtest.com/v2/whatsapp/sendtemplatedmessage/5cETROJyuU_bWGQB1ebdZtQ%3d%3d",
+									"protocol": "https",
+									"host": [
+										"api",
+										"commboxtest",
+										"com"
+									],
+									"path": [
+										"v2",
+										"whatsapp",
+										"sendtemplatedmessage",
+										"5cETROJyuU_bWGQB1ebdZtQ%3d%3d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "header param",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dbd3968484ff4ba2988128646709c35e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"template_data\": {\r\n                \"to\": \"972548118919\",\r\n                \"template\": {\r\n                    \"name\": \"header_param\",\r\n                    \"language\": {\r\n                        \"code\": \"en\"\r\n                    },\r\n                    \"components\": [\r\n                        {\r\n                            \"type\": \"header\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"text\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"type\": \"body\",\r\n                            \"parameters\": [\r\n                                {\r\n                                    \"type\": \"text\",\r\n                                    \"text\": \"https://www.commbox.io\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    ]\r\n                }\r\n            } /*,\r\n            \"object_data\": {\r\n                \"createChildObject\": true,\r\n                \"SubStreamId\": 0,\r\n                \"StatusId\": 2,\r\n                \"Content\": {},\r\n                \"User\": {\r\n                    \"UniqueId\": \"01234567\",\r\n                    \"LastName\": \"Doe\",\r\n                    \"FirstName\": \"John\",\r\n                    \"Phone1\": \"972544444444\",\r\n                    \"Email\": \"JohnDoe@gmail.com\",\r\n                    \"Remarks\": \"some remark for user\"\r\n                }\r\n            }*/\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guides",
+			"item": [
+				{
+					"name": "Sample",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n         \"schedual\": {{Unix timestamp}},\r\n            \"template_data\": {\r\n                \"to\": \"{{Recipients number - string - 972-522580999}}\",\r\n                \"template\": {\r\n                    \"name\": \"{{template name - string - e.g. Call2Url}}\",\r\n                    \"language\": {\r\n                        \"code\": \"{{language code - string - e.g. en}}\"\r\n                    },\r\n                    \"components\": []\r\n                }\r\n            },\r\n            \"object_data\": {\r\n                \"createChildObject\": {{create child -boolean - true or false }},\r\n                \"SubStreamId\": {{Sub channel Id - integer -can be taken from the Commbox UI}},\r\n                \"StatusId\": {{The status that the object will be create with - integer - can be taken from Redoc->Enum}},\r\n                \"Content\": {{Can transfer specific content on the object - string - e.g.campaign}},\r\n                \"User\": {\r\n                    \"FirstName\": {{Cfirst name of the end customer - string }},\r\n                    \"LastName\": {{last name of the end customer- string -}},\r\n                    \"Email\": {{email address of the end customer- string -}},\r\n                    \"Remarks\": {{remark you want to write- string -}},\r\n                    \"UniqueId\": {{custom field of the end customer}}\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.commbox.io/v2/whatsapp/sendtemplatedmessage/{{ENCRYPTED_STREAM_ID}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"commbox",
+								"io"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"sendtemplatedmessage",
+								"{{ENCRYPTED_STREAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
