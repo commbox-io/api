@@ -5988,15 +5988,19 @@
                       "Name": {
                         "type": "string"
                       },
-                      "Tag Group Id": {
+                      "TagGroupId": {
                         "type": "integer",
                         "format": "int64"
                       },
-                      "Object Tag": {
+                      "ObjectTag": {
                         "type": "boolean",
                         "example": true
                       },
-                      "User Tag": {
+                      "UserTag": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                     "ChildTag": {
                         "type": "boolean",
                         "example": false
                       }
