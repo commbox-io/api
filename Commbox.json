@@ -5574,7 +5574,7 @@
                                                         },
                                                         "text": {
                                                           "type": "string",
-                                                          "example": "bbb"
+                                                          "example": "Some text..."
                                                         }
                                                       }
                                                     }
