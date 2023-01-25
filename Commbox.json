@@ -35,6 +35,7 @@
       "tags": [
         "Core",
         "Streams",
+        "Stats",
         "Users",
         "Objects",
         "Managers",
@@ -43,7 +44,7 @@
         "WhatsApp",
         "Tags",
         "Forms",
-        "Ticket",
+        "Auth",
         "Automation"
       ]
     }
@@ -518,7 +519,7 @@
       },
       "post": {
         "tags": [
-          "Objects"
+          "Streams"
         ],
         "summary": "Create Object",
         "description": "Create object on specific stream",
@@ -740,7 +741,7 @@
     "/streams/{STREAM_ID}/objects/{OBJECT_ID}/child": {
       "post": {
         "tags": [
-          "Objects"
+          "Streams"
         ],
         "summary": "Create Child Object",
         "description": "Create new child object for specific object in stream <br><br>(POST) /streams/STREAM_ID/objects/OBJECT_ID/child<br>(POST) /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
@@ -842,7 +843,7 @@
     "/streams/{STREAM_ID}/objects/{OBJECT_ID}": {
       "get": {
         "tags": [
-          "Objects"
+          "Streams"
         ],
         "summary": "Get Object",
         "description": "Returns a specific object in requested stream</br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br> <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854",
@@ -1224,7 +1225,7 @@
     "/streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}": {
       "post": {
         "tags": [
-          "Tags"
+          "Streams"
         ],
         "summary": "Set Object Tag",
         "description": "Set a tag for specific object</br></br>(POST) /streams/STREAM_ID/objects/OBJECT_ID/tags/TAG_ID<br>(POST) /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/tags/TAG_ID<br><br><b>Example:</b>",
@@ -1309,7 +1310,7 @@
       },
       "delete": {
         "tags": [
-          "Tags"
+          "Streams"
         ],
         "summary": "Delete Object Tag",
         "description": "Delete a tag for specific object</br></br>(POST) /streams/STREAM_ID/objects/OBJECT_ID/tags/TAG_ID",
@@ -2632,6 +2633,100 @@
             "description": "Not Implemented - The requested operation is not supported"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Get object indicators",
+        "description": "Get the object's current indicators",
+        "operationId": "Get_Object_Indicators",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a commbox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2014-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "indicators": {
+                          "type": "object",
+                          "properties": {
+                            "custom_indicator": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "example": "Related to commbox"
+                                },
+                                "displayClass": {
+                                  "type": "string",
+                                  "example": "icon-info"
+                                },
+                                "link": {
+                                  "type": "string",
+                                  "example": "https://example-custom-indicator.com/"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "example": "Alert"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
       }
     },
     "/objects/{OBJECT_ID}/indicators/{INDICATOR_ID}": {
@@ -2717,7 +2812,7 @@
         "tags": [
           "Managers"
         ],
-        "summary": "Get_manager_stats",
+        "summary": "Get Manager Stats",
         "description": "Returns information regarding the requested manager, including the total number of currently assigned objects",
         "operationId": "Get_Manager_stats",
         "parameters": [
@@ -3661,7 +3756,7 @@
       },
       "post": {
         "tags": [
-          "Teams"
+          "Managers"
         ],
         "summary": "Update team by team id",
         "description": "Update team by given parameters",
@@ -3728,7 +3823,7 @@
       },
       "delete": {
         "tags": [
-          "Teams"
+          "Managers"
         ],
         "summary": "Delete a team by team id",
         "description": "Delete a team by team id",
@@ -4726,7 +4821,7 @@
     "/stats/streams": {
       "get": {
         "tags": [
-          "Streams"
+          "Stats"
         ],
         "summary": "Get streams stats",
         "description": "returns the current object statuses in all streams for the requested brand",
@@ -4837,7 +4932,7 @@
     "/stats/streamsSLAExceptions": {
       "get": {
         "tags": [
-          "Streams"
+          "Stats"
         ],
         "summary": "Get SLA streams stats",
         "description": "returns the current object statuses that passed the SLA in all streams for the requested brand",
@@ -5021,7 +5116,7 @@
     "/managers/teams": {
       "get": {
         "tags": [
-          "Teams"
+          "Managers"
         ],
         "summary": "Get Team",
         "description": "Get Team",
@@ -5116,7 +5211,7 @@
       },
       "post": {
         "tags": [
-          "Teams"
+          "Managers"
         ],
         "summary": "Create Team",
         "description": "Create Team",
@@ -5910,7 +6005,7 @@
         "tags": [
           "Tags"
         ],
-        "summary": "get tags",
+        "summary": "Get Tags",
         "description": "returns tags list for the requested brand",
         "operationId": "get_tags",
         "responses": {
@@ -6737,7 +6832,7 @@
     "/auth/ticket": {
       "post": {
         "tags": [
-          "Ticket"
+          "Auth"
         ],
         "summary": "Create Ticket",
         "description": "Create Encrypted Ticket",
