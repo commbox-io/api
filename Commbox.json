@@ -5465,31 +5465,29 @@
 																"components": {
 																	"type": "array",
 																	"items": {
-																		"oneOf": [{
-																			"type": "object",
-																			"properties": {
-																				"type": {
-																					"type": "string",
-																					"example": "header"
-																				},
-																				"parameters": {
-																					"type": "array",
-																					"items": {																						
-																						"type": "object",
-																						"properties": {
-																							"type": {
-																								"type": "string",
-																								"example": "text"
-																							},
-																							"text": {
-																								"type": "string",
-																								"example": "Some text..."
-																							}
-																						}																					
-																					}
+																		"type": "object",
+																		"properties": {
+																			"type": {
+																				"type": "string",
+																				"example": "header"
+																			},
+																			"parameters": {
+																				"type": "array",
+																				"items": {																						
+																					"type": "object",
+																					"properties": {
+																						"type": {
+																							"type": "string",
+																							"example": "text"
+																						},
+																						"text": {
+																							"type": "string",
+																							"example": "Some text..."
+																						}
+																					}																					
 																				}
 																			}
-																		}]
+																		}
 																	}
 																}
 															}
@@ -5549,31 +5547,29 @@
 										"data": {
 											"type": "array",
 											"items": {
-												"oneOf": [{
-													"type": "object",
-													"properties": {
-														"recipient": {
-															"type": "string",
-															"description": "Recipient number",
-															"example": 972546663529
-														},
-														"id": {
-															"type": "string",
-															"example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
-														},
-														"status": {
-															"type": "integer",
-															"format": "int32",
-															"example": 200
-														},
-														"object_id": {
-															"type": "integer",
-															"format": "int64",
-															"example": 38383744,
-															"description": "Object ID. This is a commbox generated number (optional)"
-														}
+												"type": "object",
+												"properties": {
+													"recipient": {
+														"type": "string",
+														"description": "Recipient number",
+														"example": 972546663529
+													},
+													"id": {
+														"type": "string",
+														"example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
+													},
+													"status": {
+														"type": "integer",
+														"format": "int32",
+														"example": 200
+													},
+													"object_id": {
+														"type": "integer",
+														"format": "int64",
+														"example": 38383744,
+														"description": "Object ID. This is a commbox generated number (optional)"
 													}
-												}]
+												}												
 											}
 										}
 									}
