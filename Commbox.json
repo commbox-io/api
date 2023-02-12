@@ -7469,6 +7469,16 @@
 						"format": "255",
 						"description": "User's Email."
 					},
+					"Phone1": {
+						"type": "string",
+						"format": "100",
+						"description": "User’s main phone number"
+					},
+					"Phone2": {
+						"type": "string",
+						"format": "100",
+						"description": "User’s secondary phone number"
+					},
 					"FirstName": {
 						"type": "string",
 						"format": "100",
