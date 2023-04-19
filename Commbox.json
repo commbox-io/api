@@ -5297,6 +5297,7 @@
 				}],
 				"requestBody": {
 					"required": true,
+					"description": "Note that you need to choose between the 'recipient' parameter for single phone number and the 'recipients' parameter for multiple phone numbers. The 'recipients' parameter is limited to 20 phone numbers at most.",
 					"content": {
 						"application/json": {
 							"schema": {
@@ -5305,6 +5306,10 @@
 									"recipient": {
 										"type": "string",
 										"example": "+9725051234567"
+									},
+									"recipients": {
+										"type": "string array",
+										"example": ["+9725051234567","+972524518951","+972547996251"]
 									},
 									"template_name": {
 										"type": "string",
@@ -5344,6 +5349,10 @@
 										}
 									},
 									"validate": {
+										"type": "boolean",
+										"example": true
+									},
+									"save_object": {
 										"type": "boolean",
 										"example": true
 									}
@@ -5473,7 +5482,7 @@
 																			},
 																			"parameters": {
 																				"type": "array",
-																				"items": {																						
+																				"items": {
 																					"type": "object",
 																					"properties": {
 																						"type": {
@@ -5484,7 +5493,7 @@
 																							"type": "string",
 																							"example": "Some text..."
 																						}
-																					}																					
+																					}
 																				}
 																			}
 																		}
@@ -5569,7 +5578,7 @@
 														"example": 38383744,
 														"description": "Object ID. This is a commbox generated number (optional)"
 													}
-												}												
+												}
 											}
 										}
 									}
@@ -5767,9 +5776,38 @@
 										"data": {
 											"type": "object",
 											"properties": {
-												"valid": {
-													"type": "boolean",
-													"example": true
+												"contacts": {
+													"type": "array",
+													"example": [{
+														"type": "object",
+														"properties": {
+															"input": {
+																"type": "string",
+																"example": "+972541955212"
+															},
+															"status": {
+																"type": "string",
+																"example": "valid"
+															},
+															"wa_id": {
+																"type": "string",
+																"example": "972541955212"
+															}
+														}
+													}]
+												},
+												"meta": {
+													"type": "object",
+													"properties": {
+														"api_status": {
+															"type": "string",
+															"example": "stable"
+														},
+														"version": {
+															"type": "string",
+															"example": "2.45.1"
+														}
+													}
 												}
 											}
 										}
