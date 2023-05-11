@@ -5214,7 +5214,7 @@
 										"type": "object",
 										"properties": {
 											"Number": {
-												"type": "integer",
+												"type": "string",
 												"example": "9725051234567"
 											},
 											"Message": {
@@ -5237,7 +5237,7 @@
 									"type": "object",
 									"properties": {
 										"status": {
-											"type": "string",
+											"type": "int",
 											"example": 200
 										},
 										"description": {
