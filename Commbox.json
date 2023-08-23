@@ -2718,7 +2718,7 @@
           "Managers"
         ],
         "summary": "Get_manager_stats",
-        "description": "Returns information regarding the requested manager, including the total number of currently assigned objects",
+        "description": "Based on the agent’s Id, this API returns information about the current number of assignments based on the different statuses.<br>",
         "operationId": "Get_Manager_stats",
         "parameters": [
           {
@@ -2756,35 +2756,43 @@
                       "properties": {
                         "id": {
                           "type": "integer",
-                          "example": 520760
+                          "example": 520760,
+                          "description": "The agent's Id number"
                         },
                         "AsyncAssignedNoResponse": {
                           "type": "integer",
-                          "example": 2
+                          "example": 2,
+                          "description": "Current number of assigned asynchronous conversations (objects) awaiting a response"
                         },
                         "AsyncAssignedInProccess": {
                           "type": "integer",
-                          "example": 1
+                          "example": 1,
+                          "description": "Current number of assigned asynchronous conversations (objects) that are being addressed by the manager"
                         },
                         "SyncAssignedNoResponse": {
                           "type": "integer",
-                          "example": 0
+                          "example": 0,
+                          "description": "Current number of assigned synchronous conversations (objects) awaiting a response"
                         },
                         "SyncAssignedInProccess": {
                           "type": "integer",
-                          "example": 0
+                          "example": 0,
+                          "description": "Current number of assigned synchronous conversations (objects) that are being addressed by the manager"
                         },
                         "FaceToFaceStatus": {
                           "type": "boolean",
-                          "example": false
+                          "example": false,
+                          "description": "Returns true if the agent is busy with a face-to-face conversation (Voice/Video call)"
                         },
                         "TotalAsyncAssigned": {
                           "type": "integer",
-                          "example": 3
+                          "example": 3,
+                          "description": "Total number of currently assigned Asynchronous conversations."
                         },
                         "TotalSyncAssigned": {
                           "type": "integer",
-                          "example": 0
+                          "example": 0,
+                          "description": "Total number of currently assigned Synchronous conversations."
                         }
                       }
                     }
@@ -2820,7 +2828,7 @@
           "Managers"
         ],
         "summary": "Get Manager",
-        "description": "Returns user information regarding the requested manager",
+        "description": "This API returns information about a specific agent or an administrator based on the manager Id (required).",
         "operationId": "Get_Manager",
         "parameters": [
           {
@@ -2933,6 +2941,7 @@
                         },
                         "multiReplyAccess": {
                           "type": "string",
+                          "description": "Related to profiles",
                           "example": ""
                         }
                       }
@@ -3819,7 +3828,7 @@
           "Managers"
         ],
         "summary": "Get Manager Presence",
-        "description": "Returns presence information regarding the requested manager",
+        "description": "This API returns the Presence status(es) of a specific agent.<br> The Manager (agent) Id is a required path parameter.",
         "operationId": "Get_Manager_presence",
         "parameters": [
           {
@@ -3991,8 +4000,8 @@
         "tags": [
           "Managers"
         ],
-        "summary": "Get presence types",
-        "description": "Returns all presences in the system",
+        "summary": "Get Presence Types",
+        "description": "This API returns a list of presence Ids, names, and types within the system.",
         "operationId": "Get_presence_types",
         "responses": {
           "200": {
@@ -4086,8 +4095,8 @@
         "tags": [
           "Managers"
         ],
-        "summary": "Get profiles",
-        "description": "Returns profile information regarding all managers",
+        "summary": "Get Profiles",
+        "description": "A profile is a set of permissions the agent has access to.<br> This API returns a list of all agents’ profile Ids and profile names.<br><br>API Returns <br> \"Id\" refers to the profile Id number <br> \"Name\" is the name of the profile <br> \"UniqueName\" is a secondary name (optional)",
         "operationId": "Get_profiles",
         "responses": {
           "200": {
@@ -4249,7 +4258,7 @@
           "Managers"
         ],
         "summary": "Add Profiles",
-        "description": "Change manager profiles</br>ADD - Add profiles for manager by profile ids or profiles unique names (comma separated) </br> SET - Remove all profiles for current manager and add profiles by profile id’s or unique names (comma separated).</br><b> Should use only one of the query parameters add OR set not both</b>",
+        "description": "Change manager profiles</br>ADD - Add profiles to a manager by profile Ids or profiles unique names (separated by a comma) </br> SET - Remove all profiles for a current manager and add profiles by profile Id’s or unique names (comma separated).</br><b> Should use only one of the query parameters add OR set not both</b>",
         "operationId": "Add_Profiles",
         "parameters": [
           {
@@ -4858,8 +4867,8 @@
         "tags": [
           "Streams"
         ],
-        "summary": "Get SLA streams stats",
-        "description": "returns the current object statuses that passed the SLA in all streams for the requested brand",
+        "summary": "Get SLA Breach Summary",
+        "description": "A service-level agreement (SLA) defines the service standards the provider is obligated to provide to the customer. The First Response time to the customer’s inquiry is an example of a typical SLA measured by CommBox. After that time passes, the SLA is breached.<br><br> There are 2 SLA Warnings that can be set in the SLA settings page:<br> - A warning is activated after 50% of the time allotted by the SLA past.<br> - A critical warning is activated when there is only 20% of the time left before an SLA breach.<br> (For example, if the Service Level Agreement is 5 minutes, conversations waiting for the First Response will be painted in orange after 2.5 minutes and in red after 4 minutes.)<br><br> This API returns the number of SLA breaches for the entire account divided by communication channel Id, longest conversations, and specific agent/bot SLA.<br> Note:“Exceptions” refers to Breaches, and “SlaCritical” refers to the SLA critical warning.",
         "operationId": "Get_SLA_streams_stats",
         "responses": {
           "200": {
@@ -5913,8 +5922,8 @@
         "tags": [
           "Tags"
         ],
-        "summary": "get tags",
-        "description": "returns tags list for the requested brand",
+        "summary": "Get Tags",
+        "description": "This API returns a list of all Tags in the account/brand as recognized by the authentication.<br>Data includes the tag's Id number, name (identity id), and type (as a code).  A listing of Tag types is found in the Enum section in the Getting Started section.<br>",
         "operationId": "get_tags",
         "responses": {
           "200": {
@@ -6006,8 +6015,8 @@
         "tags": [
           "Tags"
         ],
-        "summary": "Create tag",
-        "description": "Create tag and returns the tag id",
+        "summary": "Create a Tag",
+        "description": "This API creates a new tag, where the name/content of the tag is part of the body parameters.<br>If you want this new tag to be part of a group of tags, you’ll need to place the group Id in the TagGroupId field.<br><br> Tags can be attached to a conversation (object), to a specific comment or a reply (child), or to a customer (user). Set the tag’s attachment options in the boolean parameters (true/false)<br><br>The API returns Tag Id.",
         "operationId": "Create_tag",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
@@ -6081,7 +6090,7 @@
             }
           },
           "400": {
-            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters may not be valid"
           },
           "401": {
             "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
@@ -6106,8 +6115,8 @@
         "tags": [
           "Tags"
         ],
-        "summary": "Update tag",
-        "description": "Update tag by given parameters",
+        "summary": "Updating a Tag",
+        "description": "This API updates/changes the name/content of a tag.<br> The tag’s Id is required as part of the URL. The actual changes to the tag are part of the Body Params - the new name/content and the associated group (optional).<br>",
         "operationId": "Update_tag",
         "parameters": [
           {
@@ -6205,14 +6214,14 @@
         "tags": [
           "Tags"
         ],
-        "summary": "Delete tag",
-        "description": "Delete a tag by tag id",
+        "summary": "Delete a Tag",
+        "description": "This API deletes a tag.<br> The tag’s Id is required as part of the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags - https://api.commbox.io/tags",
         "operationId": "Delete_tag",
         "parameters": [
           {
             "name": "TAG_ID",
             "in": "path",
-            "description": "Tag ID. This is a commbox generated number",
+            "description": "Tag Id is a CommBox unique identifier.",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TAG_ID"
@@ -6280,7 +6289,7 @@
           "Tags"
         ],
         "summary": "Get Tags Group",
-        "description": "returns tags groups list for the requested brand",
+        "description": "A few tags with similar purposes, or originating teams, can be grouped together by the organization.<br>This API lists all the Tags Groups in the account. The API does not list the specific tags within each group.",
         "operationId": "Get_Tags_Group",
         "responses": {
           "200": {
@@ -6373,7 +6382,7 @@
           "Tags"
         ],
         "summary": "Create Tags Group",
-        "description": "Create tags group and return tags group id",
+        "description": "A few tags with similar purposes or originating teams can be grouped together by the organization.<br>This API creates the name of the group of tags and returns a Tags Group Id.<br><br> To add tags to this new group, use the **Create Tag API** or the **Update Tag API**.",
         "operationId": "Create_Tags_Group",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
@@ -6457,14 +6466,14 @@
         "tags": [
           "Tags"
         ],
-        "summary": "Update tags group",
-        "description": "Update tags group by given parameters",
+        "summary": "Update Tags Group",
+        "description": "A few tags with similar purposes or originating team can be grouped together by the organization.<br>This API lets you change the name of such a group of tags.<br>All the tags associated with the old name of the tags group will now be associated with the new name.<br><br>The Tags Group Id is required.<br>\nTo add a specific tag to the new group, use the **Update Tag API** (Tag’s Id required).<br> To delete a specific tag from the new group, use the **Delete Tag API** (Tag’s Id required).<br>",
         "operationId": "Update_tags_group",
         "parameters": [
           {
             "name": "TAGS_GROUP_ID",
             "in": "path",
-            "description": "Tags Group ID. This is a commbox generated number",
+            "description": "Tags Group Id. is a CommBox unique identifier",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TAGS_GROUP_ID"
@@ -6551,8 +6560,8 @@
         "tags": [
           "Tags"
         ],
-        "summary": "Delete tags group",
-        "description": "Delete tags group by given parameters",
+        "summary": "Delete a Tags group",
+        "description": "This API deletes a Tags Group - Group ID is required.<br>Use the **Get Tags Group** API to obtain a list of tags group names and their Id. <br><br>**Note:** Deleting a group of tags will delete all tags included in that group.",
         "operationId": "Delete_tags_group",
         "parameters": [
           {
