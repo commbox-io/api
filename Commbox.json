@@ -1,4 +1,4 @@
-﻿{
+{
   "openapi": "3.0.3",
   "tags": [
     {
@@ -5454,140 +5454,13 @@
         }
       }
     },
-    "/whatsapp/sendtemplatedmessage/{ENCRYPTED_STREAM_ID}": {
-      "post": {
-        "tags": [
-          "WhatsApp"
-        ],
-        "summary": "Send WhatsApp Templated Message",
-        "description": "### Opt-in for WhatsApp\nA user must first consent to receive messages in WhatsApp by opting into them via a third-party channel. This can be any channel your business uses to communicate with people today — your website, app, email, SMS, retail location, etc..</br></br><ul><li>The opt-in must be an active opt-in. This means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.</br><li> Clear opt-in messaging so that a user knows what type(s) of messaging the person is signing up for.</ul> For more information please visit: <https://developers.facebook.com/docs/whatsapp/guides/opt-in/>",
-        "operationId": "Send_Templated_Message",
-        "parameters": [
-          {
-            "name": "ENCRYPTED_STREAM_ID",
-            "in": "path",
-            "description": "ENCRYPTED STREAM ID. This is a commbox generated number",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "recipient": {
-                    "type": "string",
-                    "example": "+9725051234567"
-                  },
-                  "template_name": {
-                    "type": "string",
-                    "example": "Template Name"
-                  },
-                  "language": {
-                    "type": "object",
-                    "properties": {
-                      "code": {
-                        "type": "string",
-                        "example": "en_US"
-                      }
-                    }
-                  },
-                  "localizable_params": {
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "type": "string",
-                              "example": "default value first parameter"
-                            }
-                          }
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "type": "string",
-                              "example": "default value second parameter"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  "validate": {
-                    "type": "boolean",
-                    "example": true
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": 200
-                    },
-                    "description": {
-                      "type": "string",
-                      "example": "Operation successful"
-                    },
-                    "response_time": {
-                      "type": "string",
-                      "example": "2014-08-06T07:51:52.2581942Z"
-                    },
-                    "data": {
-                      "type": "string",
-                      "example": "gBEGlyUFcWM1AglR5QFZKmMxwjc"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
-          },
-          "401": {
-            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
-          },
-          "404": {
-            "description": "Not found - The requested resource is not found"
-          },
-          "429": {
-            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
-          },
-          "500": {
-            "description": "Server Error - The server could not return the representation due to an internal server error"
-          },
-          "501": {
-            "description": "Not Implemented - The requested operation is not supported"
-          }
-        }
-      }
-    },
     "/v2/whatsapp/sendtemplatedmessage/{ENCRYPTED_STREAM_ID}": {
       "post": {
         "tags": [
           "WhatsApp"
         ],
         "summary": "Send WhatsApp Templated Message V2",
-        "description": "<ul><li>Enhance the current API to support new fields <br></li><li>Create a new type of user API and add it to each brand<br></li><li>Multi recipients support<br></li><li>Option to send header<br></li><li>Allow option to send dynamic parameter or Media <br></li><li>Each object will have his own header parameter/media<br></li><li>Each object will have his own body parameters<br></li><li>Always create a Commbox Object/s<br></li><li>Sub Channel support<br><li>Option to send content<br></li><li>User info Array<br><li>Allow scheduled publish<br></li></ul>",
+        "description": "### Opt-in for WhatsApp\nA user must first consent to receive messages in WhatsApp by opting into them via a third-party channel. This can be any channel your business uses to communicate with people today — your website, app, email, SMS, retail location, etc..</br><ul><li>The opt-in must be an active opt-in. This means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.</br><li> Clear opt-in messaging so that a user knows what type(s) of messaging the person is signing up for.</ul> For more information please visit: <https://developers.facebook.com/docs/whatsapp/guides/opt-in/>\n\n ### Key New Capabilities of V2 version \n<li> Enhance the current API to support new fields <br></li><li>Create a new type of user API and add it to each brand<br></li><li>Multi recipients support<br></li><li>Option to send header<br></li><li>Allow option to send dynamic parameter or Media <br></li><li>Each object will have his own header parameter/media<br></li><li>Each object will have his own body parameters<br></li><li>Always create a Commbox Object/s<br></li><li>Sub Channel support<br><li>Option to send content<br></li><li>User info Array<br><li>Allow scheduled publish<br></li></ul></br>\n\n### Send Templated Message + Object data\n<li> Sending any templated WhatsApp message with Object data is also creating a conversation (Object) on Commbox platform. The required & optional fields are described here: https://www.commbox.io/api/#operation/Create_Object\n\n### Send Temaplated Message with an attached file\n<u> There are 2 ways to do so: </u>\n\n<li> Sending a Templated Message with a link to the file. Example below: 'Send a template with an attachment (doc)'.\n\n          OR\n\n<li> Use the /whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID} API endpoint to upload the file to WhatsApp servers and then fetch the uploaded file ID from the response for sending a templated message with the attachment ID. See the 'Send a template with an attachment ID (video)' example. \n\n### Authentication Templates\n\n<li> Attached are also examples of sending an authentication template. <br> More Information:\n<li> https://help.commbox.io/docs/creating-new-whatsapp-authentication-templates<br>\n<li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n   ",
         "operationId": "Send_Templated_Message_V2",
         "parameters": [
           {
@@ -5604,101 +5477,1060 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "schedule": {
-                          "type": "integer",
-                          "example": 1646922284,
-                          "description": "schedule the sending of the template to a specific date and time"
-                        },
+              "examples": {
+                "Send a template with 2 body parameters": {
+                  "value": {
+                    "data": [
+                      {
                         "template_data": {
-                          "type": "object",
-                          "properties": {
-                            "to": {
-                              "type": "string",
-                              "example": "972544555232",
-                              "description": "recipient number"
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Basic WA template",
+                            "language": {
+                              "code": "en"
                             },
-                            "template": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "example": "call2url",
-                                  "description": "the exact name of the template"
-                                },
-                                "language": {
-                                  "type": "object",
-                                  "properties": {
-                                    "code": {
-                                      "type": "string",
-                                      "example": "he",
-                                      "description": "the language of the template"
-                                    }
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "Hellooooo"
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "my friend"
                                   }
-                                },
-                                "components": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "string",
-                                        "example": "header"
-                                      },
-                                      "parameters": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "string",
-                                              "example": "text"
-                                            },
-                                            "text": {
-                                              "type": "string",
-                                              "example": "Some text..."
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
+                                ]
                               }
-                            }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with text + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "Text Template",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": []
                           }
                         },
                         "object_data": {
-                          "type": "object",
-                          "properties": {
-                            "SubStreamId": {
-                              "type": "integer",
-                              "example": 231233,
-                              "description": "The sub channel Id"
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Doe",
+                            "FirstName": "John",
+                            "Phone1": "972537280000",
+                            "Email": "John.D@gmail.com",
+                            "Remarks": "Resturning customer"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with header  & body parameters": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Text Header & Body",
+                            "language": {
+                              "code": "he"
                             },
-                            "StatusId": {
-                              "type": "integer",
-                              "example": 1,
-                              "description": "The status of the created object"
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "text1"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "text2"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with header & body parameters + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "ren_text_header_body",
+                            "language": {
+                              "code": "he"
                             },
-                            "Content": {
-                              "type": "object",
-                              "description": "The content of the created object"
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "text1"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "text2"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Renata",
+                            "Phone1": "972537280801",
+                            "Email": "renata@gmail.com",
+                            "Remarks": "some remark for user"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with 3 body parameters + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "multiple_params_in_body",
+                            "language": {
+                              "code": "en_GB"
                             },
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "https://www.commbox.io"
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "https://www.commbox.io2"
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "https://www.commbox.io3"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Renata",
+                            "Phone1": "972537280801",
+                            "Email": "renata@gmail.com",
+                            "Remarks": "some remark for user"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (image)": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280999",
+                          "template": {
+                            "name": "header_image",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "image",
+                                    "image": {
+                                      "link": "https://picsum.photos/200"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "hello"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (image) + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "test_wisspp_4",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "image",
+                                    "image": {
+                                      "link": "https://picsum.photos/200"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Renata",
+                            "Phone1": "972537280801",
+                            "Email": "renata@gmail.com",
+                            "Remarks": "some remark for user"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (image) ID + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "image1",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "image",
+                                    "image": {
+                                      "id": "614927520593182"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "JPG"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 13,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Finkel",
+                            "FirstName": "Renata",
+                            "Phone1": "972537280801",
+                            "Email": "renata.f@commbox.io",
+                            "Remarks": "some remark for user"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (doc)": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280999",
+                          "template": {
+                            "name": "doc1",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "document",
+                                    "document": {
+                                      "link": "http://www.africau.edu/images/default/sample.pdf",
+                                      "filename": "ren.pdf"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "hello"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (doc) + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "doc1",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "document",
+                                    "document": {
+                                      "link": "http://www.africau.edu/images/default/sample.pdf",
+                                      "filename": "ren.pdf"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "hello"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Renata",
+                            "Phone1": "972537280801",
+                            "Email": "renata@gmail.com",
+                            "Remarks": "some remark for user"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (doc) ID + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "header_doc",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "document",
+                                    "document": {
+                                      "id": "550197337025434",
+                                      "filename": "file-sample_150kB.pdf"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "PDF"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 13,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Finkelestein",
+                            "FirstName": "Renato",
+                            "Phone1": "972537280801",
+                            "Email": "renato.d@gmail.com",
+                            "Remarks": "Just checking"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (video)": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537289999",
+                          "template": {
+                            "name": "header_video",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "video",
+                                    "video": {
+                                      "link": "http://techslides.com/demos/sample-videos/small.mp4"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "hello"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (video) + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "header_video",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "video",
+                                    "video": {
+                                      "link": "http://techslides.com/demos/sample-videos/small.mp4"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "hello"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Ron",
+                            "Phone1": "972537280000",
+                            "Email": "john.d@gmail.com",
+                            "Remarks": "Sending video files is great"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a template with an attachment (video) ID + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "header_video",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "header",
+                                "parameters": [
+                                  {
+                                    "type": "video",
+                                    "video": {
+                                      "id": "27f8b007-7750-418e-9852-b4f8b7f95b9f"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "Video_20221023_111733_014.mp4"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 13,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Fin",
+                            "FirstName": "Roni",
+                            "Phone1": "972537280000",
+                            "Email": "ren@gmail.com",
+                            "Remarks": "Deal of the day"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with 'Call a phone number' button": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Call_a_phone_num_btn",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": []
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with 'Call a phone number' button + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Call_a_phone_num_btn",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": []
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Doe",
+                            "FirstName": "John",
+                            "Phone1": "9725372800000",
+                            "Email": "John.Doe@gmail.com",
+                            "Remarks": "Contatcts buttons are great"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with 'Call a phone number' + 'Visit a website' buttons": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Call_and_Visit_a_Website_btns",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": []
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with 'Call a phone number' + 'Visit a website' buttons + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "Call_and_Visit_a_Website_btns",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": []
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "Doe",
+                            "FirstName": "John",
+                            "Phone1": "9725372800000",
+                            "Email": "John.Doe@gmail.com",
+                            "Remarks": "Contatcts buttons are great"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with a Static URL button": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "static_url",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "Name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with a Static URL button + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "static_url",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "Name"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "object_data": {
+                            "createChildObject": true,
+                            "SubStreamId": 0,
+                            "StatusId": 1,
+                            "Content": {},
                             "User": {
-                              "$ref": "#/components/schemas/User_Short"
+                              "UniqueId": "01234567",
+                              "LastName": "F",
+                              "FirstName": "Johnny",
+                              "Phone1": "97253720000",
+                              "Email": "john.doe@gmail.com",
+                              "Remarks": "Static URL is great"
                             }
                           }
                         }
                       }
-                    }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with a Dynamic URL button": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "dynamic_url",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "button",
+                                "sub_type": "url",
+                                "index": 0,
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "api"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Call-to-Action template with a Dynamic URL button + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280801",
+                          "template": {
+                            "name": "url_dyn",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "button",
+                                "sub_type": "url",
+                                "index": 0,
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "api"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "object_data": {
+                            "createChildObject": true,
+                            "SubStreamId": 0,
+                            "StatusId": 1,
+                            "Content": {},
+                            "User": {
+                              "UniqueId": "01234567",
+                              "LastName": "F",
+                              "FirstName": "Johnny",
+                              "Phone1": "97253720000",
+                              "Email": "john.doe@gmail.com",
+                              "Remarks": "Dynamic URL is great"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Quick Reply template with 3 buttons": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "3 buttons",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send a Quick Reply template with 3 buttons + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "3 buttons",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "object_data": {
+                            "createChildObject": true,
+                            "SubStreamId": 0,
+                            "StatusId": 1,
+                            "Content": {},
+                            "User": {
+                              "UniqueId": "01234567",
+                              "LastName": "Doe",
+                              "FirstName": "John",
+                              "Phone1": "97253720000",
+                              "Email": "John.Doe@gmail.com",
+                              "Remarks": "Quick Reply with 3 Buttons is great"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send an authentication template": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "auth_template",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "button",
+                                "sub_type": "url",
+                                "index": 0,
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Send an authentication template + Object data": {
+                  "value": {
+                    "data": [
+                      {
+                        "template_data": {
+                          "to": "972537280000",
+                          "template": {
+                            "name": "auth_template",
+                            "language": {
+                              "code": "en"
+                            },
+                            "components": [
+                              {
+                                "type": "button",
+                                "sub_type": "url",
+                                "index": 0,
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "COPY"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "body",
+                                "parameters": [
+                                  {
+                                    "type": "text",
+                                    "text": "455455"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "object_data": {
+                          "createChildObject": true,
+                          "SubStreamId": 0,
+                          "StatusId": 1,
+                          "Content": {},
+                          "User": {
+                            "UniqueId": "01234567",
+                            "LastName": "F",
+                            "FirstName": "Renajo",
+                            "Phone1": "972537280000",
+                            "Email": "renajo@gmail.com",
+                            "Remarks": "Looking for a new device"
+                          }
+                        }
+                      }
+                    ]
                   }
                 }
               }
@@ -5882,6 +6714,102 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID}": {
+      "post": {
+        "tags": [
+          "WhatsApp"
+        ],
+        "summary": "Upload a file to WhatsApp and get ID for uploaded file",
+        "description": "Upload a file (doc/imag/video) to WhatsApp servers and get back the ID for uploaded file ",
+        "operationId": "Upload_A_File_And_Get_Id_For_Uploaded_File",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pic": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ENCRYPTED_STREAM_ID",
+            "in": "path",
+            "description": "ENCRYPTED STREAM ID. This is a commbox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2014-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "filename": {
+                            "type": "string",
+                            "example": "video_sample.mp4"
+                          },
+                          "id": {
+                            "type": "string",
+                            "example": "257250616863050"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
           },
           "401": {
             "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
