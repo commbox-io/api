@@ -7,7 +7,7 @@
     },
     {
       "name": "Objects",
-      "description": "<br><br>Objects are conversations between the bots or the agents and the customers, where each segment of the conversation is referred to as a Child. Every conversation must have a designated Stream – a communication channel such as Chat, email, SMS, etc., that hosts the conversation.<br>The Object category concentrates on a specific conversation, where the stream is part of the identifying parameters. In the Streams category, the channel is the focal point of the request, and the objects and users are the filtering aspects of the request."
+      "description": "<br><br>Objects are conversations between the bot or the agent and the customers, where each segment of the conversation is referred to as a Child. Every conversation must have a designated Stream – a communication channel such as Chat, Email, Text/SMS, etc., that hosts the conversation.<br>The Object APIs category concentrates on a specific conversation, where the Stream is part of the identifying parameters. In the Streams APIs category, the Channel is the focal point of the request, and the objects and users are the filtering aspects."
     },
     {
       "name": "Streams",
@@ -18,12 +18,12 @@
       "description": "<br><br>Tags are a classification tool for summarizing aspects of the conversation or the user. It can mark the conversation to indicate a new sale or identify a customer as not interested in the product. To help manage the Tags assets, Tags can be grouped with a common identifier."
     },
     {
-      "name": "SMS",
+      "name": "Text/SMS",
       "description": "<br><br>Sending customers **SMS/Text messages** requires an initial opt-in step, which is not offered by CommBox and is the sole responsibility of the sending entity (Business)."
     },
     {
       "name": "WhatsApp",
-      "description": "<br><br>CommBox facilitates activities in **WABA** for the clients. Our platform helps clients create new templates and manage existing ones."
+      "description": "<br><br>CommBox facilitates activities in **WABA** for the clients. Our platform helps clients create new templates and manage existing ones.<br><br> **Opt-in for WhatsApp**<br> Before sending WhatsApp messages to someone, you must first receive opt-in permission confirming that they wish to receive future messages from you on WhatsApp. This can be done using any channel your business uses to communicate with people — your website, app, email, retail location, etc.</br><ul><li>The opt-in must be an active opt-in, which means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.</br><li>The opt-in must clearly state your business’ name.</br><li>Clear opt-in messaging so that the customers know what type(s) of messaging they are signing up for.<br>For more information, please visit: https://developers.facebook.com/docs/whatsapp/guides/opt-in/"
     },
     {
       "name": "Users",
@@ -898,7 +898,7 @@
           "Objects"
         ],
         "summary": "Get Object",
-        "description": "This API returns the details of a specific conversation (object).<br> Data includes information about the customer, the agent, and a separate account of the messages (Child) of the conversation (Object).<br>  Note that the last communication will appear at the top of the report.<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br> <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854",
+        "description": "This API returns the details of a specific conversation (object).<br> Data includes information about the customer, the agent, and a separate account of the messages (Child) of the conversation (Object).<br>  Note that the last communication will appear at the top of the report.<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br> <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854<br><br>Note: When Children are not included in the request, the API only returns the last message. When requesting logs (optional), the return will include all system actions (for example, CRM activity) for the conversation.   ",
         "operationId": "Get_Object",
         "parameters": [
           {
@@ -5456,7 +5456,7 @@
           "WhatsApp"
         ],
         "summary": "Send WhatsApp Templated Message V2",
-        "description": "### Opt-in for WhatsApp\nA user must first consent to receive messages in WhatsApp by opting into them via a third-party channel. This can be any channel your business uses to communicate with people today — your website, app, email, SMS, retail location, etc..</br><ul><li>The opt-in must be an active opt-in. This means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.</br><li> Clear opt-in messaging so that a user knows what type(s) of messaging the person is signing up for.</ul> For more information please visit: <https://developers.facebook.com/docs/whatsapp/guides/opt-in/>\n\n ### Key New Capabilities of V2 version \n<li> Enhance the current API to support new fields <br></li><li>Create a new type of user API and add it to each brand<br></li><li>Multi recipients support<br></li><li>Option to send header<br></li><li>Allow option to send dynamic parameter or Media <br></li><li>Each object will have his own header parameter/media<br></li><li>Each object will have his own body parameters<br></li><li>Always create a Commbox Object/s<br></li><li>Sub Channel support<br><li>Option to send content<br></li><li>User info Array<br><li>Allow scheduled publish<br></li></ul></br>\n\n### Send Templated Message + Object data\n<li> Sending any templated WhatsApp message with Object data is also creating a conversation (Object) on Commbox platform. The required & optional fields are described here: https://www.commbox.io/api/#operation/Create_Object\n\n### Send Temaplated Message with an attached file\n<u> There are 2 ways to do so: </u>\n\n<li> Sending a Templated Message with a link to the file. Example below: 'Send a template with an attachment (doc)'.\n\n          OR\n\n<li> Use the /whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID} API endpoint to upload the file to WhatsApp servers and then fetch the uploaded file ID from the response for sending a templated message with the attachment ID. See the 'Send a template with an attachment ID (video)' example. \n\n### Authentication Templates\n\n<li> Attached are also examples of sending an authentication template. <br> More Information:\n<li> https://help.commbox.io/docs/creating-new-whatsapp-authentication-templates<br>\n<li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n   ",
+        "description": "\n\n This API sends a generated WhatsApp template from the **WhatsApp Business Account** (WABA) to a single recipient or to multiple recipients (up to 20).<br><br>\n### Key New Capabilities of V2 version \nMarketing and Utility Templates may have a header with text or added media (attached document, image, or video), a footer, and a call for action or quick reply buttons.<br>The API can also create CommBox object(s), support Subchannels, and enable scheduled publishing.<br><br></br>\n\n### Send Templated Message + Object data\n Sending any templated WhatsApp message with Object data also creates a conversation (Object) on the CommBox platform. The required and optional fields are described here: https://www.commbox.io/api/#operation/Create_Object\n\n### Send Templated Message with an Attached File\n There are two ways to do so: \n\n<li> Sending a Templated Message with a link to the file. Example below: 'Send a template with an attachment (doc)'.\n<br><br>\n OR<br>\n\n<li> Use the /whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID} API endpoint to upload the file to WhatsApp servers and then fetch the uploaded file ID from the response for sending a templated message with the attachment ID. See the 'Send a template with an attachment ID (video)' example. \n\n### Authentication Templates\n\n Attached are also examples of sending an authentication template. <br> More Information:\n<li> https://help.commbox.io/docs/creating-new-whatsapp-authentication-templates<br>\n<li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n   ",
         "operationId": "Send_Templated_Message_V2",
         "parameters": [
           {
@@ -5487,12 +5487,12 @@
                             },
                             "components": []
                           }
-                        },
+                        }
                       }
                     ]
                   }
                 },
-                 "Send a template with text + Object data": {
+                "Send a template with text + Object data": {
                   "value": {
                     "data": [
                       {
@@ -7761,7 +7761,7 @@
           "Ticket"
         ],
         "summary": "Create Ticket",
-        "description": "Create Encrypted Ticket",
+        "description": "CommBox allows certain management personnel access to the CommBox platform without the requirement of username and password.<br>This API returns a session cookie that is added to login URL to bypasses the username and password screen.<br><br> Format:  Login URL + the characters ?=TA  + the session cookie returned by the API<br><br>Example: https://bumpyard.commbox.io/login?=TAhZ8uTCLgf1HnOwVy_bIEWVJD0VXnIcbMKTT9R6_bW0prs_fYgzbzQCRMpdPZw1FopLHoGJG0VUDFk3zYEfkG_fEf9hnk50lR72BZHp7X_f94jZQbJNP4ysWmRJ3Lqc <br><br>Note: Managers who wish to gain access to CommBox via the authentication ticket, must be set as users in each account (brand).<br><br>Note: Mandatory fields include the business account name (brand), and all fields which are mandatory when creating a user for that brand (For example, FirstName, LastName, Phone, email address, etc.). System will return the cookie if there is a match in the database with all mandatory fields. <br><br>Note: Most params are of the String type, including the phone number. This is designed to accommodate standard records like +44 for country code, or 212-123-4567 for area code format. Make sure to add “ “ around the phone number as well. <br><br>Note: Once created, tickets are only valid for 60 seconds for the management system and 5 minutes for other applications. ",
         "operationId": "Create_Ticket",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
