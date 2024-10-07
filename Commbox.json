@@ -18,8 +18,8 @@
       "description": "<br><br>Tags are a classification tool for summarizing aspects of the conversation or the user. It can mark the conversation to indicate a new sale or identify a customer as not interested in the product. To help manage the Tags assets, Tags can be grouped with a common identifier."
     },
     {
-      "name": "Text/SMS",
-      "description": "<br><br>Sending customers **SMS/Text messages** requires an initial opt-in step, which is not offered by CommBox and is the sole responsibility of the sending entity (Business)."
+      "name": "SMS",
+      "description": "<br><br>Sending customers **SMS messages** (Texting) requires an initial opt-in step, which is not offered by CommBox and is the sole responsibility of the sending entity (Business)."
     },
     {
       "name": "WhatsApp",
@@ -791,107 +791,123 @@
       }
     },
     "/streams/{STREAM_ID}/objects/{OBJECT_ID}/child": {
-      "post": {
-        "tags": [
-          "Objects"
-        ],
-        "summary": "Create Child Object",
-        "description": "Create new child object for specific object in stream <br><br>(POST) /streams/STREAM_ID/objects/OBJECT_ID/child<br>(POST) /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
-        "operationId": "Create_Child_Object",
-        "parameters": [
-          {
-            "name": "STREAM_ID",
-            "in": "path",
-            "description": "Stream ID. This is a commbox generated number",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/parameters/STREAM_ID"
-            }
+  "post": {
+    "tags": [
+      "Objects"
+    ],
+    "summary": "Create Child Object",
+    "description": " This API creates a message (child) in a conversation (object) on behalf of the agent, sending it to the customer, or on behalf of the customer, displaying it to the agent.<br> The API returns the new child’s ID.<br><br><br>Required path parameters include the Stream (channel) ID and the Object (conversation) ID.<br><br>Required body parameters for a message on behalf of the customer:<br> a) The data “Type” see Enum at https://www.commbox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId – the email or phone number of the person you are sending the message on their behalf.<br> c) UserStreamProviderType of the channel. See Enum at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> d) The messages<br><br>Required body parameters for a message on behalf of the agent:<br> a) The data “Type” - See Enum at https://www.commbox.io/api/#section/Enums/ObjectType <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent’s user ID 'UserIdentity' : 12345678, <br> Get the agent's User ID by using the Get Managers API https://api.commbox.io/managers <br> d) UserStreamProviderId – the email or phone number of the person you are sending the message on their behalf. <br> e) UserStreamProviderType of the channel. See Enum at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> f) The messages <br><br>**Note:** After 24 hours from last sent message, APIs messages sent to customers will be blocked by WhatsApp.<br><br>POST /streams/STREAM_ID/objects/OBJECT_ID/child<br>POST /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
+    "operationId": "Create_Child_Object",
+    "parameters": [
+      {
+        "name": "STREAM_ID",
+        "in": "path",
+        "description": "The unique identifier for the stream (CommBox channel)",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/parameters/STREAM_ID"
+        }
+      },
+      {
+        "name": "OBJECT_ID",
+        "in": "path",
+        "description": "The unique identifier for the object (CommBox conversation)",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/parameters/OBJECT_ID"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "Payload containing child object information",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/Object_Child"
           },
-          {
-            "name": "OBJECT_ID",
-            "in": "path",
-            "description": "Object ID. This is a commbox generated number",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/parameters/OBJECT_ID"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Optional description for new mail object in  *Markdown*",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Object_Child"
-              },
-              "example": {
+          "examples": {
+            "On behalf of Agent": {
+              "value": {
                 "data": {
-                  "Type": 5,
-                  "UserStreamProviderId": "somemail@gmail.com",
+                  "IsManager": true,
+                  "UserIdentity": 36574658,
+                  "Type": 4,
+                  "UserStreamProviderId": "eddiedoe@gmail.com",
                   "UserStreamProviderType": 4,
-                  "Message": "some message"
+                  "Message": "A new message on behalf of the agent"
+                }
+              }
+            },
+            "On behalf of Customer": {
+              "value": {
+                "data": {
+                  "Type": 4,
+                  "UserStreamProviderId": "MrDoe@gmail.com",
+                  "UserStreamProviderType": 4,
+                  "Message": "A message on behalf of Mr. John Doe"
                 }
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": 200
+                },
+                "description": {
+                  "type": "string",
+                  "example": "OK"
+                },
+                "response_time": {
+                  "type": "string",
+                  "example": "2024-08-06T07:51:52.2581942Z"
+                },
+                "data": {
                   "type": "object",
                   "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": 200
-                    },
-                    "description": {
-                      "type": "string",
-                      "example": "OK"
-                    },
-                    "response_time": {
-                      "type": "string",
-                      "example": "2014-08-06T07:51:52.2581942Z"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "example": 294159
-                        }
-                      }
+                    "id": {
+                      "type": "integer",
+                      "example": 294159
                     }
                   }
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
-          },
-          "401": {
-            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
-          },
-          "404": {
-            "description": "Not found - The requested resource is not found"
-          },
-          "429": {
-            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
-          },
-          "500": {
-            "description": "Server Error - The server could not return the representation due to an internal server error"
-          },
-          "501": {
-            "description": "Not Implemented - The requested operation is not supported"
           }
         }
+      },
+      "400": {
+        "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+      },
+      "401": {
+        "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+      },
+      "404": {
+        "description": "Not found - The requested resource is not found"
+      },
+      "429": {
+        "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+      },
+      "500": {
+        "description": "Server Error - The server could not return the representation due to an internal server error"
+      },
+      "501": {
+        "description": "Not Implemented - The requested operation is not supported"
       }
-    },
+    }
+  }
+},
     "/streams/{STREAM_ID}/objects/{OBJECT_ID}": {
       "get": {
         "tags": [
@@ -5459,14 +5475,14 @@
         "tags": [
           "SMS"
         ],
-        "summary": "Send Initial Text/SMS",
-        "description": "send the initial conversation text message to the user",
+        "summary": "Send Initial SMS (Texting)",
+        "description": "This API sends the initial conversation text message to the user",
         "operationId": "Send_initial_text_SMS",
         "parameters": [
           {
             "name": "ENCRYPTED_STREAM_ID",
             "in": "path",
-            "description": "ENCRYPTED STREAM ID. This is a commbox generated number",
+            "description": "This is a CommBox generated number for the channel",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID"
@@ -5475,7 +5491,7 @@
           {
             "name": "PHONE_NUMBER",
             "in": "path",
-            "description": "Valid PHONE_NUMBER",
+            "description": "A valid phone number for the customer",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/PHONE_NUMBER"
@@ -5537,14 +5553,14 @@
         "tags": [
           "SMS"
         ],
-        "summary": "Send SMS",
-        "description": "Send SMS",
+        "summary": "Sends SMS (Texting)",
+        "description": "This API sends SMS (Texting) to the customer. <br><br> Required body parameters include the phone number with country code and the message.",
         "operationId": "Send_SMS",
         "parameters": [
           {
             "name": "ENCRYPTED_STREAM_ID",
             "in": "path",
-            "description": "ENCRYPTED STREAM ID. This is a commbox generated number",
+            "description": "This is a CommBox generated number for the channel",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID"
