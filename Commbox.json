@@ -9342,7 +9342,7 @@
               "type": {
                 "type": "string",
                 "description": "The type of component. In this example 'body'",
-                "example": "body"
+                "value": "body"
               },
               "parameters": {
                 "type": "object",
@@ -9367,7 +9367,7 @@
               "type": {
                 "type": "string",
                 "description": "The type of component. In this example 'header'",
-                "example": "header"
+                "value": "header"
               },
               "parametersA": {
                 "type": "object",
@@ -9375,21 +9375,21 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "example": "image",
+                    "value": "image",
                     "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
                   },
                   "image": {
                     "type": "object",
-                    "example": "link",
+                    "value": "link",
                     "properties": {
                       "Link": {
                         "type": "string",
-                        "example": "https://picsum.photos/200",
+                        "value": "https://picsum.photos/200",
                         "description": "The URL for the image attachment."
                       },
                       "id": {
                         "type": "string",
-                        "example": 1628862997611773,
+                        "value": 1628862997611773,
                         "description": "Instead of the link, enter media id provided by META when using the Whatsapp_uploadMedia API"
                       }
                     }
@@ -9402,16 +9402,16 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "example": "video",
+                    "value": "video",
                     "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
                   },
                   "video": {
                     "type": "object",
-                    "example": "link",
+                    "value": "link",
                     "properties": {
                       "Link": {
                         "type": "string",
-                        "example": "http://example.com/video.mp4",
+                        "value": "http://example.com/video.mp4",
                         "description": "The URL for the video attachment."
                       }
                     }
@@ -9424,21 +9424,21 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "example": "document",
+                    "value": "document",
                     "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
                   },
                   "document": {
                     "type": "object",
-                    "example": "link",
+                    "value": "link",
                     "properties": {
                       "Link": {
                         "type": "string",
-                        "example": "https://denverzoo.org/wp-content/uploads/2018/09/African-lion.pdf",
+                        "value": "https://denverzoo.org/wp-content/uploads/2018/09/African-lion.pdf",
                         "description": "The URL of the PDF attachment."
                       },
                       "filename": {
                         "type": "string",
-                        "example": "African-lion.pdf",
+                        "value": "African-lion.pdf",
                         "description": "The file's name"
                       }
                     }
