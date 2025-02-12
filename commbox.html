@@ -1,24 +1,153 @@
 <!DOCTYPE html>
-<html>
- <head>
-   <title>ReDoc</title>
-   <!-- needed for adaptive design -->
-   <meta charset="utf-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700%7CRoboto:300,400,700" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CommBox API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@latest/swagger-ui.css">
+    <style>
+        :root {
+            --commbox-purple: #8567B4;     /* Brand purple */
+            --commbox-light-purple: #9B83C4; /* Lighter purple for hover */
+            --commbox-dark: #1E1E2D;       /* Brand dark */
+            --background-white: #FFFFFF;    /* Clean white background */
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-white);
+        }
 
-   <!--
-   ReDoc doesn't change outer page styles
-   -->
-   <style>
-     body {
-       margin: 0;
-       padding: 0;
-     }
-   </style>
- </head>
- <body>
-   <redoc spec-url='https://raw.githubusercontent.com/commbox-io/api/master/Commbox.json'></redoc>
-   <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.63/bundles/redoc.standalone.js"> </script>
- </body>
+        .swagger-ui .topbar {
+            display: none;
+        }
+        
+        .swagger-ui .information-container .info .url {
+            display: none !important;
+        }
+        
+        .download-button {
+            background-color: var(--commbox-purple);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-button:hover {
+            background-color: var(--commbox-light-purple);
+        }
+        
+        .header-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--background-white);
+            color: var(--commbox-dark);
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .contact-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-info a {
+            color: var(--commbox-purple);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            color: var(--commbox-light-purple);
+            text-decoration: underline;
+        }
+        
+        .divider {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        /* Swagger UI Custom Colors */
+        .swagger-ui .opblock.opblock-post {
+            border-color: var(--commbox-purple);
+            background: rgba(133, 103, 180, 0.05);
+        }
+        
+        .swagger-ui .opblock.opblock-post .opblock-summary-method {
+            background: var(--commbox-purple);
+        }
+        
+        .swagger-ui .btn.execute {
+            background-color: var(--commbox-purple);
+        }
+        
+        .swagger-ui .btn.execute:hover {
+            background-color: var(--commbox-light-purple);
+        }
+
+        .swagger-ui section.models {
+            border: 1px solid #f0f0f0;
+        }
+
+        .swagger-ui .opblock {
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <h1>CommBox API (2.07)</h1>
+        <div>
+            <a href="https://raw.githubusercontent.com/commbox-io/api/master/Commbox.json" 
+               class="download-button" 
+               download="commbox-api.json">
+               Download JSON
+            </a>
+        </div>
+        <div class="contact-info">
+            commbox: <a href="mailto:contactus@commbox.io">contactus@commbox.io</a>
+            <span class="divider">|</span>
+            URL: <a href="https://www.commbox.io" target="_blank">https://www.commbox.io</a>
+            <span class="divider">|</span>
+            <a href="https://www.commbox.io/terms" target="_blank">Terms of Service</a>
+        </div>
+    </div>
+    
+    <div id="swagger-ui"></div>
+
+    <script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-standalone-preset.js"></script>
+
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: "https://raw.githubusercontent.com/commbox-io/api/master/Commbox.json",
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "BaseLayout",
+                displayOperationId: false,
+                displayRequestDuration: false,
+                defaultModelsExpandDepth: -1,
+                showExtensions: false,
+                showCommonExtensions: false
+            });
+            window.ui = ui;
+        }
+    </script>
+</body>
 </html>
