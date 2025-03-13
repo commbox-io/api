@@ -7357,7 +7357,7 @@
         ],
         "summary": "Send a WhatsApp template message from Emarsys",
         "description": "API that enables Emarsys automation workflows to send pre-approved WhatsApp templates to recipients. This specialized endpoint processes webhook data from Emarsys using a simplified flat key-value format, allowing seamless integration between Emarsys marketing automations and WhatsApp business messaging via Commbox.\n",
-        "operationId": "sendWhatsAppTemplate",
+        "operationId": "EmarsysSendWhatsAppTemplate",
         "parameters": [
           {
             "in": "path",
