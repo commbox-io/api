@@ -700,7 +700,7 @@
                       "StreamProviderId": "b9910a75a46c492c9cf46a910cdba0012",
                       "UserStreamProviderId": "john.doe@gmail.com",
                       "UserStreamProviderType": 4,
-                      "ManagerId": 36197,
+                      "ManagerId": 12345,
                       "Content": {
                         "subject": "mail subject",
                         "to": [
