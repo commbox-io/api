@@ -50,6 +50,14 @@
       "description": "A Team is a group of agents with specific business agendas, roles, and permissions. Admins and Team Managers can set up Team Managers to create and manage teams and give those teams specific inbox filters, tags, and knowledge-based assets."
     },
     {
+      "name": "Forms",
+      "description": "The Forms APIs allow agents to assist customers in completing and signing forms issued by the organization. Once the customer submits the form, a new object is created that includes a link to the original conversation and stores the completed, signed form as an attachment."
+    },
+    {
+      "name": "Authentication",
+      "description": "Authentication APIs provide accessibility to the system."
+    },
+    {
       "name": "Automation",
       "description": "<br><br>Automation APIs are related to bot capabilities."
     }
@@ -9123,8 +9131,8 @@
         "tags": [
           "Forms"
         ],
-        "summary": "Get New Form Link",
-        "description": "### Parameters\nForm ID – Form number (as seen in the forms list screen).</br>Data – A Json string consists of the following fields:</br><ul><li>streamProviderId – Customer phone number or email  (which will be receiving the form)</br><li> streamProviderType – Identifies which type of value (phone or email) the streamProviderId contains, 4 is email, 5 is phone number.</br><li> referringObjectId (optional) – When the form link is opened a new form object is created in the system, this object can be linked to another object, for example a chat  conversation, so once the form is filled by the customer you will see (in the manage system) the chat conversation with an indicator of the filled form.</br><li> properties (optional) – a Json string contains initial values for the form fields, so when the customer will open the form its fields will contain those values.</ul> The format is as follows: {“FIELD 1 NAME”: “FIIELD 1 VALUE”, “FIELD 2 NAME”: “FIELD 2 VALUE”, etc…}</br> Note: You can store your own parameters (which will not affect the form), so when the form is signed you will receive them in the OnSubmit event.",
+        "summary": "Create Form Link",
+        "description": "This API creates a link to a specified organizational form that can be sent to the customer to fill and/or sign.<br><br>Path parameters include the Form ID (appears next to the name of the form in the forms list screen).<br><b>Body Params:</b><br>Data – A JSON string consists of the following fields:<br>•\tstreamProviderId – The identifier of the receiving customer by their phone number or email.<br>•\tstreamProviderType – The type of the streamProviderId:  4 for email, 5 for phone number.<br>•\treferringObjectId (optional) – When the form link is opened, a new form object is created in the system. This object can be linked to another object, for example the initiating conversation, to give the agent an indicator of the filled form.<br>•\tproperties (optional) – a JSON string contains initial values for the form fields. When the customers open the form, those are the values they will see.<br> The format includes the exact name of the field as it appears in the form, with the initial value as follows:<br> {“field 1 Name”: “field 1 Value”, “field 2 Name”: “field 2 Value”, etc…}<br>For example: {“first_name”: “First Name”, “last_name”: “Last Name, “uniqueId” : “123-45-6789”}<br><br>autoUpload - A Boolean field (optional)<br> •\tWhen true: The system automatically finalizes and uploads the form to S3, and a new object is created with no additional action required from the customer. In a typical use case, the information in the form came from a bot or other internal mechanisms.<br> •\tWhen false (default): The system only creates a link that needs to be sent to the customer. Object is created when the customer clicks Send.",
         "operationId": "Get_New_Form_Link",
         "parameters": [
           {
@@ -9138,7 +9146,6 @@
           }
         ],
         "requestBody": {
-          "description": "Optional description for new mail object in  *Markdown*",
           "required": true,
           "content": {
             "application/json": {
@@ -9150,16 +9157,24 @@
                     "properties": {
                       "streamProviderId": {
                         "type": "string",
-                        "example": "9725051234567"
+                        "description": "The identifier of the receiving customer by their phone number or email",
+                        "example": "19175552345"
                       },
                       "streamProviderType": {
                         "type": "integer",
+                        "description": "4 for email, 5 for phone number",
                         "example": 5
                       },
                       "referringObjectId": {
                         "type": "integer",
                         "format": "int64",
-                        "example": 12345
+                        "description": "The object ID of the conversation related to the Form",
+                        "example": 312345
+                      },
+                      "autoUpload": {
+                        "type": "boolean",
+                        "description": "When 'true', the form is finalized and uploaded to S3 with no additional action required by the customer",
+                        "example": true
                       },
                       "properties": {
                         "type": "object",
@@ -9172,7 +9187,7 @@
                             "type": "string",
                             "example": "Doe"
                           },
-                          "my_own_param": {
+                          "my_own_field": {
                             "type": "string",
                             "example": 123456
                           }
@@ -9206,8 +9221,125 @@
                       "example": "2024-08-06T07:51:52.2581942Z"
                     },
                     "data": {
+                      "type": "object",
+                      "properties": {
+                        "conversation_id": {
+                          "type": "string",
+                          "example": "312345"
+                        },
+                        "form_link": {
+                          "type": "string",
+                          "example": "https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/forms/createpredefinedlink/{FORM_ID}": {
+      "post": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "Create Predefined Form Link",
+        "description": "This API generates a link to a blank form that is overlaid onto a specified PDF or image. The fillable fields from the form are embedded into the newly created PDF.<br><br> Note that the fields will always appear on the Last page of the background document.<br><br> Path parameters include the Form ID (appears next to the name of the form in the forms list screen) with the data fields.<br><br>Body Param includes the following form-data fields: <br>•\tstreamProviderId – The identifier of the receiving customer by their phone number or email. (file type: text)<br>•\tstreamProviderType – The type of the streamProviderId:  4 for email, 5 for phone number. (file type: text)<br>•\treferringObjectId (optional) – When the form link is opened, a new form object is created in the system. This object can be linked to another object, for example the initiating conversation, to give the agent an indicator of the filled form. Enter the related conversation ID here. (file type: text)<br>•\tIn the value column, upload the file of the background form. (file type: file)<br>",
+        "operationId": "Create_Predefined_Form_Link",
+        "parameters": [
+          {
+            "name": "FORM_ID",
+            "in": "path",
+            "description": "Form Id - Form number (as seen on the forms list screen)",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/FORM_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "streamProviderId": {
+                    "format": "text",
+                    "description": "The identifier of the receiving customer by their phone number or email",
+                    "example": "19175552345"
+                  },
+                  "streamProviderType": {
+                    "format": "text",
+                    "description": "4 for email, 5 for phone number"
+                  },
+                  "referringObjectId": {
+                    "format": "text",
+                    "description": "(optional) The object ID of the conversation related to the Form",
+                    "example": 312345
+                  },
+                  "(an_empty_Key)": {
+                    "format": "file",
+                    "description": "Upload the file to the Value section"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
                       "type": "string",
-                      "example": "https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a"
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-02-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "conversation_id": {
+                          "type": "string",
+                          "example": "312345"
+                        },
+                        "form_link": {
+                          "type": "string",
+                          "example": "https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a"
+                        }
+                      }
                     }
                   }
                 }
@@ -9238,10 +9370,10 @@
     "/auth/ticket": {
       "post": {
         "tags": [
-          "Ticket"
+          "Authentication"
         ],
         "summary": "Create Ticket",
-        "description": "The Ticket Authentication API allows organizations to grant users access to the CommBox platform while bypassing standard authentication methods. The Ticket API returns a session cookie that is added to the login URL. You can limit the token’s lifespan when making the API call or by configuring it in the Privacy and Security module in the CommBox paltform.<Br><br>**Agent Login Bypass**<br>To bypass the login page without entering the agent’s credentials, append the session cookie returned by the API to the login URL:<br><br>Format: Login URL / ?ta= / authentication token (without the quotation marks)<br>Example: https://commbox.com/login?TA=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer Chat Access**<br>To start the chat without manual identification, append the session cookie to the chat login page URL:<br><br>Format: Brand URL / chat / the channel ID in the encrypted code / ?ta= / authentication token (without the quotation marks)<br>Example: https://apps.commbox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo** – Optional param for editing the Customer Information record at login.<br>**OneTimeUse** – Optional param that limits the token to one usage.<br><br>Learn more: [https://help.commbox.io/docs/ticket-authentication](https://help.commbox.io/docs/ticket-authentication)        ",
+        "description": "This API allows organizations to grant users access to the CommBox platform while bypassing standard authentication methods. The Ticket API returns a session cookie that is added to the login URL. You can limit the token’s lifespan when making the API call or by configuring it in the Privacy and Security module in the CommBox platform.<br><br>See important information about the body params in the schema below. <br><br>**Agent Login Bypass**<br>To bypass the login page without entering the agent’s credentials, append the session cookie returned by the API to the login URL:<br><br>Format: Login URL / ?ta= / authentication token (without the quotation marks)<br>Example: https://commbox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer Chat Access**<br>To start the chat without manual identification, append the session cookie to the chat login page URL:<br><br>Format: apps.Brand URL / chat / the channel ID in the encrypted code / ?ta= / authentication token (without the quotation marks)<br>Example: https://apps.commbox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo** – Optional param for editing the Customer Information record at login.<br>**OneTimeUse** – Optional param that limits the token to one usage.<br><br>Learn more: [https://help.commbox.io/docs/ticket-authentication](https://help.commbox.io/docs/ticket-authentication)        ",
         "operationId": "Create_Ticket",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
