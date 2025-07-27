@@ -1,0 +1,126 @@
+{
+  "paths": {
+    "/auth/ticket": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Create Ticket",
+        "description": "This API allows organizations to grant users access to the CommBox platform while bypassing standard authentication methods. The Ticket API returns a session cookie that is added to the login URL. You can limit the token\u2019s lifespan when making the API call or by configuring it in the Privacy and Security module in the CommBox platform.<br><br>See important information about the body params in the schema below. <br><br>**Agent Login Bypass**<br>To bypass the login page without entering the agent\u2019s credentials, append the session cookie returned by the API to the login URL:<br><br>Format: Login URL / ?ta= / authentication token (without the quotation marks)<br>Example: https://commbox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer Chat Access**<br>To start the chat without manual identification, append the session cookie to the chat login page URL:<br><br>Format: apps.Brand URL / chat / the channel ID in the encrypted code / ?ta= / authentication token (without the quotation marks)<br>Example: https://apps.commbox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo** \u2013 Optional param for editing the Customer Information record at login.<br>**OneTimeUse** \u2013 Optional param that limits the token to one usage.<br><br>Learn more: [https://help.commbox.io/docs/ticket-authentication](https://help.commbox.io/docs/ticket-authentication)        ",
+        "operationId": "Create_Ticket",
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "brand": {
+                        "type": "string",
+                        "example": "commbox"
+                      },
+                      "username": {
+                        "type": "string",
+                        "description": "Applicable only for agent authentication; found in the agent\u2019s record",
+                        "example": "john.d"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "For agent authentication this is a strong identifier that has to match email on record",
+                        "example": "john.d@gmail.com"
+                      },
+                      "uniqueId": {
+                        "type": "string",
+                        "example": 123456
+                      },
+                      "firstName": {
+                        "type": "string",
+                        "example": "John"
+                      },
+                      "lastName": {
+                        "type": "string",
+                        "example": "Doe"
+                      },
+                      "phone1": {
+                        "type": "string",
+                        "description": "Phone must include country code. For agent authentication this is a strong identifier that has to match phone on record",
+                        "example": 442501234567
+                      },
+                      "overrideUserInfo": {
+                        "type": "boolean",
+                        "description": "(Optional) Applicable for Customer Chat Access. When true, The Customer Information record is updated with data included in the API call.",
+                        "example": true
+                      },
+                      "oneTimeUse": {
+                        "type": "boolean",
+                        "description": "(Optional) When true, the API generates a single-use ticket.",
+                        "example": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-01-19T14:18:47.63079Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "encpryptedString": {
+                          "type": "string",
+                          "example": "hZ8uTCLgf1HnOwVy_bIEWVJD0VXnIcbMKTT9R6_bW0prs_fYgzbzQCRMpdPZw1FopLHoGJG0VUDFk3zYEfkG_fEf9hnk50lR72BZHp7X_f94jZQbJNP4ysWmRJ3Lq9Q245j3D"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

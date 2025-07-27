@@ -1,0 +1,177 @@
+{
+  "paths": {
+    "/sms/sendinitialtext/{ENCRYPTED_STREAM_ID}/{PHONE_NUMBER}": {
+      "post": {
+        "tags": [
+          "SMS"
+        ],
+        "summary": "Send Initial SMS (Texting)",
+        "description": "This API sends the initial conversation text message to the user",
+        "operationId": "Send_initial_text_SMS",
+        "parameters": [
+          {
+            "name": "ENCRYPTED_STREAM_ID",
+            "in": "path",
+            "description": "CommBox generated encryption for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "PHONE_NUMBER",
+            "in": "path",
+            "description": "A valid phone number for the customer",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/PHONE_NUMBER/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/sms/sendsms/{ENCRYPTED_STREAM_ID}": {
+      "post": {
+        "tags": [
+          "SMS"
+        ],
+        "summary": "Sends SMS (Texting)",
+        "description": "This API sends SMS (Texting) to the customer. <br><br> Required body parameters include the phone number with country code and the message.",
+        "operationId": "Send_SMS",
+        "parameters": [
+          {
+            "name": "ENCRYPTED_STREAM_ID",
+            "in": "path",
+            "description": "CommBox generated encryption for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/ENCRYPTED_STREAM_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "Number": {
+                        "type": "string",
+                        "example": "9725051234567"
+                      },
+                      "Message": {
+                        "type": "string",
+                        "example": "message text"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "Core": {
+    "path_count": 1,
+    "paths": [
+      "/core/systemstatus"
+    ]
+  },
+  "Streams": {
+    "path_count": 4,
+    "paths": [
+      "/streams/{STREAM_ID}/streamavailability",
+      "/streams/{STREAM_ID}/objects",
+      "/stats/streams",
+      "/stats/streamsSLAExceptions"
+    ]
+  },
+  "Objects": {
+    "path_count": 12,
+    "paths": [
+      "/streams/{STREAM_ID}/objects",
+      "/streams/{STREAM_ID}/objects/{OBJECT_ID}/child",
+      "/streams/{STREAM_ID}/objects/{OBJECT_ID}",
+      "/objects/{OBJECT_ID}/activities",
+      "/streams/{STREAM_ID}/objects/{OBJECT_ID}/transcript",
+      "/objects/{OBJECT_ID}/status/{STATUS_ID}",
+      "/objects/{OBJECT_ID}/stream",
+      "/objects/{OBJECT_ID}/content",
+      "/objects/{OBJECT_ID}/activitylog",
+      "/objects/{OBJECT_ID}/remarks",
+      "/objects/{OBJECT_ID}/indicators",
+      "/objects/{OBJECT_ID}/indicators/{INDICATOR_ID}"
+    ]
+  },
+  "Tags": {
+    "path_count": 5,
+    "paths": [
+      "/streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}",
+      "/tags",
+      "/tags/{TAG_ID}",
+      "/tags/groups",
+      "/tags/groups/{TAGS_GROUP_ID}"
+    ]
+  },
+  "Users": {
+    "path_count": 2,
+    "paths": [
+      "/users/{USER_ID}",
+      "/users/identities/{USER_IDENTITY_ID}/objects"
+    ]
+  },
+  "Managers": {
+    "path_count": 3,
+    "paths": [
+      "/managers/{MANAGER_ID}/stats",
+      "/managers/{MANAGER_ID}",
+      "/managers"
+    ]
+  },
+  "Profiles": {
+    "path_count": 4,
+    "paths": [
+      "/managers/profiles/{PROFILE_ID}",
+      "/managers/profiles",
+      "/managers/{MANAGER_ID}/profiles",
+      "/managers/{MANAGER_ID}/profiles/{PROFILE_ID}"
+    ]
+  },
+  "Teams": {
+    "path_count": 2,
+    "paths": [
+      "/managers/teams/{TEAM_ID}",
+      "/managers/teams"
+    ]
+  },
+  "Presence": {
+    "path_count": 3,
+    "paths": [
+      "/managers/{MANAGER_ID}/presence",
+      "/managers/{MANAGER_ID}/presence/{ACTIVITY_ID}",
+      "/managers/presence"
+    ]
+  },
+  "Assignments": {
+    "path_count": 1,
+    "paths": [
+      "/managers/{MANAGER_ID}/assignments"
+    ]
+  },
+  "SMS": {
+    "path_count": 2,
+    "paths": [
+      "/sms/sendinitialtext/{ENCRYPTED_STREAM_ID}/{PHONE_NUMBER}",
+      "/sms/sendsms/{ENCRYPTED_STREAM_ID}"
+    ]
+  },
+  "WhatsApp": {
+    "path_count": 5,
+    "paths": [
+      "/v2/whatsapp/sendtemplatedmessage/{ENCRYPTED_STREAM_ID}",
+      "/whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID}",
+      "/whatsapp/validatecontact/{ENCRYPTED_STREAM_ID}/{PHONE_NUMBER}",
+      "/emarsys/sendwhatsapptemplate/{ENCRYPTED_STREAM_ID}",
+      "/whatsapp/campaign"
+    ]
+  },
+  "Forms": {
+    "path_count": 2,
+    "paths": [
+      "/forms/createlink/{FORM_ID}",
+      "/forms/createpredefinedlink/{FORM_ID}"
+    ]
+  },
+  "Authentication": {
+    "path_count": 1,
+    "paths": [
+      "/auth/ticket"
+    ]
+  },
+  "Automation": {
+    "path_count": 2,
+    "paths": [
+      "/automation/objects/{OBJECT_ID}/context",
+      "/automation/objects/{OBJECT_ID}/context/jump"
+    ]
+  }
+}

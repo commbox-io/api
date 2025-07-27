@@ -1,0 +1,291 @@
+{
+  "paths": {
+    "/managers/{MANAGER_ID}/assignments": {
+      "get": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "Get Manager Assignments",
+        "description": "This API returns a list of assigned conversations to a specific agent/admin.<br> Manager (agent) Id is a required path parameter.<br><br>Data includes the communication channel type (see Enum) and its unique name.",
+        "operationId": "Get_Manager_Assignments",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager ID. This is a commbox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "AssignedObjectsCount": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "StreamTypeId": {
+                                "type": "integer",
+                                "example": 3
+                              },
+                              "ModuleId": {
+                                "type": "integer",
+                                "example": 3
+                              },
+                              "ModuleUniqueName": {
+                                "type": "string",
+                                "example": "facebook_page_connector"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "AssignedObjectsCount": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "StreamTypeId": {
+                                "type": "integer",
+                                "example": 10
+                              },
+                              "ModuleId": {
+                                "type": "integer",
+                                "example": 6
+                              },
+                              "ModuleUniqueName": {
+                                "type": "string",
+                                "example": "mailbox_connector"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "AssignedObjectsCount": {
+                                "type": "integer",
+                                "example": 65
+                              },
+                              "StreamTypeId": {
+                                "type": "integer",
+                                "example": 20
+                              },
+                              "ModuleId": {
+                                "type": "integer",
+                                "example": 26
+                              },
+                              "ModuleUniqueName": {
+                                "type": "string",
+                                "example": "webrtc_video_chat"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "Assign Manager",
+        "description": "This API assigns a conversation to a specific agent.<br> Manager (agent) Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
+        "operationId": "Assign_Manager",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Valid MANAGER_ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          },
+          {
+            "name": "objectId",
+            "in": "query",
+            "description": "objectId",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "Unassign Manager",
+        "description": "This API unassigns a conversation to a specific agent.<br> Manager (agent)Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
+        "operationId": "Unassign_Manager",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Valid MANAGER_ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          },
+          {
+            "name": "objectId",
+            "in": "query",
+            "description": "objectId",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

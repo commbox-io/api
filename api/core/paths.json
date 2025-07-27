@@ -1,0 +1,62 @@
+{
+  "paths": {
+    "/core/systemstatus": {
+      "get": {
+        "tags": [
+          "Core"
+        ],
+        "summary": "System Status",
+        "description": "returns the current state of the system</br></br><b>JSON Example:</b> <br>https://api.commbox.io/core/systemstatus</br>",
+        "operationId": "systemStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "System is operational"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}
