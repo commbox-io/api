@@ -1,67 +1,5 @@
 {
   "openapi": "3.0.3",
-  "tags": [
-    {
-      "name": "Core",
-      "description": "<br><br>Systemwide verification"
-    },
-    {
-      "name": "Objects",
-      "description": "<br><br>Objects are conversations between the bot or the agent and the customers, where each segment of the conversation is referred to as a Child. Every conversation must have a designated Stream \u2013 a communication channel such as Chat, Email, Text/SMS, etc., that hosts the conversation.<br>The Object APIs category concentrates on a specific conversation, where the Stream is part of the identifying parameters. In the Streams APIs category, the Channel is the focal point of the request, and the objects and users are the filtering aspects."
-    },
-    {
-      "name": "Streams",
-      "description": "<br><br>Streams are communication channels used in CommBox, such as Chat, WhatsApp, SMS/Text, etc. In the Streams category of APIs, the channel is the focal point of the request, and the objects and users are the filtering aspects. See the Enums Section for available channels and their CommBox code."
-    },
-    {
-      "name": "Tags",
-      "description": "<br><br>Tags are a classification tool for summarizing aspects of the conversation or the user. It can mark the conversation to indicate a new sale or identify a customer as not interested in the product. To help manage the Tags assets, Tags can be grouped with a common identifier."
-    },
-    {
-      "name": "SMS",
-      "description": "<br><br>Sending customers **SMS messages** (Texting) requires an initial opt-in step, which is not offered by CommBox and is the sole responsibility of the sending entity (Business)."
-    },
-    {
-      "name": "WhatsApp",
-      "description": "<br><br>CommBox facilitates activities in **WABA** for the clients. Our platform helps clients create new templates and manage existing ones.<br><br> **Opt-in for WhatsApp**<br> Before sending WhatsApp messages to someone, you must first receive opt-in permission confirming that they wish to receive future messages from you on WhatsApp. This can be done using any channel your business uses to communicate with people \u2014 your website, app, email, retail location, etc.<br><ul><li>The opt-in must be an active opt-in, which means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.<br><li>The opt-in must clearly state your business' name.<br><li>Clear opt-in messaging so that the customers know what type(s) of messaging they are signing up for.<br>For more information, please visit: https://developers.facebook.com/docs/whatsapp/guides/opt-in/"
-    },
-    {
-      "name": "Users",
-      "description": "<br><br>**Users** are people recorded in CommBox and they include both the business side and the customers.<br>Managers are APIs that deal with the business personas such as Admins, Agents, Team leaders, etc., and they include **Profiles**, **Presence**, **Assignments**, **Notifications**, and **Teams** sub-categories.<br><br>General USERS"
-    },
-    {
-      "name": "Managers",
-      "description": "<br><br>The **MANAGERS** APIs category relates to activities involving the Admins, Team Leaders, Agents, and any other business-related persona. This category includes **Profiles**, **Presence**, **Assignments**, **Notifications**, and **Teams** sub-categories."
-    },
-    {
-      "name": "Profiles",
-      "description": "<br><br>**Profiles** relate to system permissions and enabled activities assigned to a group of agents (managers). <br>When looking for a specific user, the USER ID is required. <br>The profile ID is required when selecting a specific profile (See Enum section)."
-    },
-    {
-      "name": "Presence",
-      "description": "<br><br>The Presence APIs relate to the agent availability status. Active and ready for assignment, Busy, or Away from the desk. Additional statuses can be created by the admin."
-    },
-    {
-      "name": "Assignments",
-      "description": "<br><br>The **Assignments** category relates to conversations (Objects) assigned to a specific agent."
-    },
-    {
-      "name": "Teams",
-      "description": "A Team is a group of agents with specific business agendas, roles, and permissions. Admins and Team Managers can set up Team Managers to create and manage teams and give those teams specific inbox filters, tags, and knowledge-based assets."
-    },
-    {
-      "name": "Forms",
-      "description": "The Forms APIs allow agents to assist customers in completing and signing forms issued by the organization. Once the customer submits the form, a new object is created that includes a link to the original conversation and stores the completed, signed form as an attachment."
-    },
-    {
-      "name": "Authentication",
-      "description": "Authentication APIs provide accessibility to the system."
-    },
-    {
-      "name": "Automation",
-      "description": "<br><br>Automation APIs are related to bot capabilities."
-    }
-  ],
   "info": {
     "title": "CommBox API",
     "x-logo": {
@@ -82,1305 +20,6 @@
       "description": "Production server"
     }
   ],
-  "security": [
-    {
-      "BearerAuth": []
-    }
-  ],
-  "x-tagGroups": [
-    {
-      "name": "API Calls",
-      "tags": [
-        "Core",
-        "Objects",
-        "Streams",
-        "Tags",
-        "SMS",
-        "WhatsApp",
-        "Users",
-        "Managers",
-        "Profiles",
-        "Presence",
-        "Assignments",
-        "Teams",
-        "Forms",
-        "Authentication",
-        "Automation"
-      ]
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "BearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "description": "API key is needed to authorize requests. You can get your API key via the management console. <br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b><br> For additional support you can contact us."
-      },
-      "jwtAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "description": "JWT token for authentication. The token should be generated using the Secret Key\nprovided in the CommBox Emarsys Module settings.\n"
-      }
-    },
-    "parameters": {
-      "STREAM_ID": {
-        "name": "STREAM_ID",
-        "in": "query",
-        "description": "A CommBox generated number for the communication channel",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "OBJECT_ID": {
-        "name": "OBJECT_ID",
-        "in": "query",
-        "description": "A CommBox generated number for the conversation",
-        "schema": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Object ID is a CommBox generated number for the conversation"
-        }
-      },
-      "STATUS_ID": {
-        "name": "STATUS_ID",
-        "in": "query",
-        "description": "STATUS ID",
-        "schema": {
-          "type": "integer"
-        }
-      },
-      "USER_ID": {
-        "name": "USER_ID",
-        "in": "query",
-        "description": "USER ID",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "TAG_ID": {
-        "name": "TAG_ID",
-        "in": "query",
-        "description": "TAG ID",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "TAGS_GROUP_ID": {
-        "name": "TAGS_GROUP_ID",
-        "in": "query",
-        "description": "TAGS GROUP ID",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "INDICATOR_ID": {
-        "name": "INDICATOR_ID",
-        "in": "query",
-        "description": "Custom indicator Id",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "MANAGER_ID": {
-        "name": "MANAGER_ID",
-        "in": "query",
-        "description": "The Manager (agent) Id",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "PROFILE_ID": {
-        "name": "PROFILE_ID",
-        "in": "query",
-        "description": "Profile Id",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "TEAM_ID": {
-        "name": "TEAM_ID",
-        "in": "query",
-        "description": "Team Id",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "ACTIVITY_ID": {
-        "name": "ACTIVITY_ID",
-        "in": "query",
-        "description": "See ObjectActivityType Enum",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "FORM_ID": {
-        "name": "FORM_ID",
-        "in": "query",
-        "description": "Form Id - Form number",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "userIdentityId": {
-        "name": "userIdentityId",
-        "in": "query",
-        "description": "A CommBox generated number for the user. Returns objects created by this user",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "identityStreamProviderId": {
-        "name": "identityStreamProviderId",
-        "in": "query",
-        "description": "To returns objects created by a user, enter the StreamProviderId found at the identity section. Must supply identityStreamProviderType as well.",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "ENCRYPTED_STREAM_ID": {
-        "name": "ENCRYPTED_STREAM_ID",
-        "in": "query",
-        "description": "CommBox generated encryption for the channel",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "PHONE_NUMBER": {
-        "name": "PHONE_NUMBER",
-        "in": "query",
-        "description": "Valid PHONE_NUMBER. Should include country and area code",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "identityStreamProviderType": {
-        "name": "identityStreamProviderType",
-        "in": "query",
-        "description": "See Enum. To returns objects created by a user, enter the StreamProviderType found at the identity section. Must supply  identityStreamProviderId as well.",
-        "schema": {
-          "type": "string",
-          "format": "short"
-        }
-      },
-      "subStream": {
-        "name": "subStream",
-        "in": "query",
-        "description": "The subchannel Id (Optional, default 0)",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "sort": {
-        "name": "sort",
-        "in": "query",
-        "description": "Sort of return objects (optional, default desc). Possible values: desc, asc",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "order": {
-        "name": "order",
-        "in": "query",
-        "description": "Order of return objects (optional, default createdtime). Possible values: createdtime, closedtime, prioritytime, updatedtime",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "includeChilds": {
-        "name": "includeChilds",
-        "in": "query",
-        "description": "Return objects with their childs (optional, default false)",
-        "schema": {
-          "type": "boolean"
-        }
-      },
-      "includeActivityLog": {
-        "name": "includeActivityLog",
-        "in": "query",
-        "description": "Return objects with their activity log (optional, default false)",
-        "schema": {
-          "type": "boolean"
-        }
-      },
-      "timeFilter": {
-        "name": "timeFilter",
-        "in": "query",
-        "description": "Determines which object datetime field affects unixStartTime & unixEndTime (optional, relevant only for ElasticSearch)",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "pageNumber": {
-        "name": "pageNumber",
-        "in": "query",
-        "description": "Used for paging results (optional)",
-        "schema": {
-          "type": "integer"
-        }
-      },
-      "pageSize": {
-        "name": "pageSize",
-        "in": "query",
-        "description": "Used for paging results (optional, default 100)",
-        "schema": {
-          "type": "integer"
-        }
-      },
-      "status": {
-        "name": "status",
-        "in": "query",
-        "description": "ObjectStatusType - see Enums for code.<br> Returned objects must have selected statuses in a comma separated list<br> (Optional, default all)",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "unixStartTime": {
-        "name": "unixStartTime",
-        "in": "query",
-        "description": "Unix time stamp (UTC) of starting date and time of query. <br> Must be sent with unixEndTime",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "unixEndTime": {
-        "name": "unixEndTime",
-        "in": "query",
-        "description": "Unix time stamp (UTC) of ending date and time of query. <br>Must be sent with unixStartTime",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      }
-    },
-    "schemas": {
-      "Object": {
-        "type": "object",
-        "properties": {
-          "SubStreamId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The subchannel ID of the conversation"
-          },
-          "Type": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The type of object used (text, link, photo, etc.)- See Enum for code"
-          },
-          "StatusId": {
-            "type": "string",
-            "description": "The conversation's current state (Open, Resolved, etc.) \u2013 See Enum for code"
-          },
-          "StreamProviderType": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Type of the object original stream provider"
-          },
-          "StreamProviderId": {
-            "type": "string",
-            "description": "A CommBox generated number for the original stream provider"
-          },
-          "UserStreamProviderId": {
-            "type": "string",
-            "description": "unique identifier of user, usually an email or a phone number, as it appears at the original provider"
-          },
-          "UserStreamProviderType": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Type of identifier used in of the userStreamProviderId parameter"
-          },
-          "UserIdentity": {
-            "type": "integer",
-            "format": "int64",
-            "description": "A CommBox generated number for the user."
-          },
-          "ManagerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The manager (agent) who create the object (optional)"
-          },
-          "Content": {
-            "type": "string",
-            "format": "JSON string",
-            "description": "String containing extended properties of the object"
-          },
-          "Message": {
-            "type": "string",
-            "description": "<b>(required)</b> The text of the primary message. Required field"
-          },
-          "sendToClient": {
-            "type": "boolean",
-            "description": "When true, will send SMS messages without saving them <b>(relevant for SMS streams only)</b>"
-          },
-          "User": {
-            "type": "object",
-            "description": "The customer (end-user) of the object"
-          }
-        }
-      },
-      "Object_Child": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The type of the object. See Enum"
-          },
-          "IsManager": {
-            "type": "boolean",
-            "description": "Indicates whether the message is from the agent or admin (true) or from a customer (false)"
-          },
-          "UserIdentity": {
-            "type": "integer",
-            "description": "Enter the agent's user ID. Ignore when creating customer's message. Get the agent's User ID by using the Get Managers API"
-          },
-          "UserStreamProviderId": {
-            "type": "string",
-            "description": "The email or phone number of the person you are sending the message on their behalf"
-          },
-          "UserStreamProviderType": {
-            "type": "integer",
-            "description": "The channel type's code. See Enum "
-          },
-          "Message": {
-            "type": "string",
-            "description": "The message on behalf of the agent / customer"
-          }
-        }
-      },
-      "ObjectActivityLog": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string",
-            "description": "Text content in the activity log"
-          },
-          "Source": {
-            "type": "string",
-            "description": "The source of the activity log (optional)"
-          },
-          "ManagerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The agent who initialize the activity log (optional)"
-          }
-        }
-      },
-      "Tag": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Tag ID. This is a CommBox generated number"
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "User ID. This is a CommBox generated number for the customer"
-          },
-          "UniqueId": {
-            "type": "string",
-            "format": "50",
-            "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
-          },
-          "Phone1": {
-            "type": "string",
-            "format": "numeric string (20)",
-            "description": "User's phone number (should include country and area code without leading + or 00)"
-          },
-          "Phone2": {
-            "type": "string",
-            "format": "numeric string (20)",
-            "description": "User's additional phone number (should include country and area code without leading + or 00)"
-          },
-          "Email": {
-            "type": "string",
-            "format": "255",
-            "description": "User's Email."
-          },
-          "FirstName": {
-            "type": "string",
-            "format": "100",
-            "description": "User's first name"
-          },
-          "LastName": {
-            "type": "string",
-            "format": "100",
-            "description": "User's last name"
-          },
-          "Gender": {
-            "type": "string",
-            "format": "1",
-            "description": "User's gender (\u2018M' for male, \u2018F' for female)"
-          },
-          "Locale": {
-            "type": "object",
-            "description": "User's locale"
-          },
-          "Birthday": {
-            "type": "string",
-            "format": "date",
-            "description": "User's birthday"
-          },
-          "NumIdentities": {
-            "type": "integer",
-            "description": "Number of active identities that are connected to this user"
-          },
-          "IsManager": {
-            "type": "boolean",
-            "description": "Indicates whether this user is a agent or an admin (true) or a customer (false)"
-          },
-          "Remarks": {
-            "type": "string",
-            "description": "Free text containing general remarks about the user"
-          },
-          "Identity": {
-            "type": "object",
-            "description": "Identity object that is connected to the user"
-          }
-        }
-      },
-      "User_Info": {
-        "type": "object",
-        "properties": {
-          "UniqueId": {
-            "type": "string",
-            "format": "50",
-            "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
-          },
-          "FirstName": {
-            "type": "string",
-            "format": "100",
-            "description": "User's first name"
-          },
-          "LastName": {
-            "type": "string",
-            "format": "100",
-            "description": "User's last name"
-          },
-          "Email": {
-            "type": "string",
-            "format": "255",
-            "description": "User's Email."
-          },
-          "Phone1": {
-            "type": "string",
-            "format": "100",
-            "description": "User's main phone number"
-          },
-          "Phone2": {
-            "type": "string",
-            "format": "100",
-            "description": "User's secondary phone number"
-          },
-          "Remarks": {
-            "type": "string",
-            "description": "Free text containing general remarks about the user"
-          },
-          "Content": {
-            "type": "object",
-            "properties": {
-              "BirthDate": {
-                "type": "string",
-                "description": "This is an example of Custom Field"
-              },
-              "VipStatus": {
-                "type": "string",
-                "description": "This is an example of Custom Field"
-              }
-            }
-          }
-        }
-      },
-      "User_Identity": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Identity ID. This is a CommBox generated number and used throughout all the updates"
-          },
-          "StreamProviderId": {
-            "type": "string",
-            "format": "255",
-            "description": "unique identifier of user, usually an email or a phone number, as it appears at the original provider"
-          },
-          "StreamProviderType": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Type of the original provider - see Enum"
-          },
-          "StreamProviderEmail": {
-            "type": "string",
-            "format": "255",
-            "description": "Identity's email as it appears at the original provider"
-          },
-          "UserName": {
-            "type": "string",
-            "format": "100",
-            "description": "Identity's user name as it appears at the original provider"
-          },
-          "FirstName": {
-            "type": "string",
-            "format": "100",
-            "description": "Identity's first name as it appears at the original provider"
-          },
-          "LastName": {
-            "type": "string",
-            "format": "100",
-            "description": "Identity's last name as it appears at the original provider"
-          },
-          "ThumbnailUrl": {
-            "type": "string",
-            "format": "255",
-            "description": "Link to the identity's profile image"
-          },
-          "NumObjects": {
-            "type": "integer",
-            "description": "Number of objects connected to this identity"
-          }
-        }
-      },
-      "Manager": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Manager ID. This is a CommBox generated number and used throughout all the updates"
-          },
-          "AsyncAssignedNoResponse": {
-            "type": "integer",
-            "description": "Current number of assigned asynchronous objects awaiting response"
-          },
-          "AsyncAssignedInProccess": {
-            "type": "integer",
-            "description": "Current number of assigned asynchronous objects that are being addressed by the manager"
-          },
-          "SyncAssignedNoResponse": {
-            "type": "integer",
-            "description": "Current number of assigned synchronous objects awaiting response (Chat/messenger conversations)"
-          },
-          "SyncAssignedInProccess": {
-            "type": "integer",
-            "description": "Current number of assigned synchronous objects that are being addressed by the manager (Chat/messenger conversations)"
-          },
-          "FaceToFaceStatus": {
-            "type": "boolean",
-            "description": "Returns true if the agent is busy with a face to face conversation (Voice/Video call)"
-          },
-          "TotalAsyncAssigned": {
-            "type": "integer",
-            "description": "Total number of currently assigned objects"
-          },
-          "TotalSyncAssigned": {
-            "type": "integer",
-            "description": "Total number of currently assigned synchronous objects (Chat/messenger conversations)"
-          }
-        }
-      },
-      "Object_custom_indicator": {
-        "type": "object",
-        "properties": {
-          "IndicatorId": {
-            "type": "string",
-            "description": "Indicator id (unique name) \u2013 to allow updating/ deleting existing indicator"
-          },
-          "DisplayClass": {
-            "type": "string",
-            "description": "Indicator class. Mandatory only if Icon has not provided"
-          },
-          "Icon": {
-            "type": "string",
-            "description": "An icon for the indicator. Supports URL. Mandatory only if Icon has not provided (not relevant for DELETE operation)"
-          },
-          "Title": {
-            "type": "string",
-            "description": "A title for the indicator (not relevant for DELETE operation)"
-          },
-          "Link": {
-            "type": "string",
-            "description": "Optional link for the indicator (not relevant for DELETE operation)"
-          }
-        }
-      },
-      "WhatsApp_template": {
-        "type": "object",
-        "properties": {
-          "schedule": {
-            "type": "string",
-            "description": "(Optional) Enter a Unix timestamp code for the desired scheduled date. Leaving it empty will send the template immediately."
-          },
-          "to": {
-            "type": "integer",
-            "description": "The recipient's phone number in international format"
-          },
-          "template": {
-            "type": "object",
-            "description": "Template configuration",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "Name of the approved WhatsApp template"
-              },
-              "language": {
-                "type": "object",
-                "description": "Specifies the language of the template",
-                "properties": {
-                  "code": {
-                    "type": "string",
-                    "description": "Language code used by Meta. For example 'en_us'"
-                  }
-                }
-              }
-            }
-          },
-          "componentsA": {
-            "type": "object",
-            "description": "Components may include the body, header, footer, and buttons of the template",
-            "properties": {
-              "type": {
-                "type": "string",
-                "description": "The type of component. In this example 'body'"
-              },
-              "parameters": {
-                "type": "object",
-                "description": "Represents a single parameter for the placeholder",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
-                  },
-                  "text": {
-                    "type": "string",
-                    "description": "the text entered in the parameter for example \"John\""
-                  }
-                }
-              }
-            }
-          },
-          "componentsB": {
-            "type": "object",
-            "description": "Components may include the body, header, footer, and buttons of the template",
-            "properties": {
-              "type": {
-                "type": "string",
-                "description": "The type of component. In this example 'header'"
-              },
-              "parametersA": {
-                "type": "object",
-                "description": "Represents a single parameter for the placeholder",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of parameter (e.g. image). WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
-                  },
-                  "image": {
-                    "type": "object",
-                    "properties": {
-                      "Link": {
-                        "type": "string",
-                        "description": "The URL for the image attachment (e.g. https://picsum.photos/200)."
-                      },
-                      "id": {
-                        "type": "string",
-                        "description": "Instead of the link, enter media id provided by META when using the Whatsapp_uploadMedia API (e.g. 1628862997611773)"
-                      }
-                    }
-                  }
-                }
-              },
-              "parametersB": {
-                "type": "object",
-                "description": "Represents a single parameter for the placeholder",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
-                  },
-                  "video": {
-                    "type": "object",
-                    "properties": {
-                      "Link": {
-                        "type": "string",
-                        "description": "The URL for the video attachment (e.g http://example.com/video.mp4)."
-                      }
-                    }
-                  }
-                }
-              },
-              "parametersC": {
-                "type": "object",
-                "description": "Represents a single parameter for the placeholder",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
-                  },
-                  "document": {
-                    "type": "object",
-                    "properties": {
-                      "Link": {
-                        "type": "string",
-                        "description": "The URL of the PDF attachment (e.g. https://denverzoo.org/wp-content/uploads/2018/09/African-lion.pdf)."
-                      },
-                      "filename": {
-                        "type": "string",
-                        "description": "The file's name (e.g. African-lion.pdf)"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "object_data": {
-            "type": "object",
-            "required": [
-              "createChildObject",
-              "streamId",
-              "SubStreamId",
-              "StatusId",
-              "ManagerId",
-              "Content",
-              "User"
-            ],
-            "properties": {
-              "createChildObject": {
-                "type": "boolean",
-                "example": true
-              },
-              "streamId": {
-                "type": "integer",
-                "description": "The channel's ID"
-              },
-              "SubStreamId": {
-                "type": "integer",
-                "description": "The subchannel's ID. When there are no subchannels, value is 0",
-                "example": 0
-              },
-              "StatusId": {
-                "type": "integer",
-                "description": "Status of conversation - see Enums",
-                "example": 1
-              },
-              "ManagerId": {
-                "type": "integer",
-                "description": "ID of the agent",
-                "example": 78121
-              },
-              "Content": {
-                "type": "object",
-                "description": "Content of the message"
-              },
-              "User": {
-                "type": "object",
-                "required": [
-                  "Phone1",
-                  "Email"
-                ],
-                "properties": {
-                  "UniqueId": {
-                    "type": "string",
-                    "description": "Unique identifier of the customer such as Social Security number or national ID, or a unique ID generated by the organization",
-                    "example": "01234567"
-                  },
-                  "LastName": {
-                    "type": "string",
-                    "example": "Doe"
-                  },
-                  "FirstName": {
-                    "type": "string",
-                    "example": "John"
-                  },
-                  "Phone1": {
-                    "type": "string",
-                    "description": "Phone number including country code",
-                    "example": "442079834000"
-                  },
-                  "Email": {
-                    "type": "string",
-                    "format": "email",
-                    "example": "John.D@gmail.com"
-                  },
-                  "Remarks": {
-                    "type": "string",
-                    "example": "Returning customer"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "WhatsAppEmarsysTemplateRequest": {
-        "type": "object",
-        "required": [
-          "to",
-          "templateName",
-          "template.language.code"
-        ],
-        "properties": {
-          "to": {
-            "type": "string",
-            "description": "The recipient's phone number with country code (no + symbol)",
-            "example": "9725551234"
-          },
-          "templateName": {
-            "type": "string",
-            "description": "The name of the approved WhatsApp template",
-            "example": "welcome_message"
-          },
-          "template.language.code": {
-            "type": "string",
-            "description": "The language code for the template",
-            "example": "en"
-          },
-          "schedule": {
-            "type": "integer",
-            "description": "Unix timestamp for scheduled message delivery (optional)",
-            "example": 1739365010
-          },
-          "header.type": {
-            "type": "string",
-            "description": "Type of header content (if template has a header)",
-            "enum": [
-              "text",
-              "image",
-              "document",
-              "video"
-            ],
-            "example": "image"
-          },
-          "header.value": {
-            "type": "string",
-            "description": "Content for the header (URL or Media ID)",
-            "example": "https://example.com/image.jpg"
-          },
-          "header.filename": {
-            "type": "string",
-            "description": "Filename for document attachments (required for document headers)",
-            "example": "product-catalog.pdf"
-          },
-          "body.1.value": {
-            "type": "string",
-            "description": "Content for the first body placeholder",
-            "example": "John"
-          },
-          "body.2.value": {
-            "type": "string",
-            "description": "Content for the second body placeholder",
-            "example": "Premium Plan"
-          },
-          "body.3.value": {
-            "type": "string",
-            "description": "Content for the third body placeholder",
-            "example": "March 15, 2025"
-          },
-          "button.value": {
-            "type": "string",
-            "description": "Dynamic value for button (if template has dynamic buttons)",
-            "example": "https://example.com/support"
-          },
-          "object.substreamid": {
-            "type": "integer",
-            "description": "The substream ID in CommBox (for conversation object creation)",
-            "example": 0
-          },
-          "object.statusid": {
-            "type": "integer",
-            "description": "The status ID in CommBox (for conversation object creation)",
-            "example": 1
-          },
-          "object.content": {
-            "type": "string",
-            "description": "Additional content for the conversation object (JSON string)",
-            "example": "{\"subject\":\"Welcome Message\"}"
-          },
-          "object.user.uniqueid": {
-            "type": "string",
-            "description": "Unique identifier for the user",
-            "example": "12345678"
-          },
-          "object.user.lastname": {
-            "type": "string",
-            "description": "User's last name",
-            "example": "Doe"
-          },
-          "object.user.firstname": {
-            "type": "string",
-            "description": "User's first name",
-            "example": "John"
-          },
-          "object.user.phone1": {
-            "type": "string",
-            "description": "User's phone number",
-            "example": "9725551234"
-          },
-          "object.user.email": {
-            "type": "string",
-            "description": "User's email address",
-            "example": "john.doe@example.com"
-          },
-          "object.user.remarks": {
-            "type": "string",
-            "description": "Additional notes about the user",
-            "example": "Returning customer"
-          }
-        },
-        "additionalProperties": true,
-        "description": "Request schema for sending WhatsApp template messages. The minimal required parameters are\nto, templateName, and template.language.code. Additional parameters depend on the template\nstructure and whether conversation objects should be created in CommBox.\n"
-      },
-      "SuccessResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "Status code as string",
-            "example": "200"
-          },
-          "description": {
-            "type": "string",
-            "description": "Human-readable description of the response",
-            "example": "Operation successful"
-          },
-          "response_time": {
-            "type": "string",
-            "description": "Timestamp of the response",
-            "example": "2025-07-27T15:28:43.089834Z"
-          },
-          "data": {
-            "type": "array",
-            "description": "Array of recipient results",
-            "items": {
-              "type": "object",
-              "properties": {
-                "recipient": {
-                  "type": "string",
-                  "description": "Recipient's phone number",
-                  "example": "9725551234"
-                },
-                "id": {
-                  "type": "string",
-                  "description": "Message ID from WhatsApp",
-                  "example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
-                },
-                "status": {
-                  "type": "integer",
-                  "description": "Status code for this recipient",
-                  "example": 200
-                },
-                "object_id": {
-                  "type": "integer",
-                  "description": "CommBox conversation object ID (if created)",
-                  "example": 38383744
-                }
-              }
-            }
-          }
-        },
-        "required": [
-          "status",
-          "description",
-          "response_time",
-          "data"
-        ]
-      },
-      "PartialSuccessResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "Status code as string",
-            "example": "206"
-          },
-          "description": {
-            "type": "string",
-            "description": "Human-readable description of the response",
-            "example": "Some messages failed"
-          },
-          "response_time": {
-            "type": "string",
-            "description": "Timestamp of the response",
-            "example": "2025-07-27T15:28:43.089834Z"
-          },
-          "data": {
-            "type": "array",
-            "description": "Array of recipient results (mix of success and failure)",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "recipient": {
-                      "type": "string",
-                      "example": "9725551234"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
-                    },
-                    "status": {
-                      "type": "integer",
-                      "example": 200
-                    },
-                    "object_id": {
-                      "type": "integer",
-                      "example": 38383744
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "recipient": {
-                      "type": "string",
-                      "example": "9725559876"
-                    },
-                    "status": {
-                      "type": "integer",
-                      "example": 400
-                    },
-                    "failed": {
-                      "type": "string",
-                      "example": "invalid \u2014 Not a valid WhatsApp user"
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        },
-        "required": [
-          "status",
-          "description",
-          "response_time",
-          "data"
-        ]
-      },
-      "ErrorResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "Error status code as string",
-            "example": "400"
-          },
-          "description": {
-            "type": "string",
-            "description": "Human-readable description of the error",
-            "example": "Missing parameter templateName"
-          },
-          "response_time": {
-            "type": "string",
-            "description": "Timestamp of the response",
-            "example": "2025-07-27T15:28:43.089834Z"
-          },
-          "data": {
-            "type": "array",
-            "description": "Array of recipient error details",
-            "items": {
-              "type": "object",
-              "properties": {
-                "recipient": {
-                  "type": "string",
-                  "description": "Recipient's phone number",
-                  "example": "9725551234"
-                },
-                "status": {
-                  "type": "integer",
-                  "description": "Error status code",
-                  "example": 400
-                },
-                "failed": {
-                  "type": "string",
-                  "description": "Failure reason",
-                  "example": "Missing required parameter"
-                }
-              }
-            }
-          }
-        },
-        "required": [
-          "status",
-          "description",
-          "response_time"
-        ]
-      },
-      "ObjectType": {
-        "type": "string",
-        "enum": [
-          "Text = 0",
-          "Link = 1",
-          "Photo = 2",
-          "Video = 3",
-          "Conversation = 4",
-          "Mail = 5",
-          "Audio = 6",
-          "Location = 7",
-          "Voice = 8",
-          "Review = 9",
-          "Form = 10",
-          "System Message = 11",
-          "Option = 12",
-          "InputData = 13",
-          "Contacts = 14",
-          "Album = 15",
-          "TemplateMessage = 16"
-        ]
-      },
-      "ObjectStatusType": {
-        "type": "string",
-        "enum": [
-          "Open = 1",
-          "Resolved = 2",
-          "Forward = 3",
-          "Irrelevant = 4",
-          "Deleted = 5",
-          "Forward Reply = 6",
-          "Draft = 7",
-          "In Process = 8",
-          "Scheduled = 9",
-          "Follow Up = 10",
-          "Automated = 11",
-          "Sent = 13",
-          "Archive = 14",
-          "Pending = 15"
-        ]
-      },
-      "StreamProviderType": {
-        "type": "string",
-        "enum": [
-          "CommBox = 0",
-          "Facebook = 1",
-          "Twitter = 2",
-          "YouTube = 3",
-          "Mail = 4",
-          "Telephone = 5",
-          "Anonymous = 6",
-          "WhatsApp = 7",
-          "Web = 8",
-          "AppleAppStore = 9",
-          "Instagram= 10",
-          "Google = 11",
-          "Telegram= 12",
-          "GoogleMyBusiness = 13",
-          "Microsoft365 = 14",
-          "Gmail = 15",
-          "WhatsAppCloud = 16",
-          "Salesforce = 17"
-        ]
-      },
-      "ObjectActivityType": {
-        "type": "string",
-        "enum": [
-          "Remark = 1",
-          "StatusChange = 2",
-          "Forward = 3",
-          "ForwardReply = 4",
-          "StreamChange = 5",
-          "AssignChange = 6",
-          "UpdateObjectTag = 7",
-          "FollowUp = 8",
-          "UpdateObjectIntent = 9",
-          "Attachment = 10",
-          "RuleExecuted = 11",
-          "Custom = 12",
-          "UpdateObjectPublicity = 13",
-          "Debug = 14",
-          "InvalidExtensionFile = 15",
-          "InvalidFileSize = 16",
-          "DisallowedFileUpload = 17",
-          "InactivityLogout = 18",
-          "ParticipantChange = 19",
-          "TargetStreamChange = 20",
-          "ConversationSummary = 21",
-          "LogError = 22",
-          "RedactChild = 23"
-        ]
-      },
-      "ModuleType": {
-        "type": "string",
-        "enum": [
-          "GENERAL = 0",
-          "CUSTOMER_SERVICE = 1",
-          "FACEBOOK_PAGE_CONNECTOR = 3",
-          "STATIC_CONTENT = 4",
-          "CONTEST = 5",
-          "MAILBOX_CONNECTOR = 6",
-          "YOUTUBE_CONNECTOR = 7",
-          "TWITTER_CONNECTOR = 8",
-          "CHAT = 9",
-          "WEB_SYNDICATION_CONNECTOR = 10",
-          "FACEBOOK_MONITOR_CONNECTOR = 11",
-          "WHATSAPP = 13",
-          "SMS = 14",
-          "VOICE = 15",
-          "SSO = 16,",
-          "MANAGE_CLIENT_CUSTOMIZATIONS = 17",
-          "APPLE_APPSTORE_REVIEWS = 18",
-          "GOOGLE_PLAY_REVIEWS = 19",
-          "INSTAGRAM_CONNECTOR = 20",
-          "CONTACT_US = 21",
-          "INTERACTIVE_NAVIGATOR = 25",
-          "WEBRTC_VIDEO_CHAT = 26",
-          "WEBRTC_AUDIO_CHAT = 27",
-          "FORMS = 28",
-          "CUSTOMER_VERIFICATION = 29",
-          "DYNAMICS_CRM_CONNECTOR = 31",
-          "CUSTOM_FIELDS = 32",
-          "RIGHTNOW_CRM = 33",
-          "RULES = 34",
-          "EXTERNAL_CONTACTS = 35",
-          "WORKING_HOURS = 36",
-          "CUSTOM = 37",
-          "FACEBOOK_MESSENGER = 38",
-          "MAINTENANCE = 39",
-          "PRIVACY_AND_SECURITY = 40",
-          "AUTO_ASSIGN = 41",
-          "TWO_FACTOR_AUTHENTICATION = 42",
-          "THEMES = 43",
-          "TELEGRAM = 44",
-          "GOOGLE_MY_BUSINESS = 45",
-          "SAP_CRM = 46",
-          "SLA = 47",
-          "PUSH_NOTIFICATIONS = 48",
-          "SYS_AID = 49",
-          "WORKFLOW = 50",
-          "INSTAGRAM_DM = 52",
-          "PRIORITY = 53",
-          "JIRA = 54",
-          "GOOGLE_BUSINESS_MESSAGES = 55",
-          "BI_CUSTOM_REPORTS = 57",
-          "SALESFORCE = 58",
-          "AI_ASSISTANT = 59",
-          "API = 60",
-          "Zendesk = 61",
-          "Teams = 65",
-          "Hupspot = 71"
-        ]
-      }
-    }
-  },
   "paths": {
     "/core/systemstatus": {
       "get": {
@@ -10612,5 +9251,1366 @@
         }
       }
     }
-  }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API key is needed to authorize requests. You can get your API key via the management console. <br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b><br> For additional support you can contact us."
+      },
+      "jwtAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT token for authentication. The token should be generated using the Secret Key\nprovided in the CommBox Emarsys Module settings.\n"
+      }
+    },
+    "parameters": {
+      "STREAM_ID": {
+        "name": "STREAM_ID",
+        "in": "query",
+        "description": "A CommBox generated number for the communication channel",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "OBJECT_ID": {
+        "name": "OBJECT_ID",
+        "in": "query",
+        "description": "A CommBox generated number for the conversation",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Object ID is a CommBox generated number for the conversation"
+        }
+      },
+      "STATUS_ID": {
+        "name": "STATUS_ID",
+        "in": "query",
+        "description": "STATUS ID",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "USER_ID": {
+        "name": "USER_ID",
+        "in": "query",
+        "description": "USER ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "TAG_ID": {
+        "name": "TAG_ID",
+        "in": "query",
+        "description": "TAG ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "TAGS_GROUP_ID": {
+        "name": "TAGS_GROUP_ID",
+        "in": "query",
+        "description": "TAGS GROUP ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "INDICATOR_ID": {
+        "name": "INDICATOR_ID",
+        "in": "query",
+        "description": "Custom indicator Id",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MANAGER_ID": {
+        "name": "MANAGER_ID",
+        "in": "query",
+        "description": "The Manager (agent) Id",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "PROFILE_ID": {
+        "name": "PROFILE_ID",
+        "in": "query",
+        "description": "Profile Id",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "TEAM_ID": {
+        "name": "TEAM_ID",
+        "in": "query",
+        "description": "Team Id",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "ACTIVITY_ID": {
+        "name": "ACTIVITY_ID",
+        "in": "query",
+        "description": "See ObjectActivityType Enum",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "FORM_ID": {
+        "name": "FORM_ID",
+        "in": "query",
+        "description": "Form Id - Form number",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "userIdentityId": {
+        "name": "userIdentityId",
+        "in": "query",
+        "description": "A CommBox generated number for the user. Returns objects created by this user",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "identityStreamProviderId": {
+        "name": "identityStreamProviderId",
+        "in": "query",
+        "description": "To returns objects created by a user, enter the StreamProviderId found at the identity section. Must supply identityStreamProviderType as well.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "ENCRYPTED_STREAM_ID": {
+        "name": "ENCRYPTED_STREAM_ID",
+        "in": "query",
+        "description": "CommBox generated encryption for the channel",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PHONE_NUMBER": {
+        "name": "PHONE_NUMBER",
+        "in": "query",
+        "description": "Valid PHONE_NUMBER. Should include country and area code",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "identityStreamProviderType": {
+        "name": "identityStreamProviderType",
+        "in": "query",
+        "description": "See Enum. To returns objects created by a user, enter the StreamProviderType found at the identity section. Must supply  identityStreamProviderId as well.",
+        "schema": {
+          "type": "string",
+          "format": "short"
+        }
+      },
+      "subStream": {
+        "name": "subStream",
+        "in": "query",
+        "description": "The subchannel Id (Optional, default 0)",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Sort of return objects (optional, default desc). Possible values: desc, asc",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "order": {
+        "name": "order",
+        "in": "query",
+        "description": "Order of return objects (optional, default createdtime). Possible values: createdtime, closedtime, prioritytime, updatedtime",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "includeChilds": {
+        "name": "includeChilds",
+        "in": "query",
+        "description": "Return objects with their childs (optional, default false)",
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "includeActivityLog": {
+        "name": "includeActivityLog",
+        "in": "query",
+        "description": "Return objects with their activity log (optional, default false)",
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "timeFilter": {
+        "name": "timeFilter",
+        "in": "query",
+        "description": "Determines which object datetime field affects unixStartTime & unixEndTime (optional, relevant only for ElasticSearch)",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "pageNumber": {
+        "name": "pageNumber",
+        "in": "query",
+        "description": "Used for paging results (optional)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "pageSize": {
+        "name": "pageSize",
+        "in": "query",
+        "description": "Used for paging results (optional, default 100)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "status": {
+        "name": "status",
+        "in": "query",
+        "description": "ObjectStatusType - see Enums for code.<br> Returned objects must have selected statuses in a comma separated list<br> (Optional, default all)",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "unixStartTime": {
+        "name": "unixStartTime",
+        "in": "query",
+        "description": "Unix time stamp (UTC) of starting date and time of query. <br> Must be sent with unixEndTime",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "unixEndTime": {
+        "name": "unixEndTime",
+        "in": "query",
+        "description": "Unix time stamp (UTC) of ending date and time of query. <br>Must be sent with unixStartTime",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "schemas": {
+      "Object": {
+        "type": "object",
+        "properties": {
+          "SubStreamId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The subchannel ID of the conversation"
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The type of object used (text, link, photo, etc.)- See Enum for code"
+          },
+          "StatusId": {
+            "type": "string",
+            "description": "The conversation's current state (Open, Resolved, etc.) \u2013 See Enum for code"
+          },
+          "StreamProviderType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Type of the object original stream provider"
+          },
+          "StreamProviderId": {
+            "type": "string",
+            "description": "A CommBox generated number for the original stream provider"
+          },
+          "UserStreamProviderId": {
+            "type": "string",
+            "description": "unique identifier of user, usually an email or a phone number, as it appears at the original provider"
+          },
+          "UserStreamProviderType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Type of identifier used in of the userStreamProviderId parameter"
+          },
+          "UserIdentity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "A CommBox generated number for the user."
+          },
+          "ManagerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The manager (agent) who create the object (optional)"
+          },
+          "Content": {
+            "type": "string",
+            "format": "JSON string",
+            "description": "String containing extended properties of the object"
+          },
+          "Message": {
+            "type": "string",
+            "description": "<b>(required)</b> The text of the primary message. Required field"
+          },
+          "sendToClient": {
+            "type": "boolean",
+            "description": "When true, will send SMS messages without saving them <b>(relevant for SMS streams only)</b>"
+          },
+          "User": {
+            "type": "object",
+            "description": "The customer (end-user) of the object"
+          }
+        }
+      },
+      "Object_Child": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The type of the object. See Enum"
+          },
+          "IsManager": {
+            "type": "boolean",
+            "description": "Indicates whether the message is from the agent or admin (true) or from a customer (false)"
+          },
+          "UserIdentity": {
+            "type": "integer",
+            "description": "Enter the agent's user ID. Ignore when creating customer's message. Get the agent's User ID by using the Get Managers API"
+          },
+          "UserStreamProviderId": {
+            "type": "string",
+            "description": "The email or phone number of the person you are sending the message on their behalf"
+          },
+          "UserStreamProviderType": {
+            "type": "integer",
+            "description": "The channel type's code. See Enum "
+          },
+          "Message": {
+            "type": "string",
+            "description": "The message on behalf of the agent / customer"
+          }
+        }
+      },
+      "ObjectActivityLog": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text content in the activity log"
+          },
+          "Source": {
+            "type": "string",
+            "description": "The source of the activity log (optional)"
+          },
+          "ManagerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The agent who initialize the activity log (optional)"
+          }
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Tag ID. This is a CommBox generated number"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "User ID. This is a CommBox generated number for the customer"
+          },
+          "UniqueId": {
+            "type": "string",
+            "format": "50",
+            "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
+          },
+          "Phone1": {
+            "type": "string",
+            "format": "numeric string (20)",
+            "description": "User's phone number (should include country and area code without leading + or 00)"
+          },
+          "Phone2": {
+            "type": "string",
+            "format": "numeric string (20)",
+            "description": "User's additional phone number (should include country and area code without leading + or 00)"
+          },
+          "Email": {
+            "type": "string",
+            "format": "255",
+            "description": "User's Email."
+          },
+          "FirstName": {
+            "type": "string",
+            "format": "100",
+            "description": "User's first name"
+          },
+          "LastName": {
+            "type": "string",
+            "format": "100",
+            "description": "User's last name"
+          },
+          "Gender": {
+            "type": "string",
+            "format": "1",
+            "description": "User's gender (\u2018M' for male, \u2018F' for female)"
+          },
+          "Locale": {
+            "type": "object",
+            "description": "User's locale"
+          },
+          "Birthday": {
+            "type": "string",
+            "format": "date",
+            "description": "User's birthday"
+          },
+          "NumIdentities": {
+            "type": "integer",
+            "description": "Number of active identities that are connected to this user"
+          },
+          "IsManager": {
+            "type": "boolean",
+            "description": "Indicates whether this user is a agent or an admin (true) or a customer (false)"
+          },
+          "Remarks": {
+            "type": "string",
+            "description": "Free text containing general remarks about the user"
+          },
+          "Identity": {
+            "type": "object",
+            "description": "Identity object that is connected to the user"
+          }
+        }
+      },
+      "User_Info": {
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string",
+            "format": "50",
+            "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
+          },
+          "FirstName": {
+            "type": "string",
+            "format": "100",
+            "description": "User's first name"
+          },
+          "LastName": {
+            "type": "string",
+            "format": "100",
+            "description": "User's last name"
+          },
+          "Email": {
+            "type": "string",
+            "format": "255",
+            "description": "User's Email."
+          },
+          "Phone1": {
+            "type": "string",
+            "format": "100",
+            "description": "User's main phone number"
+          },
+          "Phone2": {
+            "type": "string",
+            "format": "100",
+            "description": "User's secondary phone number"
+          },
+          "Remarks": {
+            "type": "string",
+            "description": "Free text containing general remarks about the user"
+          },
+          "Content": {
+            "type": "object",
+            "properties": {
+              "BirthDate": {
+                "type": "string",
+                "description": "This is an example of Custom Field"
+              },
+              "VipStatus": {
+                "type": "string",
+                "description": "This is an example of Custom Field"
+              }
+            }
+          }
+        }
+      },
+      "User_Identity": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Identity ID. This is a CommBox generated number and used throughout all the updates"
+          },
+          "StreamProviderId": {
+            "type": "string",
+            "format": "255",
+            "description": "unique identifier of user, usually an email or a phone number, as it appears at the original provider"
+          },
+          "StreamProviderType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Type of the original provider - see Enum"
+          },
+          "StreamProviderEmail": {
+            "type": "string",
+            "format": "255",
+            "description": "Identity's email as it appears at the original provider"
+          },
+          "UserName": {
+            "type": "string",
+            "format": "100",
+            "description": "Identity's user name as it appears at the original provider"
+          },
+          "FirstName": {
+            "type": "string",
+            "format": "100",
+            "description": "Identity's first name as it appears at the original provider"
+          },
+          "LastName": {
+            "type": "string",
+            "format": "100",
+            "description": "Identity's last name as it appears at the original provider"
+          },
+          "ThumbnailUrl": {
+            "type": "string",
+            "format": "255",
+            "description": "Link to the identity's profile image"
+          },
+          "NumObjects": {
+            "type": "integer",
+            "description": "Number of objects connected to this identity"
+          }
+        }
+      },
+      "Manager": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Manager ID. This is a CommBox generated number and used throughout all the updates"
+          },
+          "AsyncAssignedNoResponse": {
+            "type": "integer",
+            "description": "Current number of assigned asynchronous objects awaiting response"
+          },
+          "AsyncAssignedInProccess": {
+            "type": "integer",
+            "description": "Current number of assigned asynchronous objects that are being addressed by the manager"
+          },
+          "SyncAssignedNoResponse": {
+            "type": "integer",
+            "description": "Current number of assigned synchronous objects awaiting response (Chat/messenger conversations)"
+          },
+          "SyncAssignedInProccess": {
+            "type": "integer",
+            "description": "Current number of assigned synchronous objects that are being addressed by the manager (Chat/messenger conversations)"
+          },
+          "FaceToFaceStatus": {
+            "type": "boolean",
+            "description": "Returns true if the agent is busy with a face to face conversation (Voice/Video call)"
+          },
+          "TotalAsyncAssigned": {
+            "type": "integer",
+            "description": "Total number of currently assigned objects"
+          },
+          "TotalSyncAssigned": {
+            "type": "integer",
+            "description": "Total number of currently assigned synchronous objects (Chat/messenger conversations)"
+          }
+        }
+      },
+      "Object_custom_indicator": {
+        "type": "object",
+        "properties": {
+          "IndicatorId": {
+            "type": "string",
+            "description": "Indicator id (unique name) \u2013 to allow updating/ deleting existing indicator"
+          },
+          "DisplayClass": {
+            "type": "string",
+            "description": "Indicator class. Mandatory only if Icon has not provided"
+          },
+          "Icon": {
+            "type": "string",
+            "description": "An icon for the indicator. Supports URL. Mandatory only if Icon has not provided (not relevant for DELETE operation)"
+          },
+          "Title": {
+            "type": "string",
+            "description": "A title for the indicator (not relevant for DELETE operation)"
+          },
+          "Link": {
+            "type": "string",
+            "description": "Optional link for the indicator (not relevant for DELETE operation)"
+          }
+        }
+      },
+      "WhatsApp_template": {
+        "type": "object",
+        "properties": {
+          "schedule": {
+            "type": "string",
+            "description": "(Optional) Enter a Unix timestamp code for the desired scheduled date. Leaving it empty will send the template immediately."
+          },
+          "to": {
+            "type": "integer",
+            "description": "The recipient's phone number in international format"
+          },
+          "template": {
+            "type": "object",
+            "description": "Template configuration",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the approved WhatsApp template"
+              },
+              "language": {
+                "type": "object",
+                "description": "Specifies the language of the template",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "description": "Language code used by Meta. For example 'en_us'"
+                  }
+                }
+              }
+            }
+          },
+          "componentsA": {
+            "type": "object",
+            "description": "Components may include the body, header, footer, and buttons of the template",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "The type of component. In this example 'body'"
+              },
+              "parameters": {
+                "type": "object",
+                "description": "Represents a single parameter for the placeholder",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "the text entered in the parameter for example \"John\""
+                  }
+                }
+              }
+            }
+          },
+          "componentsB": {
+            "type": "object",
+            "description": "Components may include the body, header, footer, and buttons of the template",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "The type of component. In this example 'header'"
+              },
+              "parametersA": {
+                "type": "object",
+                "description": "Represents a single parameter for the placeholder",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of parameter (e.g. image). WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
+                  },
+                  "image": {
+                    "type": "object",
+                    "properties": {
+                      "Link": {
+                        "type": "string",
+                        "description": "The URL for the image attachment (e.g. https://picsum.photos/200)."
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "Instead of the link, enter media id provided by META when using the Whatsapp_uploadMedia API (e.g. 1628862997611773)"
+                      }
+                    }
+                  }
+                }
+              },
+              "parametersB": {
+                "type": "object",
+                "description": "Represents a single parameter for the placeholder",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
+                  },
+                  "video": {
+                    "type": "object",
+                    "properties": {
+                      "Link": {
+                        "type": "string",
+                        "description": "The URL for the video attachment (e.g http://example.com/video.mp4)."
+                      }
+                    }
+                  }
+                }
+              },
+              "parametersC": {
+                "type": "object",
+                "description": "Represents a single parameter for the placeholder",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
+                  },
+                  "document": {
+                    "type": "object",
+                    "properties": {
+                      "Link": {
+                        "type": "string",
+                        "description": "The URL of the PDF attachment (e.g. https://denverzoo.org/wp-content/uploads/2018/09/African-lion.pdf)."
+                      },
+                      "filename": {
+                        "type": "string",
+                        "description": "The file's name (e.g. African-lion.pdf)"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "object_data": {
+            "type": "object",
+            "required": [
+              "createChildObject",
+              "streamId",
+              "SubStreamId",
+              "StatusId",
+              "ManagerId",
+              "Content",
+              "User"
+            ],
+            "properties": {
+              "createChildObject": {
+                "type": "boolean",
+                "example": true
+              },
+              "streamId": {
+                "type": "integer",
+                "description": "The channel's ID"
+              },
+              "SubStreamId": {
+                "type": "integer",
+                "description": "The subchannel's ID. When there are no subchannels, value is 0",
+                "example": 0
+              },
+              "StatusId": {
+                "type": "integer",
+                "description": "Status of conversation - see Enums",
+                "example": 1
+              },
+              "ManagerId": {
+                "type": "integer",
+                "description": "ID of the agent",
+                "example": 78121
+              },
+              "Content": {
+                "type": "object",
+                "description": "Content of the message"
+              },
+              "User": {
+                "type": "object",
+                "required": [
+                  "Phone1",
+                  "Email"
+                ],
+                "properties": {
+                  "UniqueId": {
+                    "type": "string",
+                    "description": "Unique identifier of the customer such as Social Security number or national ID, or a unique ID generated by the organization",
+                    "example": "01234567"
+                  },
+                  "LastName": {
+                    "type": "string",
+                    "example": "Doe"
+                  },
+                  "FirstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "Phone1": {
+                    "type": "string",
+                    "description": "Phone number including country code",
+                    "example": "442079834000"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "John.D@gmail.com"
+                  },
+                  "Remarks": {
+                    "type": "string",
+                    "example": "Returning customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsAppEmarsysTemplateRequest": {
+        "type": "object",
+        "required": [
+          "to",
+          "templateName",
+          "template.language.code"
+        ],
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "The recipient's phone number with country code (no + symbol)",
+            "example": "9725551234"
+          },
+          "templateName": {
+            "type": "string",
+            "description": "The name of the approved WhatsApp template",
+            "example": "welcome_message"
+          },
+          "template.language.code": {
+            "type": "string",
+            "description": "The language code for the template",
+            "example": "en"
+          },
+          "schedule": {
+            "type": "integer",
+            "description": "Unix timestamp for scheduled message delivery (optional)",
+            "example": 1739365010
+          },
+          "header.type": {
+            "type": "string",
+            "description": "Type of header content (if template has a header)",
+            "enum": [
+              "text",
+              "image",
+              "document",
+              "video"
+            ],
+            "example": "image"
+          },
+          "header.value": {
+            "type": "string",
+            "description": "Content for the header (URL or Media ID)",
+            "example": "https://example.com/image.jpg"
+          },
+          "header.filename": {
+            "type": "string",
+            "description": "Filename for document attachments (required for document headers)",
+            "example": "product-catalog.pdf"
+          },
+          "body.1.value": {
+            "type": "string",
+            "description": "Content for the first body placeholder",
+            "example": "John"
+          },
+          "body.2.value": {
+            "type": "string",
+            "description": "Content for the second body placeholder",
+            "example": "Premium Plan"
+          },
+          "body.3.value": {
+            "type": "string",
+            "description": "Content for the third body placeholder",
+            "example": "March 15, 2025"
+          },
+          "button.value": {
+            "type": "string",
+            "description": "Dynamic value for button (if template has dynamic buttons)",
+            "example": "https://example.com/support"
+          },
+          "object.substreamid": {
+            "type": "integer",
+            "description": "The substream ID in CommBox (for conversation object creation)",
+            "example": 0
+          },
+          "object.statusid": {
+            "type": "integer",
+            "description": "The status ID in CommBox (for conversation object creation)",
+            "example": 1
+          },
+          "object.content": {
+            "type": "string",
+            "description": "Additional content for the conversation object (JSON string)",
+            "example": "{\"subject\":\"Welcome Message\"}"
+          },
+          "object.user.uniqueid": {
+            "type": "string",
+            "description": "Unique identifier for the user",
+            "example": "12345678"
+          },
+          "object.user.lastname": {
+            "type": "string",
+            "description": "User's last name",
+            "example": "Doe"
+          },
+          "object.user.firstname": {
+            "type": "string",
+            "description": "User's first name",
+            "example": "John"
+          },
+          "object.user.phone1": {
+            "type": "string",
+            "description": "User's phone number",
+            "example": "9725551234"
+          },
+          "object.user.email": {
+            "type": "string",
+            "description": "User's email address",
+            "example": "john.doe@example.com"
+          },
+          "object.user.remarks": {
+            "type": "string",
+            "description": "Additional notes about the user",
+            "example": "Returning customer"
+          }
+        },
+        "additionalProperties": true,
+        "description": "Request schema for sending WhatsApp template messages. The minimal required parameters are\nto, templateName, and template.language.code. Additional parameters depend on the template\nstructure and whether conversation objects should be created in CommBox.\n"
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status code as string",
+            "example": "200"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the response",
+            "example": "Operation successful"
+          },
+          "response_time": {
+            "type": "string",
+            "description": "Timestamp of the response",
+            "example": "2025-07-27T15:28:43.089834Z"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of recipient results",
+            "items": {
+              "type": "object",
+              "properties": {
+                "recipient": {
+                  "type": "string",
+                  "description": "Recipient's phone number",
+                  "example": "9725551234"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Message ID from WhatsApp",
+                  "example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
+                },
+                "status": {
+                  "type": "integer",
+                  "description": "Status code for this recipient",
+                  "example": 200
+                },
+                "object_id": {
+                  "type": "integer",
+                  "description": "CommBox conversation object ID (if created)",
+                  "example": 38383744
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "description",
+          "response_time",
+          "data"
+        ]
+      },
+      "PartialSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status code as string",
+            "example": "206"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the response",
+            "example": "Some messages failed"
+          },
+          "response_time": {
+            "type": "string",
+            "description": "Timestamp of the response",
+            "example": "2025-07-27T15:28:43.089834Z"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of recipient results (mix of success and failure)",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "recipient": {
+                      "type": "string",
+                      "example": "9725551234"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "gBEGlyVGZjUpAgmyuqAHfxbHmnQ"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "object_id": {
+                      "type": "integer",
+                      "example": 38383744
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "recipient": {
+                      "type": "string",
+                      "example": "9725559876"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "failed": {
+                      "type": "string",
+                      "example": "invalid \u2014 Not a valid WhatsApp user"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "status",
+          "description",
+          "response_time",
+          "data"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Error status code as string",
+            "example": "400"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the error",
+            "example": "Missing parameter templateName"
+          },
+          "response_time": {
+            "type": "string",
+            "description": "Timestamp of the response",
+            "example": "2025-07-27T15:28:43.089834Z"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of recipient error details",
+            "items": {
+              "type": "object",
+              "properties": {
+                "recipient": {
+                  "type": "string",
+                  "description": "Recipient's phone number",
+                  "example": "9725551234"
+                },
+                "status": {
+                  "type": "integer",
+                  "description": "Error status code",
+                  "example": 400
+                },
+                "failed": {
+                  "type": "string",
+                  "description": "Failure reason",
+                  "example": "Missing required parameter"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "description",
+          "response_time"
+        ]
+      },
+      "ObjectType": {
+        "type": "string",
+        "enum": [
+          "Text = 0",
+          "Link = 1",
+          "Photo = 2",
+          "Video = 3",
+          "Conversation = 4",
+          "Mail = 5",
+          "Audio = 6",
+          "Location = 7",
+          "Voice = 8",
+          "Review = 9",
+          "Form = 10",
+          "System Message = 11",
+          "Option = 12",
+          "InputData = 13",
+          "Contacts = 14",
+          "Album = 15",
+          "TemplateMessage = 16"
+        ]
+      },
+      "ObjectStatusType": {
+        "type": "string",
+        "enum": [
+          "Open = 1",
+          "Resolved = 2",
+          "Forward = 3",
+          "Irrelevant = 4",
+          "Deleted = 5",
+          "Forward Reply = 6",
+          "Draft = 7",
+          "In Process = 8",
+          "Scheduled = 9",
+          "Follow Up = 10",
+          "Automated = 11",
+          "Sent = 13",
+          "Archive = 14",
+          "Pending = 15"
+        ]
+      },
+      "StreamProviderType": {
+        "type": "string",
+        "enum": [
+          "CommBox = 0",
+          "Facebook = 1",
+          "Twitter = 2",
+          "YouTube = 3",
+          "Mail = 4",
+          "Telephone = 5",
+          "Anonymous = 6",
+          "WhatsApp = 7",
+          "Web = 8",
+          "AppleAppStore = 9",
+          "Instagram= 10",
+          "Google = 11",
+          "Telegram= 12",
+          "GoogleMyBusiness = 13",
+          "Microsoft365 = 14",
+          "Gmail = 15",
+          "WhatsAppCloud = 16",
+          "Salesforce = 17"
+        ]
+      },
+      "ObjectActivityType": {
+        "type": "string",
+        "enum": [
+          "Remark = 1",
+          "StatusChange = 2",
+          "Forward = 3",
+          "ForwardReply = 4",
+          "StreamChange = 5",
+          "AssignChange = 6",
+          "UpdateObjectTag = 7",
+          "FollowUp = 8",
+          "UpdateObjectIntent = 9",
+          "Attachment = 10",
+          "RuleExecuted = 11",
+          "Custom = 12",
+          "UpdateObjectPublicity = 13",
+          "Debug = 14",
+          "InvalidExtensionFile = 15",
+          "InvalidFileSize = 16",
+          "DisallowedFileUpload = 17",
+          "InactivityLogout = 18",
+          "ParticipantChange = 19",
+          "TargetStreamChange = 20",
+          "ConversationSummary = 21",
+          "LogError = 22",
+          "RedactChild = 23"
+        ]
+      },
+      "ModuleType": {
+        "type": "string",
+        "enum": [
+          "GENERAL = 0",
+          "CUSTOMER_SERVICE = 1",
+          "FACEBOOK_PAGE_CONNECTOR = 3",
+          "STATIC_CONTENT = 4",
+          "CONTEST = 5",
+          "MAILBOX_CONNECTOR = 6",
+          "YOUTUBE_CONNECTOR = 7",
+          "TWITTER_CONNECTOR = 8",
+          "CHAT = 9",
+          "WEB_SYNDICATION_CONNECTOR = 10",
+          "FACEBOOK_MONITOR_CONNECTOR = 11",
+          "WHATSAPP = 13",
+          "SMS = 14",
+          "VOICE = 15",
+          "SSO = 16,",
+          "MANAGE_CLIENT_CUSTOMIZATIONS = 17",
+          "APPLE_APPSTORE_REVIEWS = 18",
+          "GOOGLE_PLAY_REVIEWS = 19",
+          "INSTAGRAM_CONNECTOR = 20",
+          "CONTACT_US = 21",
+          "INTERACTIVE_NAVIGATOR = 25",
+          "WEBRTC_VIDEO_CHAT = 26",
+          "WEBRTC_AUDIO_CHAT = 27",
+          "FORMS = 28",
+          "CUSTOMER_VERIFICATION = 29",
+          "DYNAMICS_CRM_CONNECTOR = 31",
+          "CUSTOM_FIELDS = 32",
+          "RIGHTNOW_CRM = 33",
+          "RULES = 34",
+          "EXTERNAL_CONTACTS = 35",
+          "WORKING_HOURS = 36",
+          "CUSTOM = 37",
+          "FACEBOOK_MESSENGER = 38",
+          "MAINTENANCE = 39",
+          "PRIVACY_AND_SECURITY = 40",
+          "AUTO_ASSIGN = 41",
+          "TWO_FACTOR_AUTHENTICATION = 42",
+          "THEMES = 43",
+          "TELEGRAM = 44",
+          "GOOGLE_MY_BUSINESS = 45",
+          "SAP_CRM = 46",
+          "SLA = 47",
+          "PUSH_NOTIFICATIONS = 48",
+          "SYS_AID = 49",
+          "WORKFLOW = 50",
+          "INSTAGRAM_DM = 52",
+          "PRIORITY = 53",
+          "JIRA = 54",
+          "GOOGLE_BUSINESS_MESSAGES = 55",
+          "BI_CUSTOM_REPORTS = 57",
+          "SALESFORCE = 58",
+          "AI_ASSISTANT = 59",
+          "API = 60",
+          "Zendesk = 61",
+          "Teams = 65",
+          "Hupspot = 71"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Core",
+      "description": "<br><br>Systemwide verification"
+    },
+    {
+      "name": "Objects",
+      "description": "<br><br>Objects are conversations between the bot or the agent and the customers, where each segment of the conversation is referred to as a Child. Every conversation must have a designated Stream \u2013 a communication channel such as Chat, Email, Text/SMS, etc., that hosts the conversation.<br>The Object APIs category concentrates on a specific conversation, where the Stream is part of the identifying parameters. In the Streams APIs category, the Channel is the focal point of the request, and the objects and users are the filtering aspects."
+    },
+    {
+      "name": "Streams",
+      "description": "<br><br>Streams are communication channels used in CommBox, such as Chat, WhatsApp, SMS/Text, etc. In the Streams category of APIs, the channel is the focal point of the request, and the objects and users are the filtering aspects. See the Enums Section for available channels and their CommBox code."
+    },
+    {
+      "name": "Tags",
+      "description": "<br><br>Tags are a classification tool for summarizing aspects of the conversation or the user. It can mark the conversation to indicate a new sale or identify a customer as not interested in the product. To help manage the Tags assets, Tags can be grouped with a common identifier."
+    },
+    {
+      "name": "SMS",
+      "description": "<br><br>Sending customers **SMS messages** (Texting) requires an initial opt-in step, which is not offered by CommBox and is the sole responsibility of the sending entity (Business)."
+    },
+    {
+      "name": "WhatsApp",
+      "description": "<br><br>CommBox facilitates activities in **WABA** for the clients. Our platform helps clients create new templates and manage existing ones.<br><br> **Opt-in for WhatsApp**<br> Before sending WhatsApp messages to someone, you must first receive opt-in permission confirming that they wish to receive future messages from you on WhatsApp. This can be done using any channel your business uses to communicate with people \u2014 your website, app, email, retail location, etc.<br><ul><li>The opt-in must be an active opt-in, which means it must be triggered by a user action, such as entering a phone number or checking a box to indicate consent.<br><li>The opt-in must clearly state your business' name.<br><li>Clear opt-in messaging so that the customers know what type(s) of messaging they are signing up for.<br>For more information, please visit: https://developers.facebook.com/docs/whatsapp/guides/opt-in/"
+    },
+    {
+      "name": "Users",
+      "description": "<br><br>**Users** are people recorded in CommBox and they include both the business side and the customers.<br>Managers are APIs that deal with the business personas such as Admins, Agents, Team leaders, etc., and they include **Profiles**, **Presence**, **Assignments**, **Notifications**, and **Teams** sub-categories.<br><br>General USERS"
+    },
+    {
+      "name": "Managers",
+      "description": "<br><br>The **MANAGERS** APIs category relates to activities involving the Admins, Team Leaders, Agents, and any other business-related persona. This category includes **Profiles**, **Presence**, **Assignments**, **Notifications**, and **Teams** sub-categories."
+    },
+    {
+      "name": "Profiles",
+      "description": "<br><br>**Profiles** relate to system permissions and enabled activities assigned to a group of agents (managers). <br>When looking for a specific user, the USER ID is required. <br>The profile ID is required when selecting a specific profile (See Enum section)."
+    },
+    {
+      "name": "Presence",
+      "description": "<br><br>The Presence APIs relate to the agent availability status. Active and ready for assignment, Busy, or Away from the desk. Additional statuses can be created by the admin."
+    },
+    {
+      "name": "Assignments",
+      "description": "<br><br>The **Assignments** category relates to conversations (Objects) assigned to a specific agent."
+    },
+    {
+      "name": "Teams",
+      "description": "A Team is a group of agents with specific business agendas, roles, and permissions. Admins and Team Managers can set up Team Managers to create and manage teams and give those teams specific inbox filters, tags, and knowledge-based assets."
+    },
+    {
+      "name": "Forms",
+      "description": "The Forms APIs allow agents to assist customers in completing and signing forms issued by the organization. Once the customer submits the form, a new object is created that includes a link to the original conversation and stores the completed, signed form as an attachment."
+    },
+    {
+      "name": "Authentication",
+      "description": "Authentication APIs provide accessibility to the system."
+    },
+    {
+      "name": "Automation",
+      "description": "<br><br>Automation APIs are related to bot capabilities."
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "API Calls",
+      "tags": [
+        "Core",
+        "Objects",
+        "Streams",
+        "Tags",
+        "SMS",
+        "WhatsApp",
+        "Users",
+        "Managers",
+        "Profiles",
+        "Presence",
+        "Assignments",
+        "Teams",
+        "Forms",
+        "Authentication",
+        "Automation"
+      ]
+    }
+  ]
 }
