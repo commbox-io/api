@@ -6,7 +6,7 @@
           "Core"
         ],
         "summary": "System Status",
-        "description": "returns the current state of the system</br></br><b>JSON Example:</b> <br>https://api.commbox.io/core/systemstatus</br>",
+        "description": "returns the current state of the system<br><br><b>JSON Example:</b> <br>https://api.CommBox.io/core/systemstatus<br>",
         "operationId": "systemStatus",
         "responses": {
           "200": {
@@ -26,7 +26,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.081112Z"
                     },
                     "data": {
                       "type": "string",

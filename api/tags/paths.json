@@ -6,7 +6,7 @@
           "Tags"
         ],
         "summary": "Set Object Tag",
-        "description": "This API is used to tag a conversation with a specific tag.<br> Required path parameters included the Stream (channel) Id, Object (conversation) Id, and the desired Tag Id.</br></br>(POST) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}<br><br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
+        "description": "This API is used to tag a conversation with a specific tag.<br> Required path parameters included the Stream (channel) Id, Object (conversation) Id, and the desired Tag Id.<br><br>(POST) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}<br><br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
         "operationId": "Set_Object_Tag",
         "parameters": [
           {
@@ -55,7 +55,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "string",
@@ -91,7 +91,7 @@
           "Tags"
         ],
         "summary": "Delete Object Tag",
-        "description": "This API is used to delete a specific tag from a conversation.<br> Required path parameters included the Stream (Channel) Id, Object (conversation) Id, and the desired Tag Id.</br></br> (DELETE) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID} <br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
+        "description": "This API is used to delete a specific tag from a conversation.<br> Required path parameters included the Stream (Channel) Id, Object (conversation) Id, and the desired Tag Id.<br><br> (DELETE) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID} <br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
         "operationId": "Delete_Object_Tag",
         "parameters": [
           {
@@ -140,7 +140,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "string",
@@ -198,7 +198,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "array",
@@ -271,7 +271,7 @@
           "Tags"
         ],
         "summary": "Create a Tag",
-        "description": "This API creates a new tag, where the name/content of the tag is part of the body parameters.<br>If you want this new tag to be part of a group of tags, you\u2019ll need to place the group Id in the TagGroupId field.<br><br> Tags can be attached to a conversation (object), to a specific comment or a reply (child), or to a customer (user). Set the tag\u2019s attachment options in the boolean parameters (true/false)<br><br>The API returns Tag Id.",
+        "description": "This API creates a new tag, where the name/content of the tag is part of the body parameters.<br>If you want this new tag to be part of a group of tags, you'll need to place the group Id in the TagGroupId field.<br><br> Tags can be attached to a conversation (object), to a specific comment or a reply (child), or to a customer (user). Set the tag's attachment options in the boolean parameters (true/false)<br><br>The API returns Tag Id.",
         "operationId": "Create_tag",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
@@ -328,7 +328,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",
@@ -371,13 +371,13 @@
           "Tags"
         ],
         "summary": "Updating a Tag",
-        "description": "This API updates/changes the name/content of a tag.<br> The tag\u2019s Id is required as part of the URL. The actual changes to the tag are part of the Body Params - the new name/content and the associated group (optional).<br>",
+        "description": "This API updates/changes the name/content of a tag.<br> The tag's Id is required as part of the URL. The actual changes to the tag are part of the Body Params - the new name/content and the associated group (optional).<br>",
         "operationId": "Update_tag",
         "parameters": [
           {
             "name": "TAG_ID",
             "in": "path",
-            "description": "Tag ID. This is a commbox generated number",
+            "description": "Tag ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TAG_ID/schema"
@@ -429,7 +429,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",
@@ -470,7 +470,7 @@
           "Tags"
         ],
         "summary": "Delete a Tag",
-        "description": "This API deletes a tag.<br> The tag\u2019s Id is required as part of the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags - https://api.commbox.io/tags",
+        "description": "This API deletes a tag.<br> The tag's Id is required as part of the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags - https://api.CommBox.io/tags",
         "operationId": "Delete_tag",
         "parameters": [
           {
@@ -501,7 +501,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",
@@ -564,7 +564,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "array",
@@ -679,7 +679,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",
@@ -722,7 +722,7 @@
           "Tags"
         ],
         "summary": "Update Tags Group",
-        "description": "A few tags with similar purposes or originating team can be grouped together by the organization.<br>This API lets you change the name of such a group of tags.<br>All the tags associated with the old name of the tags group will now be associated with the new name.<br><br>The Tags Group Id is required.<br>\nTo add a specific tag to the new group, use the **Update Tag API** (Tag\u2019s Id required).<br> To delete a specific tag from the new group, use the **Delete Tag API** (Tag\u2019s Id required).<br>",
+        "description": "A few tags with similar purposes or originating team can be grouped together by the organization.<br>This API lets you change the name of such a group of tags.<br>All the tags associated with the old name of the tags group will now be associated with the new name.<br><br>The Tags Group Id is required.<br>\nTo add a specific tag to the new group, use the **Update Tag API** (Tag's Id required).<br> To delete a specific tag from the new group, use the **Delete Tag API** (Tag's Id required).<br>",
         "operationId": "Update_tags_group",
         "parameters": [
           {
@@ -775,7 +775,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",
@@ -847,7 +847,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.075179Z"
                     },
                     "data": {
                       "type": "object",

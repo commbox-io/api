@@ -6,13 +6,13 @@
           "Users"
         ],
         "summary": "Get User",
-        "description": "Get user information</br></br>In order to get data, must use either UserId or both streamProviderId and streamProviderType of the user identity",
+        "description": "Get user information<br><br>In order to get data, must use either UserId or both streamProviderId and streamProviderType of the user identity",
         "operationId": "Get_User",
         "parameters": [
           {
             "name": "USER_ID",
             "in": "path",
-            "description": "User ID. This is a commbox generated number",
+            "description": "User ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/USER_ID/schema"
@@ -53,7 +53,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.100157Z"
                     },
                     "data": {
                       "type": "object",
@@ -265,7 +265,7 @@
           {
             "name": "USER_ID",
             "in": "path",
-            "description": "User ID. This is a commbox generated number",
+            "description": "User ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/USER_ID/schema"
@@ -315,7 +315,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.100157Z"
                     },
                     "data": {
                       "type": "object",
@@ -358,7 +358,7 @@
           "Users"
         ],
         "summary": "Get User Objects",
-        "description": "Get user objects</br></br>In order to get data, must use either userIdentityId or both streamProviderId and streamProviderType of the user identity",
+        "description": "Get user objects<br><br>In order to get data, must use either userIdentityId or both streamProviderId and streamProviderType of the user identity",
         "operationId": "Get_User_Objects",
         "parameters": [
           {
@@ -471,7 +471,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.100157Z"
                     },
                     "data": {
                       "type": "array",
@@ -530,7 +530,7 @@
                               },
                               "createdTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.100157Z"
                               },
                               "updatedTime": {
                                 "type": "string",
@@ -542,11 +542,11 @@
                               },
                               "firstResponseTime": {
                                 "type": "string",
-                                "example": "2024-08-06T08:00:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.100157Z"
                               },
                               "lastResponseTime": {
                                 "type": "string",
-                                "example": "2024-08-06T08:00:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.100157Z"
                               },
                               "statusId": {
                                 "type": "integer",
@@ -646,7 +646,7 @@
                                         },
                                         "createdTime": {
                                           "type": "string",
-                                          "example": "2024-08-06T07:51:52.2581942Z"
+                                          "example": "2025-07-27T15:28:43.100157Z"
                                         },
                                         "streamProviderType": {
                                           "type": "integer",
@@ -721,7 +721,7 @@
                                         },
                                         "createdTime": {
                                           "type": "string",
-                                          "example": "2024-08-06T07:55:52.2581942Z"
+                                          "example": "2025-07-27T15:28:43.100157Z"
                                         },
                                         "streamProviderType": {
                                           "type": "integer",

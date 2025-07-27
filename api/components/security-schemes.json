@@ -2,7 +2,7 @@
   "BearerAuth": {
     "type": "http",
     "scheme": "bearer",
-    "description": "API key is needed to authorize requests. You can get your API key via the management console. </br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b></br> For additional support you can contact us."
+    "description": "API key is needed to authorize requests. You can get your API key via the management console. <br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b><br> For additional support you can contact us."
   },
   "jwtAuth": {
     "type": "http",

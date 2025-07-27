@@ -12,7 +12,7 @@
           {
             "name": "TEAM_ID",
             "in": "path",
-            "description": "Team ID. This is a commbox generated number",
+            "description": "Team ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TEAM_ID/schema"
@@ -37,7 +37,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.077611Z"
                     },
                     "data": {
                       "type": "array",
@@ -148,7 +148,7 @@
           {
             "name": "TEAM_ID",
             "in": "path",
-            "description": "Team ID. This is a commbox generated number",
+            "description": "Team ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TEAM_ID/schema"
@@ -173,7 +173,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.077611Z"
                     },
                     "data": {
                       "type": "string",
@@ -215,7 +215,7 @@
           {
             "name": "TEAM_ID",
             "in": "path",
-            "description": "Team ID. This is a commbox generated number",
+            "description": "Team ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/TEAM_ID/schema"
@@ -240,7 +240,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.077611Z"
                     },
                     "data": {
                       "type": "string",
@@ -308,7 +308,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.077611Z"
                     },
                     "data": {
                       "type": "array",
@@ -373,7 +373,7 @@
           "Teams"
         ],
         "summary": "Create a Team",
-        "description": "This API is used to create a new Team.<br><br> Enter the new Team\u2019s name in the query parameter.<br>The API returns a new Team Id number.",
+        "description": "This API is used to create a new Team.<br><br> Enter the new Team's name in the query parameter.<br>The API returns a new Team Id number.",
         "operationId": "Create_Team",
         "parameters": [
           {
@@ -403,7 +403,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.077611Z"
                     },
                     "data": {
                       "type": "object",

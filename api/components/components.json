@@ -3,7 +3,7 @@
     "BearerAuth": {
       "type": "http",
       "scheme": "bearer",
-      "description": "API key is needed to authorize requests. You can get your API key via the management console. </br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b></br> For additional support you can contact us."
+      "description": "API key is needed to authorize requests. You can get your API key via the management console. <br><b> A Bearer Token is needed to be set in the Authorization header of every API call.</b><br> For additional support you can contact us."
     },
     "jwtAuth": {
       "type": "http",
@@ -271,7 +271,7 @@
         },
         "StatusId": {
           "type": "string",
-          "description": "The conversation’s current state (Open, Resolved, etc.) – See Enum for code"
+          "description": "The conversation's current state (Open, Resolved, etc.) \u2013 See Enum for code"
         },
         "StreamProviderType": {
           "type": "integer",
@@ -342,7 +342,7 @@
         },
         "UserStreamProviderType": {
           "type": "integer",
-          "description": "The channel type’s code. See Enum "
+          "description": "The channel type's code. See Enum "
         },
         "Message": {
           "type": "string",
@@ -374,7 +374,7 @@
         "Id": {
           "type": "integer",
           "format": "int64",
-          "description": "Tag ID. This is a commbox generated number"
+          "description": "Tag ID. This is a CommBox generated number"
         }
       }
     },
@@ -384,22 +384,22 @@
         "Id": {
           "type": "integer",
           "format": "int64",
-          "description": "User ID. This is a commbox generated number for the customer"
+          "description": "User ID. This is a CommBox generated number for the customer"
         },
         "UniqueId": {
           "type": "string",
           "format": "50",
-          "description": "User’s unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
+          "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
         },
         "Phone1": {
           "type": "string",
           "format": "numeric string (20)",
-          "description": "User’s phone number (should include country and area code without leading + or 00)"
+          "description": "User's phone number (should include country and area code without leading + or 00)"
         },
         "Phone2": {
           "type": "string",
           "format": "numeric string (20)",
-          "description": "User’s additional phone number (should include country and area code without leading + or 00)"
+          "description": "User's additional phone number (should include country and area code without leading + or 00)"
         },
         "Email": {
           "type": "string",
@@ -409,26 +409,26 @@
         "FirstName": {
           "type": "string",
           "format": "100",
-          "description": "User’s first name"
+          "description": "User's first name"
         },
         "LastName": {
           "type": "string",
           "format": "100",
-          "description": "User’s last name"
+          "description": "User's last name"
         },
         "Gender": {
           "type": "string",
           "format": "1",
-          "description": "User’s gender (‘M’ for male, ‘F’ for female)"
+          "description": "User's gender (\u2018M' for male, \u2018F' for female)"
         },
         "Locale": {
           "type": "object",
-          "description": "User’s locale"
+          "description": "User's locale"
         },
         "Birthday": {
           "type": "string",
           "format": "date",
-          "description": "User’s birthday"
+          "description": "User's birthday"
         },
         "NumIdentities": {
           "type": "integer",
@@ -454,17 +454,17 @@
         "UniqueId": {
           "type": "string",
           "format": "50",
-          "description": "User’s unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
+          "description": "User's unique identifier. This can be an email, social security number or any other type of unique string determined by the brand administrators"
         },
         "FirstName": {
           "type": "string",
           "format": "100",
-          "description": "User’s first name"
+          "description": "User's first name"
         },
         "LastName": {
           "type": "string",
           "format": "100",
-          "description": "User’s last name"
+          "description": "User's last name"
         },
         "Email": {
           "type": "string",
@@ -474,12 +474,12 @@
         "Phone1": {
           "type": "string",
           "format": "100",
-          "description": "User’s main phone number"
+          "description": "User's main phone number"
         },
         "Phone2": {
           "type": "string",
           "format": "100",
-          "description": "User’s secondary phone number"
+          "description": "User's secondary phone number"
         },
         "Remarks": {
           "type": "string",
@@ -506,7 +506,7 @@
         "Id": {
           "type": "integer",
           "format": "int64",
-          "description": "Identity ID. This is a commbox generated number and used throughout all the updates"
+          "description": "Identity ID. This is a CommBox generated number and used throughout all the updates"
         },
         "StreamProviderId": {
           "type": "string",
@@ -521,27 +521,27 @@
         "StreamProviderEmail": {
           "type": "string",
           "format": "255",
-          "description": "Identity’s email as it appears at the original provider"
+          "description": "Identity's email as it appears at the original provider"
         },
         "UserName": {
           "type": "string",
           "format": "100",
-          "description": "Identity’s user name as it appears at the original provider"
+          "description": "Identity's user name as it appears at the original provider"
         },
         "FirstName": {
           "type": "string",
           "format": "100",
-          "description": "Identity’s first name as it appears at the original provider"
+          "description": "Identity's first name as it appears at the original provider"
         },
         "LastName": {
           "type": "string",
           "format": "100",
-          "description": "Identity’s last name as it appears at the original provider"
+          "description": "Identity's last name as it appears at the original provider"
         },
         "ThumbnailUrl": {
           "type": "string",
           "format": "255",
-          "description": "Link to the identity’s profile image"
+          "description": "Link to the identity's profile image"
         },
         "NumObjects": {
           "type": "integer",
@@ -555,7 +555,7 @@
         "Id": {
           "type": "integer",
           "format": "int64",
-          "description": "Manager ID. This is a commbox generated number and used throughout all the updates"
+          "description": "Manager ID. This is a CommBox generated number and used throughout all the updates"
         },
         "AsyncAssignedNoResponse": {
           "type": "integer",
@@ -592,7 +592,7 @@
       "properties": {
         "IndicatorId": {
           "type": "string",
-          "description": "Indicator id (unique name) – to allow updating/ deleting existing indicator"
+          "description": "Indicator id (unique name) \u2013 to allow updating/ deleting existing indicator"
         },
         "DisplayClass": {
           "type": "string",
@@ -657,7 +657,7 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
+                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
                 },
                 "text": {
                   "type": "string",
@@ -681,7 +681,7 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The type of parameter (e.g. image). WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
+                  "description": "The type of parameter (e.g. image). WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
                 },
                 "image": {
                   "type": "object",
@@ -704,7 +704,7 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
+                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
                 },
                 "video": {
                   "type": "object",
@@ -723,7 +723,7 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", “video”, and \"document\" parameters."
+                  "description": "The type of parameter. WhatsApp supports \"text\", \"image\", \u201cvideo\u201d, and \"document\" parameters."
                 },
                 "document": {
                   "type": "object",
@@ -955,7 +955,7 @@
         "response_time": {
           "type": "string",
           "description": "Timestamp of the response",
-          "example": "2024-08-06T07:51:52.2581942Z"
+          "example": "2025-07-27T15:28:43.089834Z"
         },
         "data": {
           "type": "array",
@@ -1010,7 +1010,7 @@
         "response_time": {
           "type": "string",
           "description": "Timestamp of the response",
-          "example": "2024-08-06T07:51:52.2581942Z"
+          "example": "2025-07-27T15:28:43.089834Z"
         },
         "data": {
           "type": "array",
@@ -1051,7 +1051,7 @@
                   },
                   "failed": {
                     "type": "string",
-                    "example": "invalid — Not a valid WhatsApp user"
+                    "example": "invalid \u2014 Not a valid WhatsApp user"
                   }
                 }
               }
@@ -1082,7 +1082,7 @@
         "response_time": {
           "type": "string",
           "description": "Timestamp of the response",
-          "example": "2024-08-06T07:51:52.2581942Z"
+          "example": "2025-07-27T15:28:43.089834Z"
         },
         "data": {
           "type": "array",
@@ -1159,7 +1159,7 @@
     "StreamProviderType": {
       "type": "string",
       "enum": [
-        "Commbox = 0",
+        "CommBox = 0",
         "Facebook = 1",
         "Twitter = 2",
         "YouTube = 3",

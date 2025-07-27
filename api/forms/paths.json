@@ -92,7 +92,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.080493Z"
                     },
                     "data": {
                       "type": "object",
@@ -103,7 +103,7 @@
                         },
                         "form_link": {
                           "type": "string",
-                          "example": "https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a"
+                          "example": "https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a"
                         }
                       }
                     }
@@ -211,7 +211,7 @@
                         },
                         "form_link": {
                           "type": "string",
-                          "example": "https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a"
+                          "example": "https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a"
                         }
                       }
                     }

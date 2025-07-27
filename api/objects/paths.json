@@ -12,7 +12,7 @@
           {
             "name": "STREAM_ID",
             "in": "path",
-            "description": "Stream ID. This is a commbox generated number",
+            "description": "Stream ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/STREAM_ID/schema"
@@ -230,7 +230,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "object",
@@ -273,7 +273,7 @@
           "Objects"
         ],
         "summary": "Create Child Object",
-        "description": " This API creates a message (child) in a conversation (object) on behalf of the agent, sending it to the customer, or on behalf of the customer, displaying it to the agent.<br> The API returns the new child\u2019s ID.<br><br><br>Required path parameters include the Stream (channel) ID and the Object (conversation) ID.<br><br>Required body parameters for a message on behalf of the customer:<br> a) The data \u201cType\u201d see Enum at https://www.commbox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf.<br> c) UserStreamProviderType of the channel. See Enum at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> d) The messages<br><br>Required body parameters for a message on behalf of the agent:<br> a) The data \u201cType\u201d - See Enum at https://www.commbox.io/api/#section/Enums/ObjectType <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent\u2019s user ID 'UserIdentity' : 34168, <br> Get the agent's User ID by using the Get Managers API https://api.commbox.io/managers <br> d) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf. <br> e) UserStreamProviderType of the channel. See Enum at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> f) The messages <br><br>**Note:** After 24 hours from last sent message, APIs messages sent to customers will be blocked by WhatsApp.<br><br>POST /streams/STREAM_ID/objects/OBJECT_ID/child<br>POST /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
+        "description": " This API creates a message (child) in a conversation (object) on behalf of the agent, sending it to the customer, or on behalf of the customer, displaying it to the agent.<br> The API returns the new child's ID.<br><br>Required path parameters include the Stream (channel) ID and the Object (conversation) ID.<br><br>Required body parameters for a message on behalf of the customer:<br> a) The data \u201cType\u201d see Enum at https://www.CommBox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf.<br> c) UserStreamProviderType of the channel. See Enum at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> d) The messages<br><br>Required body parameters for a message on behalf of the agent:<br> a) The data \u201cType\u201d - See Enum at https://www.CommBox.io/api/#section/Enums/ObjectType <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent's user ID 'UserIdentity' : 34168, <br> Get the agent's User ID by using the Get Managers API https://api.CommBox.io/managers <br> d) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf. <br> e) UserStreamProviderType of the channel. See Enum at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> f) The messages <br><br>**Note:** After 24 hours from last sent message, APIs messages sent to customers will be blocked by WhatsApp.<br><br>POST /streams/STREAM_ID/objects/OBJECT_ID/child<br>POST /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
         "operationId": "Create_Child_Object",
         "parameters": [
           {
@@ -310,7 +310,7 @@
                       "IsManager": true,
                       "UserIdentity": 36574658,
                       "Type": 4,
-                      "UserStreamProviderId": "best.agent@commbox.com",
+                      "UserStreamProviderId": "best.agent@CommBox.com",
                       "UserStreamProviderType": 4,
                       "Message": "A new message on behalf of the agent"
                     }
@@ -360,7 +360,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "object",
@@ -403,7 +403,7 @@
           "Objects"
         ],
         "summary": "Get Object",
-        "description": "This API returns the details of a specific conversation (object).<br> Data includes information about the customer, the agent, and a separate account of the messages (Child) of the conversation (Object).<br>  Note that the last communication will appear at the top of the report.<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br> <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854<br><br>Note: When Children are not included in the request, the API only returns the last message. When requesting logs (optional), the return will include all system actions (for example, CRM activity) for the conversation.   ",
+        "description": "This API returns the details of a specific conversation (object).<br> Data includes information about the customer, the agent, and a separate account of the messages (Child) of the conversation (Object).<br>  Note that the last communication will appear at the top of the report.<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br><br><b>Example:</b> <br>https://api.CommBox.io/streams/532/objects/293854<br><br>Note: When Children are not included in the request, the API only returns the last message. When requesting logs (optional), the return will include all system actions (for example, CRM activity) for the conversation.   ",
         "operationId": "Get_Object",
         "parameters": [
           {
@@ -449,7 +449,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "array",
@@ -507,7 +507,7 @@
                               "content": {
                                 "description": "<br>Summary of the technical aspects of communication. May include the language used, direction (Rt. for Arabic and Hebrew), URL of origin, system details (assignments to agent, acceptance of email, etc.), subject matter (emails), and an initiation time.",
                                 "type": "string",
-                                "example": "{\\\"guidRT\\\":\\\"82c952166e0b4989b932c41d1\\\",\\\"languages\\\":[{\\\"Item1\\\":\\\"he\\\",\\\"Item2\\\":1329062}],\\\"originUrl\\\":\\\"https://apps.commbox.com/Demo\\\",\\\"isConnected\\\"true,\\\"first_assigned_time\\\":\\\"2023-09-05T08:44:20\\\",\\\"sequence_start_time\\\":\\\"2023-09-0508:55:06.000000\\\",\\\"dropOutAggregationState\\\":1}"
+                                "example": "{\\\"guidRT\\\":\\\"82c952166e0b4989b932c41d1\\\",\\\"languages\\\":[{\\\"Item1\\\":\\\"he\\\",\\\"Item2\\\":1329062}],\\\"originUrl\\\":\\\"https://apps.CommBox.com/Demo\\\",\\\"isConnected\\\"true,\\\"first_assigned_time\\\":\\\"2023-09-05T08:44:20\\\",\\\"sequence_start_time\\\":\\\"2023-09-0508:55:06.000000\\\",\\\"dropOutAggregationState\\\":1}"
                               },
                               "message": {
                                 "type": "string",
@@ -515,11 +515,11 @@
                               },
                               "createdTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.096637Z"
                               },
                               "updatedTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.096637Z"
                               },
                               "closeTime": {
                                 "type": "string",
@@ -624,7 +624,7 @@
                                             },
                                             "createdTime": {
                                               "type": "string",
-                                              "example": "2024-08-06T07:51:52.2581942Z"
+                                              "example": "2025-07-27T15:28:43.096637Z"
                                             },
                                             "streamProviderType": {
                                               "type": "integer",
@@ -699,7 +699,7 @@
                                             },
                                             "createdTime": {
                                               "type": "string",
-                                              "example": "2024-08-06T07:55:52.2581942Z"
+                                              "example": "2025-07-27T15:28:43.096637Z"
                                             },
                                             "streamProviderType": {
                                               "type": "integer",
@@ -795,7 +795,7 @@
           "Objects"
         ],
         "summary": "Get Object's Activities",
-        "description": "This API returns the data of a specific Activity Type listed in the query param of a specific conversation (object). Use the ActivityType Enum listed above to receive the desired information.<br><br>(GET) /objects/OBJECT_ID/activities?activityType=X_from_Enum<br><br>Example: To see the remarks added to the conversation (activity type #1)<br>https://api.commbox.io/objects/56575395/activities?activityType=1",
+        "description": "This API returns the data of a specific Activity Type listed in the query param of a specific conversation (object). Use the ActivityType Enum listed above to receive the desired information.<br><br>(GET) /objects/OBJECT_ID/activities?activityType=X_from_Enum<br><br>Example: To see the remarks added to the conversation (activity type #1)<br>https://api.CommBox.io/objects/56575395/activities?activityType=1",
         "operationId": "Get_Object_Activities",
         "parameters": [
           {
@@ -919,7 +919,7 @@
           "Objects"
         ],
         "summary": "Get Object's Transcript",
-        "description": "This API returns the transcript of a specific conversation (object).<br> Data includes information about the conversation (objectId), customer, the channel, sub-channel.<br> Note: The transcript field includes the conversation transcript with an external hyperlink to the Object (conversation) .<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID/transcript  <br> <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854/transcript<br>",
+        "description": "This API returns the transcript of a specific conversation (object).<br> Data includes information about the conversation (objectId), customer, the channel, sub-channel.<br> Note: The transcript field includes the conversation transcript with an external hyperlink to the Object (conversation) .<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID/transcript  <br><br><b>Example:</b> <br>https://api.CommBox.io/streams/532/objects/293854/transcript<br>",
         "operationId": "Get_Object_Transcript",
         "parameters": [
           {
@@ -986,7 +986,7 @@
                               "trasncript": {
                                 "description": "<br>trasncript of the conversation.",
                                 "type": "string",
-                                "example": "\\n[2/29/2024 12:20:25 PM] \\nBot : \\nTEST!@$$%^&*()}{\\\":<>?\ud83d\ude41\ud83d\ude41\ud83d\ude41\ud83d\ude41 6_312aac6109.jpg \\n[2/29/2024 12:20:30 PM] \\nJohn Doe: \\nhi \\n[2/29/2024 12:21:05 PM] \\nJohn Doe: \\nAttachments: \\nmashu_mashu_251a989981_25a7e7f517.png \\n[2/29/2024 12:21:22 PM] \\nRan Itzhaki: \\nok \\n[2/29/2024 12:21:29 PM] \\nBot : \\nResolved \\nWispp Object Id: 378015 \\nCommbox Ticket Link: https://qawispp.wispp.com/widget/object/378015"
+                                "example": "\\n[2/29/2024 12:20:25 PM] \\nBot : \\nTEST!@$$%^&*()}{\\\":<>?\ud83d\ude41\ud83d\ude41\ud83d\ude41\ud83d\ude41 6_312aac6109.jpg \\n[2/29/2024 12:20:30 PM] \\nJohn Doe: \\nhi \\n[2/29/2024 12:21:05 PM] \\nJohn Doe: \\nAttachments: \\nmashu_mashu_251a989981_25a7e7f517.png \\n[2/29/2024 12:21:22 PM] \\nRan Itzhaki: \\nok \\n[2/29/2024 12:21:29 PM] \\nBot : \\nResolved \\nWispp Object Id: 378015 \\nCommBox Ticket Link: https://qawispp.wispp.com/widget/object/378015"
                               },
                               "user": {
                                 "type": "object",
@@ -1079,13 +1079,13 @@
           "Objects"
         ],
         "summary": "Set Object Status",
-        "description": "The conversation\u2019s status indicates where the conversation has reached or heading. Statuses include \u201cOpen\u201d, \u201cResolved\u201d, \u201cArchived\u201d, etc.<br>This API updates the status of the conversation. See the Enum section for the Object Status Type.<br><br>Required path parameters include the Object (Conversation) Id and the desired updated status Id.",
+        "description": "The conversation's status indicates where the conversation has reached or heading. Statuses include \u201cOpen\u201d, \u201cResolved\u201d, \u201cArchived\u201d, etc.<br>This API updates the status of the conversation. See the Enum section for the Object Status Type.<br><br>Required path parameters include the Object (Conversation) Id and the desired updated status Id.",
         "operationId": "Set_Object_Status",
         "parameters": [
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -1094,7 +1094,7 @@
           {
             "name": "STATUS_ID",
             "in": "path",
-            "description": "Status ID. This is a commbox generated number",
+            "description": "Status ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/STATUS_ID/schema"
@@ -1119,7 +1119,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",
@@ -1157,7 +1157,7 @@
           "Objects"
         ],
         "summary": "Update Object's Stream",
-        "description": "This API enables developers to change streams (channels) of an object (conversation).<br><br><h3>Available routes:</h3><br><h4>Same-Channel Routing (Conversations remain within the same channel type):</h4><li>SMS (Texting) \u2192 SMS<li>Email \u2192 Email<li>Chat \u2192 Chat<br><br><h4>Cross-Channel Routing (Conversations transfer to different channel types):</h4><li>SMS (Texting) \u2192 Email / Chat<br><li>Email \u2192 SMS / Chat<br><li>Chat \u2192 SMS / Email<br><li>Any channel \u2192 Theme<br><br><br>- For the General subchannel ID, enter \u201c0\u201d in the substreamId field.",
+        "description": "This API enables developers to change streams (channels) of an object (conversation).<br><br><h3>Available routes:</h3><br><h4>Same-Channel Routing (Conversations remain within the same channel type):</h4><li>SMS (Texting) \u2192 SMS<li>Email \u2192 Email<li>Chat \u2192 Chat<br><br><h4>Cross-Channel Routing (Conversations transfer to different channel types):</h4><li>SMS (Texting) \u2192 Email / Chat<br><li>Email \u2192 SMS / Chat<br><li>Chat \u2192 SMS / Email<br><li>Any channel \u2192 Theme<br><br>- For the General subchannel ID, enter \u201c0\u201d in the substreamId field.",
         "operationId": "Update_Object_Stream",
         "parameters": [
           {
@@ -1677,7 +1677,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -1719,7 +1719,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",
@@ -1763,7 +1763,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -1806,7 +1806,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",
@@ -1850,7 +1850,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -1892,7 +1892,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",
@@ -1936,7 +1936,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number for the conversation",
+            "description": "Object ID. This is a CommBox generated number for the conversation",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -1972,7 +1972,7 @@
                       "Link": {
                         "type": "string",
                         "description": "(Optional) Enter a link that will open when the user clicks on the icon",
-                        "example": "www.commbox.io"
+                        "example": "www.CommBox.io"
                       }
                     }
                   }
@@ -1999,7 +1999,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",
@@ -2043,7 +2043,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -2077,7 +2077,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.096637Z"
                     },
                     "data": {
                       "type": "string",

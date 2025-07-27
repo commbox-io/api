@@ -6,7 +6,7 @@
           "Automation"
         ],
         "summary": "Get Object Context",
-        "description": "Returns object data context. <b>Must include desierd data propertie for query (comma separated)</b> </br></br> Example</br> https://api.commbox.io/automation/objects/{OBJECT_ID}/context?<b>properties=data.plus,data.name",
+        "description": "Returns object data context. <b>Must include desierd data propertie for query (comma separated)</b> <br><br> Example<br> https://api.CommBox.io/automation/objects/{OBJECT_ID}/context?<b>properties=data.plus,data.name",
         "operationId": "Get_Object_Context",
         "parameters": [
           {
@@ -36,7 +36,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.081553Z"
                     },
                     "data": {
                       "type": "object",
@@ -83,7 +83,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "Object ID. This is a commbox generated number",
+            "description": "Object ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -139,7 +139,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.081553Z"
                     },
                     "data": {
                       "type": "object",
@@ -188,7 +188,7 @@
           {
             "name": "OBJECT_ID",
             "in": "path",
-            "description": "OBJECT ID. This is a commbox generated number",
+            "description": "OBJECT ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/OBJECT_ID/schema"
@@ -235,7 +235,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.081553Z"
                     },
                     "data": {
                       "type": "object",

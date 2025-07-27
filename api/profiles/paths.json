@@ -12,7 +12,7 @@
           {
             "name": "PROFILE_ID",
             "in": "path",
-            "description": "Profile ID. This is a commbox generated number",
+            "description": "Profile ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/PROFILE_ID/schema"
@@ -37,7 +37,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.088196Z"
                     },
                     "data": {
                       "type": "array",
@@ -144,7 +144,7 @@
           "Profiles"
         ],
         "summary": "Get Profiles",
-        "description": "A profile is a set of permissions the agent has access to.<br> This API returns a list of all agents\u2019 profile Ids and profile names.<br><br>API Returns <br> \"Id\" refers to the profile Id number <br> \"Name\" is the name of the profile <br> \"UniqueName\" is a secondary name (optional)",
+        "description": "A profile is a set of permissions the agent has access to.<br> This API returns a list of all agents' profile Ids and profile names.<br><br>API Returns <br> \"Id\" refers to the profile Id number <br> \"Name\" is the name of the profile <br> \"UniqueName\" is a secondary name (optional)",
         "operationId": "Get_profiles",
         "responses": {
           "200": {
@@ -164,7 +164,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.088196Z"
                     },
                     "data": {
                       "type": "array",
@@ -270,7 +270,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.088196Z"
                     },
                     "data": {
                       "type": "string",
@@ -306,13 +306,13 @@
           "Profiles"
         ],
         "summary": "Add Profiles",
-        "description": "This API Adds or changes the profiles of a specific agent/admin.<br>The Manager Id of the agent is required, as well as the specific profile Id or name.<br><br>To <b>Add</b> profiles, set the Query parameter to \u201cadd\u201d and enter the profile\u2019s name or Id. Separate multiple profiles with a comma.<br><br>To <b>Change</b> profiles (delete the current and add the new), set the Query parameter to \u201cset\u201d and enter the profile\u2019s name or Id. Separate multiple profiles with a comma.<br><br><b>Note that only one query parameter should be used \u2013 not both.</b><br>API Sends URL + Manager\u2019s Id q=[profile id]",
+        "description": "This API Adds or changes the profiles of a specific agent/admin.<br>The Manager Id of the agent is required, as well as the specific profile Id or name.<br><br>To <b>Add</b> profiles, set the Query parameter to \u201cadd\u201d and enter the profile's name or Id. Separate multiple profiles with a comma.<br><br>To <b>Change</b> profiles (delete the current and add the new), set the Query parameter to \u201cset\u201d and enter the profile's name or Id. Separate multiple profiles with a comma.<br><br><b>Note that only one query parameter should be used \u2013 not both.</b><br>API Sends URL + Manager's Id q=[profile id]",
         "operationId": "Add_Profiles",
         "parameters": [
           {
             "name": "MANAGER_ID",
             "in": "path",
-            "description": "Manager ID. This is a commbox generated number",
+            "description": "Manager ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/MANAGER_ID/schema"
@@ -365,7 +365,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.088196Z"
                     },
                     "data": {
                       "type": "array",
@@ -446,7 +446,7 @@
           {
             "name": "MANAGER_ID",
             "in": "path",
-            "description": "Manager ID. This is a commbox generated number",
+            "description": "Manager ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/MANAGER_ID/schema"
@@ -455,7 +455,7 @@
           {
             "name": "PROFILE_ID",
             "in": "path",
-            "description": "Profile ID. This is a commbox generated number",
+            "description": "Profile ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/PROFILE_ID/schema"
@@ -480,7 +480,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.088196Z"
                     },
                     "data": {
                       "type": "string",

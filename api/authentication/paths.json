@@ -6,7 +6,7 @@
           "Authentication"
         ],
         "summary": "Create Ticket",
-        "description": "This API allows organizations to grant users access to the CommBox platform while bypassing standard authentication methods. The Ticket API returns a session cookie that is added to the login URL. You can limit the token\u2019s lifespan when making the API call or by configuring it in the Privacy and Security module in the CommBox platform.<br><br>See important information about the body params in the schema below. <br><br>**Agent Login Bypass**<br>To bypass the login page without entering the agent\u2019s credentials, append the session cookie returned by the API to the login URL:<br><br>Format: Login URL / ?ta= / authentication token (without the quotation marks)<br>Example: https://commbox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer Chat Access**<br>To start the chat without manual identification, append the session cookie to the chat login page URL:<br><br>Format: apps.Brand URL / chat / the channel ID in the encrypted code / ?ta= / authentication token (without the quotation marks)<br>Example: https://apps.commbox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo** \u2013 Optional param for editing the Customer Information record at login.<br>**OneTimeUse** \u2013 Optional param that limits the token to one usage.<br><br>Learn more: [https://help.commbox.io/docs/ticket-authentication](https://help.commbox.io/docs/ticket-authentication)        ",
+        "description": "This API allows organizations to grant users access to the CommBox platform while bypassing standard authentication methods. The Ticket API returns a session cookie that is added to the login URL. You can limit the token's lifespan when making the API call or by configuring it in the Privacy and Security module in the CommBox platform.<br><br>See important information about the body params in the schema below. <br><br>**Agent Login Bypass**<br>To bypass the login page without entering the agent's credentials, append the session cookie returned by the API to the login URL:<br><br>Format: Login URL / ?ta= / authentication token (without the quotation marks)<br>Example: https://CommBox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer Chat Access**<br>To start the chat without manual identification, append the session cookie to the chat login page URL:<br><br>Format: apps.Brand URL / chat / the channel ID in the encrypted code / ?ta= / authentication token (without the quotation marks)<br>Example: https://apps.CommBox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo** \u2013 Optional param for editing the Customer Information record at login.<br>**OneTimeUse** \u2013 Optional param that limits the token to one usage.<br><br>Learn more: [https://help.CommBox.io/docs/ticket-authentication](https://help.CommBox.io/docs/ticket-authentication)        ",
         "operationId": "Create_Ticket",
         "requestBody": {
           "description": "Optional description for new mail object in  *Markdown*",
@@ -21,11 +21,11 @@
                     "properties": {
                       "brand": {
                         "type": "string",
-                        "example": "commbox"
+                        "example": "CommBox"
                       },
                       "username": {
                         "type": "string",
-                        "description": "Applicable only for agent authentication; found in the agent\u2019s record",
+                        "description": "Applicable only for agent authentication; found in the agent's record",
                         "example": "john.d"
                       },
                       "email": {

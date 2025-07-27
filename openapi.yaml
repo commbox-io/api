@@ -32,18 +32,17 @@ tags:
     \ must first receive opt-in permission confirming that they wish to receive future\
     \ messages from you on WhatsApp. This can be done using any channel your business\
     \ uses to communicate with people \u2014 your website, app, email, retail location,\
-    \ etc.</br><ul><li>The opt-in must be an active opt-in, which means it must be\
+    \ etc.<br><ul><li>The opt-in must be an active opt-in, which means it must be\
     \ triggered by a user action, such as entering a phone number or checking a box\
-    \ to indicate consent.</br><li>The opt-in must clearly state your business\u2019\
-    \ name.</br><li>Clear opt-in messaging so that the customers know what type(s)\
-    \ of messaging they are signing up for.<br>For more information, please visit:\
-    \ https://developers.facebook.com/docs/whatsapp/guides/opt-in/"
+    \ to indicate consent.<br><li>The opt-in must clearly state your business' name.<br><li>Clear\
+    \ opt-in messaging so that the customers know what type(s) of messaging they are\
+    \ signing up for.<br>For more information, please visit: https://developers.facebook.com/docs/whatsapp/guides/opt-in/"
 - name: Users
-  description: <br><br><br><br>**Users** are people recorded in CommBox and they include
-    both the business side and the customers.<br>Managers are APIs that deal with
-    the business personas such as Admins, Agents, Team leaders, etc., and they include
-    **Profiles**, **Presence**, **Assignments**, **Notifications**, and **Teams**
-    sub-categories.<br><br>General USERS
+  description: <br><br>**Users** are people recorded in CommBox and they include both
+    the business side and the customers.<br>Managers are APIs that deal with the business
+    personas such as Admins, Agents, Team leaders, etc., and they include **Profiles**,
+    **Presence**, **Assignments**, **Notifications**, and **Teams** sub-categories.<br><br>General
+    USERS
 - name: Managers
   description: <br><br>The **MANAGERS** APIs category relates to activities involving
     the Admins, Team Leaders, Agents, and any other business-related persona. This
@@ -78,22 +77,22 @@ tags:
 info:
   title: CommBox API
   x-logo:
-    url: https://www.commbox.io/logo/commbox_logo_large.png
+    url: https://www.CommBox.io/logo/CommBox_logo_large.png
   description: "\n# About CommBox\n## Overview\nCommBox redefines the way businesses\
     \ interact with their customers by providing seamless interactions between different\
     \ communication modalities, deep integration with customer relations management\
-    \ platforms, and innovative business solutions to improve agents\u2019 productivity\
+    \ platforms, and innovative business solutions to improve agents' productivity\
     \ and service abilities, all while saving time by reducing manual efforts via\
     \ our automation.\n\nThis document provides the information needed for developers\
-    \ to use CommBox\u2019s resources, whether server-based or client-side.\n\nThe\
-    \ CommBox Developers platform lets you access CommBox data and functionality using\
-    \ code instead of the user interface.</br></br> \nFor example, you can use the\
-    \ platform to:\n* Create a new agent and assign that agent to a specific team.\n\
-    * Create a WhatsApp template. \n* Send follow-up SMS/text reminders. \n* Receive\
-    \ Webhooks based on pre-set triggers in CommBox.</br></br>\n\n ## CommBox Omnichannel\
-    \ Structure\n\n<img src=\"https://www.commbox.io/wp-content/uploads/2025/04/CommBox-Structure.png\"\
+    \ to use CommBox's resources, whether server-based or client-side.\n\nThe CommBox\
+    \ Developers platform lets you access CommBox data and functionality using code\
+    \ instead of the user interface.<br><br> \nFor example, you can use the platform\
+    \ to:\n* Create a new agent and assign that agent to a specific team.\n* Create\
+    \ a WhatsApp template. \n* Send follow-up SMS/text reminders. \n* Receive Webhooks\
+    \ based on pre-set triggers in CommBox.<br><br>\n\n ## CommBox Omnichannel Structure\n\
+    \n<img src=\"https://www.CommBox.io/wp-content/uploads/2025/04/CommBox-Structure.png\"\
     >\n# Security and Authentication\n## Overview\nThe CommBox REST API is served\
-    \ over HTTPS, and unencrypted HTTP is not supported to ensure data privacy.</br>In\
+    \ over HTTPS, and unencrypted HTTP is not supported to ensure data privacy.<br>In\
     \ addition, all requests are required to pass Bearer Token (BearerAuth) for authentication,\
     \ where the token is predetermined and provided by CommBox.\n\nAll requests are\
     \ logged and validated. \n\nAll parameters **must** be URL-encoded.\n\n* **Security\
@@ -109,25 +108,25 @@ info:
     \ if used by an unauthorized person. Make sure to keep them secure. Delete old\
     \ keys and replace them in your system if you suspect any security breach.\n\n\
     ## Replacing/Rotating API Tokens\n\nAPI Keys rotate automatically in a pre-set\
-    \ schedule. To reset that schedule or obtain a new key, follow the steps below:</br>\n\
+    \ schedule. To reset that schedule or obtain a new key, follow the steps below:<br>\n\
     \n1. Navigate to **Settings** > **API**.\n2. Click the **Revoke** icon at the\
     \ far right of the existing API Key.\n   A new dialog box will inform you have\
     \ a 30-day grace period to replace the old key with the new one. Click the **Revoke\
     \ Key** button.\n3. At the new dialog box, determine how long the new key will\
     \ be active. You may copy it to other locations from there or do so later within\
-    \ your 30-day grace period.\n4. Finish the process by clicking **Done**.</br>\
-    \ The New API key is displayed above the old one. After 30 days, the old API key\
-    \ will expire.\n5. You may delete the **Revoked/Expired** key by clicking the\
-    \ Trash Bin icon.<br><br>\n<img src=\"https://www.commbox.io/wp-content/uploads/2025/04/revoke-API-Key.png\"\
+    \ your 30-day grace period.\n4. Finish the process by clicking **Done**.<br> The\
+    \ New API key is displayed above the old one. After 30 days, the old API key will\
+    \ expire.\n5. You may delete the **Revoked/Expired** key by clicking the Trash\
+    \ Bin icon.<br><br>\n<img src=\"https://www.CommBox.io/wp-content/uploads/2025/04/revoke-API-Key.png\"\
     >\n\n\n\n\n## Obtaining a STREAM ID\nA **STREAM ID** is required for every communication\
-    \ channel (Chat, WhatsApp, etc.).  \n If you don\u2019t know the Stream ID, substitute\
+    \ channel (Chat, WhatsApp, etc.).  \n If you don't know the Stream ID, substitute\
     \ it with the encrypted version (called StreamProviderId):  \n1. At the CommBox\
     \ console, navigate to **Settings** and select the communication channel.\n2.\
     \ Click on the communication channel of your choice from the listed channels.\
     \ The ID number issued by CommBox is right underneath the channel name. \n3. Place\
     \ this code wherever you see the **{STREAM_ID}** section of the API. \n\n   Example:\n\
-    \ \n    https://api.commbox.io/streams/{STREAM_ID}/objects \n    \n    https://api.commbox.io/streams/hNyRN_fLUy7rrOrN9jLpipA%3d%3d/objects\n\
-    \ \n\n\n <img src=\"https://www.commbox.io/wp-content/uploads/2025/04/Stream-Id-encrypted.png\"\
+    \ \n    https://api.CommBox.io/streams/{STREAM_ID}/objects \n    \n    https://api.CommBox.io/streams/hNyRN_fLUy7rrOrN9jLpipA%3d%3d/objects\n\
+    \ \n\n\n <img src=\"https://www.CommBox.io/wp-content/uploads/2025/04/Stream-Id-encrypted.png\"\
     >\n \n # Authentication Modules\nCommBox offers several options for authentication\
     \ and silent login into our systems in addition to our standard user/password\
     \ login process.\n## Directory Services\nWe allow a login for our management site\
@@ -160,22 +159,22 @@ info:
     \ system what modules, operations, and resources the user can access. See more\
     \ detailed information in the Security and Authentication section of this documentation.\n\
     \n### Base URI \nAll URLs referenced in the documentation have the following base:\
-    \ [https://api.commbox.io](https://api.commbox.io)\n\n\n### Request\n\n* The request\
-    \ must include the **module** and **operation** in the URI.</br>\nFor example,\
+    \ [https://api.CommBox.io](https://api.CommBox.io)\n\n\n### Request\n\n* The request\
+    \ must include the **module** and **operation** in the URI.<br>\nFor example,\
     \ to access an operation called **SystemStatus** in the **Core** module, make\
-    \ an HTTP request to \u2013\n</br><span style=\"background-color: #f1f1f1\">/Core/SystemStatus</span></br></br>\n\
+    \ an HTTP request to \u2013\n<br><span style=\"background-color: #f1f1f1\">/Core/SystemStatus</span><br><br>\n\
     \n* To receive specific information regarding a resource, use the provided parameters\
-    \ in the URI. </br>\nFor example, to access a specific user data in the Core module,\
-    \ make an HTTP GET request to \u2013\n</br><span style=\"background-color: #f1f1f1\"\
-    >/Users/{USER_ID}/Details</span></br></br>\n\n* To change a resource, use an HTTP\
-    \ POST request to the resource URI.</br>\nFor example, to change a specific user\
-    \ name in the Core module, make an HTTP POST request to \u2013\n</br><span style=\"\
-    background-color: #f1f1f1\">POST /Users/{USER_ID}/Details</span></br> \nAnd include\
-    \ the post parameter\n</br><span style=\"background-color: #f1f1f1\">data={\\\"\
-    FirstName\\\":\\\"FIRSTNAME\\\", \\\"LastName\\\":\\\"LASTNAME\\\"}\n</span></br></br>\n\
-    \n* To delete a resource, use an HTTP DELETE request to the resource URI.</br>\n\
+    \ in the URI. <br>\nFor example, to access a specific user data in the Core module,\
+    \ make an HTTP GET request to \u2013\n<br><span style=\"background-color: #f1f1f1\"\
+    >/Users/{USER_ID}/Details</span><br><br>\n\n* To change a resource, use an HTTP\
+    \ POST request to the resource URI.<br>\nFor example, to change a specific user\
+    \ name in the Core module, make an HTTP POST request to \u2013\n<br><span style=\"\
+    background-color: #f1f1f1\">POST /Users/{USER_ID}/Details</span><br> \nAnd include\
+    \ the post parameter\n<br><span style=\"background-color: #f1f1f1\">data={\\\"\
+    FirstName\\\":\\\"FIRSTNAME\\\", \\\"LastName\\\":\\\"LASTNAME\\\"}\n</span><br><br>\n\
+    \n* To delete a resource, use an HTTP DELETE request to the resource URI.<br>\n\
     For example, to change a specific user name in the Core module, make an HTTP DELETE\
-    \ request to \u2013\n</br><span style=\"background-color: #f1f1f1\">DELETE  /Users/{USER_ID}/</span></br></br>\n\
+    \ request to \u2013\n<br><span style=\"background-color: #f1f1f1\">DELETE  /Users/{USER_ID}/</span><br><br>\n\
     \n\n### Response\n\nProperty  | Description\n------------- | -------------\nstatus\
     \  | The HTTP status code for the response\ndescription  | A more informative\
     \ message\nresponse_time | UTC Timestamp for the operation\ndata | (Optional)\
@@ -195,181 +194,181 @@ info:
     ) in CommBox.\nFor example, every time a new user is created or deleted, CommBox\
     \ will send a notification to the callback URL provided by the client. The webhook\
     \ system of notification and updates eliminates continuous or periodic requests\
-    \ when changes haven\u2019t occurred.\n\n**Note:** We strongly recommend using\
-    \ an HTTPS callback URL with a strong encrypted certificate.\n\nTo register for\
-    \ this service, contact your CommBox CS. \n\n## Webhook Structure \nAll updates\
-    \ contain a wrapper called \u201CEvent,\u201D which indicates the subscription\
-    \ source and name of the trigger event. Inside the wrapper will be the actual\
-    \ data relevant to this update.\n\n**Note:** Notifications can be transferred\
-    \ as XML objects. \n\n ### Xml Example\n For a new object that was received on\
-    \ commbox\u2019s servers, an \u201COnNew\u201D event will be triggered and posted\
-    \ to the client callback URL:\n \n    <Event Subscription=\"Object\" Name=\"OnNew\"\
-    >\n      <Object Id=\"123456\" StreamId=\"1\" SubStreamId=\"1\" Type=\"0\" StatusID=\"\
-    1\" CreateDate=\"2024-09-23 12:39:11\">\n      <Message>New status from facebook,\
-    \ Hello world!</Message>\n      <Content>{\"num_likes\":5,\"user_likes\":false,\"\
-    num_shares\":2}</Content>\n        <User Id=\"123\" UniqueID=\"123\" Phone1=\"\
-    972526444555\" Phone2=\"\" Email=\"yuval@gmail.com\" FirstName=\"Yuval\"\n   \
-    \      LastName=\"Hakim\" Gender=\"M\" NumIdentities=\"3\" Locale=\"en_US\" Birthday=\"\
-    1951-10-10\"\n         Remarks=\"User remarks\">\n          <Identity Id=\"12345\"\
-    \ StreamProviderId=\"11111111\" StreamProviderType=\"1\"\n           StreamProviderEmail=\"\
-    yuval@gmail.com\" UserName=\"yuvalh\" FirstName=\"Yuval\"\n           LastName=\"\
-    Hakim\" ThumbnailUrl=\"//graph.facebook.com/11111111/picture\" NumObjects=\"13\"\
-    >\n          </Identity>\n        </User>\n      </Object>\n    </Event>\n\n##\
-    \ Object Events Subscriptions\n### OnNew\nThis event is triggered by creating\
-    \ a new object (conversation).</br></br>\nExample:\n\n    <Event Subscription=\"\
-    Object\" Name=\"OnNew\" Brand=\"commbox\">\n      <Object Id=\"123456\" StreamId=\"\
-    1\" SubStreamId=\"1\" Type=\"5\"\n      StatusID=\"1\" CreateDate=\"2024-09-23\
-    \ 12:39:11\"\n      StreamProviderId=\"CAEooBmqRVHRrfRmOcCSzSsYMUHUu5NY+NA@mail.gmail.com\"\
-    \ StreamProviderType=\"Mail\">\n      <Message>New status from facebook, Hello\
-    \ world!</Message>\n      <Content>{\"num_likes\":5,\"user_likes\":false,\"num_shares\"\
-    :2}</Content>\n      <ManagerId>0</ManagerId>\n      <Snippet>Hello</Snippet>\n\
-    \        <User Id=\"123\" UniqueID=\"123\" Phone1=\"972501111111\" Phone2=\"\"\
-    \n        Email=\"yuval@gmail.com\" FirstName=\"Yuval\" LastName=\"Hakim\"\n \
-    \       Gender=\"M\" NumIdentities=\"3\" Locale=\"en_US\" Birthday=\"1951-10\n\
-    \        10\" Remarks=\"User remarks\" NumObjects=\"13\">\n        <Content>{}</Content>\n\
-    \          <Identity Id=\"12345\" StreamProviderId=\"11111111\"\n          StreamProviderType=\"\
-    1\"\n          StreamProviderEmail=\"yuval@gmail.com\"\n          UserName=\"\
-    yuvalh\" FirstName=\"Yuval\" LastName=\"Hakim\"\n          ThumbnailUrl=\"//graph.facebook.com/11111111/picture\"\
-    >\n          </Identity>\n        </User>\n      </Object>\n    </Event>\n\n###\
-    \ OnNewChild\nThis event is triggered by creating a new child object (message\
-    \ in a conversation).</br></br>\nExample:\n\n    <Event Subscription=\"Object\"\
-    \ Name=\"OnNewChild\" Brand=\"commbox\">\n      <Object Id=\"901730\" StreamId=\"\
-    71\" SubStreamId=\"0\">\n        <Children>\n          <Child Id=\"2099753\" CreateDate=\"\
-    26-03-2017 06:36:15\" \n          Type=\"0\" StreamProviderId=\"CAEooBmqRVHRrfRm5NY+NA@mail.gmail.com\"\
-    \ StreamProviderType=\"Mail\">\n          <Message>Hello</Message>\n         \
-    \ <ManagerId>0</ManagerId>\n          <Content>{\"sessionId\":133}</Content>\n\
-    \          <Snippet>Hello</Snippet>\n            <User Id=\"1798715\" Phone1=\"\
-    97243434343\" Phone2=\"\" \n            UniqueID=\"\" Email=\"\" FirstName=\"\
-    michael\" \n            LastName=\"kantz\" NumIdentities=\"1\" Locale=\"\"\n \
-    \           Remarks=\"\" NumObjects=\"1\">\n            <Content>{}</Content>\n\
-    \              <Identity Id=\"2191863\" \n              StreamProviderId=\"43434343\"\
-    \n              StreamProviderType=\"5\" \n              StreamProviderEmail=\"\
-    michael.k@gmail.com\" \n              UserName=\"\" FirstName=\"michael\"\n  \
-    \            LastName=\"kantz\" \n              ThumbnailUrl=\"//graph.facebook.com/146582153\n\
-    \              /picture\"/>\n            </User>\n          </Child>\n       \
-    \ </Children>\n      </Object>\n    </Event>\n\n### OnNewActivity\nThe following\
-    \ events can be triggered by the creation of a new activity:</br></br>\n<b>(a)\
-    \ New remark activity</b></br>\nExample:\n\n    <Event Subscription=\"Object\"\
-    \ Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object Id=\"901738\" StreamId=\"\
-    71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565533\"\
-    \ Type=\"1\" CreateDate=\"27-03-2017 06:29:59\">\n            <User Id=\"433178\"\
-    >\n            <Identity Id=\"16982\" />\n            </User>\n            <Data>{\"\
-    text\":\"New remark\"}</Data>\n          </Activity>\n        </Activities>\n\
-    \      </Object>\n    </Event>\n    \n<b>(b) Status change activity</b></br>\n\
-    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"\
-    commbox\">\n      <Object Id=\"901731\" StreamId=\"71\" SubStreamId=\"0\">\n \
-    \       <Activities>\n          <Activity Id=\"565420\" Type=\"2\" \n        \
-    \  CreateDate=\"26-03-2017 06:57:33\">\n          <User Id=\"433178\">\n     \
-    \     <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"statusId\"\
-    : 8}</Data>\n          </Activity>\n        </Activities>\n      </Object>\n \
-    \   </Event>\n    \n<b>(c) Object forward activity</b></br>\nExample:\n\n    <Event\
-    \ Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object\
-    \ Id=\"901738\" StreamId=\"71\" SubStreamId=\"0\">\n      <Activities>\n     \
-    \   <Activity Id=\"565534\" Type=\"3\" CreateDate=\"27-03-2017 06:29:59\">\n \
-    \         <User Id=\"433178\">\n          <Identity Id=\"16982\" />\n        \
-    \  </User>\n          <Data>{\"message\":\"forward object\",\"recipients\":[\"\
-    john.k@gmail.com\"],\n          \"allowEmailReply\":true,\"allowCustomerDetails\"\
-    :true}\n          </Data>\n          </Activity>\n        </Activities>\n    \
-    \    </Object>\n    </Event>\n\n<b>(d) Reply to forwarded object activity</b></br>\n\
-    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"\
-    commbox\">\n      <Object Id=\"901738\" StreamId=\"71\" SubStreamId=\"0\">\n \
-    \       <Activities>\n          <Activity Id=\"565532\" Type=\"4\" CreateDate=\"\
-    27-03-2017 \n          06:29:59\">\n          <User Id=\"123\" />\n          <Data>{\"\
-    message\":\"test\n          test\",\"recipients\":[\"john.k@gmail.com\"],\n  \
-    \        \"attachments\":\"{}\"}</Data>\n          </Activity>\n        </Activities>\n\
-    \      </Object>\n    </Event> \n\n<b>(e) Object stream change</b></br>\nExample:\n\
-    \n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"commbox\"\
+    \ when changes haven't occurred.\n\n**Note:** We strongly recommend using an HTTPS\
+    \ callback URL with a strong encrypted certificate.\n\nTo register for this service,\
+    \ contact your CommBox CS. \n\n## Webhook Structure \nAll updates contain a wrapper\
+    \ called \u201CEvent,\u201D which indicates the subscription source and name of\
+    \ the trigger event. Inside the wrapper will be the actual data relevant to this\
+    \ update.\n\n**Note:** Notifications can be transferred as XML objects. \n\n ###\
+    \ Xml Example\n For a new object that was received on CommBox's servers, an \u201C\
+    OnNew\u201D event will be triggered and posted to the client callback URL:\n \n\
+    \    <Event Subscription=\"Object\" Name=\"OnNew\">\n      <Object Id=\"123456\"\
+    \ StreamId=\"1\" SubStreamId=\"1\" Type=\"0\" StatusID=\"1\" CreateDate=\"2024-09-23\
+    \ 12:39:11\">\n      <Message>New status from facebook, Hello world!</Message>\n\
+    \      <Content>{\"num_likes\":5,\"user_likes\":false,\"num_shares\":2}</Content>\n\
+    \        <User Id=\"123\" UniqueID=\"123\" Phone1=\"972526444555\" Phone2=\"\"\
+    \ Email=\"yuval@gmail.com\" FirstName=\"Yuval\"\n         LastName=\"Hakim\" Gender=\"\
+    M\" NumIdentities=\"3\" Locale=\"en_US\" Birthday=\"1951-10-10\"\n         Remarks=\"\
+    User remarks\">\n          <Identity Id=\"12345\" StreamProviderId=\"11111111\"\
+    \ StreamProviderType=\"1\"\n           StreamProviderEmail=\"yuval@gmail.com\"\
+    \ UserName=\"yuvalh\" FirstName=\"Yuval\"\n           LastName=\"Hakim\" ThumbnailUrl=\"\
+    //graph.facebook.com/11111111/picture\" NumObjects=\"13\">\n          </Identity>\n\
+    \        </User>\n      </Object>\n    </Event>\n\n## Object Events Subscriptions\n\
+    ### OnNew\nThis event is triggered by creating a new object (conversation).<br><br>\n\
+    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNew\" Brand=\"CommBox\"\
+    >\n      <Object Id=\"123456\" StreamId=\"1\" SubStreamId=\"1\" Type=\"5\"\n \
+    \     StatusID=\"1\" CreateDate=\"2024-09-23 12:39:11\"\n      StreamProviderId=\"\
+    CAEooBmqRVHRrfRmOcCSzSsYMUHUu5NY+NA@mail.gmail.com\" StreamProviderType=\"Mail\"\
+    >\n      <Message>New status from facebook, Hello world!</Message>\n      <Content>{\"\
+    num_likes\":5,\"user_likes\":false,\"num_shares\":2}</Content>\n      <ManagerId>0</ManagerId>\n\
+    \      <Snippet>Hello</Snippet>\n        <User Id=\"123\" UniqueID=\"123\" Phone1=\"\
+    972501111111\" Phone2=\"\"\n        Email=\"yuval@gmail.com\" FirstName=\"Yuval\"\
+    \ LastName=\"Hakim\"\n        Gender=\"M\" NumIdentities=\"3\" Locale=\"en_US\"\
+    \ Birthday=\"1951-10\n        10\" Remarks=\"User remarks\" NumObjects=\"13\"\
+    >\n        <Content>{}</Content>\n          <Identity Id=\"12345\" StreamProviderId=\"\
+    11111111\"\n          StreamProviderType=\"1\"\n          StreamProviderEmail=\"\
+    yuval@gmail.com\"\n          UserName=\"yuvalh\" FirstName=\"Yuval\" LastName=\"\
+    Hakim\"\n          ThumbnailUrl=\"//graph.facebook.com/11111111/picture\">\n \
+    \         </Identity>\n        </User>\n      </Object>\n    </Event>\n\n### OnNewChild\n\
+    This event is triggered by creating a new child object (message in a conversation).<br><br>\n\
+    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewChild\" Brand=\"CommBox\"\
+    >\n      <Object Id=\"901730\" StreamId=\"71\" SubStreamId=\"0\">\n        <Children>\n\
+    \          <Child Id=\"2099753\" CreateDate=\"26-03-2017 06:36:15\" \n       \
+    \   Type=\"0\" StreamProviderId=\"CAEooBmqRVHRrfRm5NY+NA@mail.gmail.com\" StreamProviderType=\"\
+    Mail\">\n          <Message>Hello</Message>\n          <ManagerId>0</ManagerId>\n\
+    \          <Content>{\"sessionId\":133}</Content>\n          <Snippet>Hello</Snippet>\n\
+    \            <User Id=\"1798715\" Phone1=\"97243434343\" Phone2=\"\" \n      \
+    \      UniqueID=\"\" Email=\"\" FirstName=\"michael\" \n            LastName=\"\
+    kantz\" NumIdentities=\"1\" Locale=\"\"\n            Remarks=\"\" NumObjects=\"\
+    1\">\n            <Content>{}</Content>\n              <Identity Id=\"2191863\"\
+    \ \n              StreamProviderId=\"43434343\"\n              StreamProviderType=\"\
+    5\" \n              StreamProviderEmail=\"michael.k@gmail.com\" \n           \
+    \   UserName=\"\" FirstName=\"michael\"\n              LastName=\"kantz\" \n \
+    \             ThumbnailUrl=\"//graph.facebook.com/146582153\n              /picture\"\
+    />\n            </User>\n          </Child>\n        </Children>\n      </Object>\n\
+    \    </Event>\n\n### OnNewActivity\nThe following events can be triggered by the\
+    \ creation of a new activity:<br><br>\n<b>(a) New remark activity</b><br>\nExample:\n\
+    \n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"CommBox\"\
     >\n      <Object Id=\"901738\" StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n\
-    \          <Activity Id=\"565533\" Type=\"5\" CreateDate=\"27-03-2017 \n     \
-    \     06:29:59\">\n          <User Id=\"123\" />\n          <Data>{\"oldObjectSubstreamName\"\
-    :\"old_stream_name\",\"oldObjectStreamName\":\"old_sub_stream_name\",\n      \
-    \    \"newObjectStreamName\":\"new_stream_name\", \"newObjectSubstreamName\":\"\
-    new_sub_stream_name\"}</Data>\n          </Activity>\n        </Activities>\n\
-    \      </Object>\n    </Event> \n\n<b>(f) New manager assignment</b></br>\nExample:\n\
-    \n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"commbox\"\
-    >\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n\
-    \          <Activity Id=\"565443\" Type=\"6\" CreateDate=\"26-03-2017 \n     \
-    \     08:45:50\">\n          <User Id=\"4342094\">\n          <Identity Id=\"\
-    16982\" />\n          </User>\n          <Data>{\"managerId\":4342094,\"assignedManagerId\"\
-    :4342094}</Data>\n          </Activity>\n        </Activities>\n      </Object>\n\
-    \    </Event>\n\n<b>(g) Update object tag</b></br>\nExample:\n\n    <Event Subscription=\"\
-    Object\" Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object Id=\"901733\"\
+    \          <Activity Id=\"565533\" Type=\"1\" CreateDate=\"27-03-2017 06:29:59\"\
+    >\n            <User Id=\"433178\">\n            <Identity Id=\"16982\" />\n \
+    \           </User>\n            <Data>{\"text\":\"New remark\"}</Data>\n    \
+    \      </Activity>\n        </Activities>\n      </Object>\n    </Event>\n   \
+    \ \n<b>(b) Status change activity</b><br>\nExample:\n\n    <Event Subscription=\"\
+    Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901731\"\
     \ StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity\
-    \ Id=\"565443\" Type=\"7\" CreateDate=\"26-03-2017 \n          08:45:50\">\n \
+    \ Id=\"565420\" Type=\"2\" \n          CreateDate=\"26-03-2017 06:57:33\">\n \
+    \         <User Id=\"433178\">\n          <Identity Id=\"16982\" />\n        \
+    \  </User>\n          <Data>{\"statusId\": 8}</Data>\n          </Activity>\n\
+    \        </Activities>\n      </Object>\n    </Event>\n    \n<b>(c) Object forward\
+    \ activity</b><br>\nExample:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\"\
+    \ Brand=\"CommBox\">\n      <Object Id=\"901738\" StreamId=\"71\" SubStreamId=\"\
+    0\">\n      <Activities>\n        <Activity Id=\"565534\" Type=\"3\" CreateDate=\"\
+    27-03-2017 06:29:59\">\n          <User Id=\"433178\">\n          <Identity Id=\"\
+    16982\" />\n          </User>\n          <Data>{\"message\":\"forward object\"\
+    ,\"recipients\":[\"john.k@gmail.com\"],\n          \"allowEmailReply\":true,\"\
+    allowCustomerDetails\":true}\n          </Data>\n          </Activity>\n     \
+    \   </Activities>\n        </Object>\n    </Event>\n\n<b>(d) Reply to forwarded\
+    \ object activity</b><br>\nExample:\n\n    <Event Subscription=\"Object\" Name=\"\
+    OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901738\" StreamId=\"71\"\
+    \ SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565532\"\
+    \ Type=\"4\" CreateDate=\"27-03-2017 \n          06:29:59\">\n          <User\
+    \ Id=\"123\" />\n          <Data>{\"message\":\"test\n          test\",\"recipients\"\
+    :[\"john.k@gmail.com\"],\n          \"attachments\":\"{}\"}</Data>\n         \
+    \ </Activity>\n        </Activities>\n      </Object>\n    </Event> \n\n<b>(e)\
+    \ Object stream change</b><br>\nExample:\n\n    <Event Subscription=\"Object\"\
+    \ Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901738\" StreamId=\"\
+    71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565533\"\
+    \ Type=\"5\" CreateDate=\"27-03-2017 \n          06:29:59\">\n          <User\
+    \ Id=\"123\" />\n          <Data>{\"oldObjectSubstreamName\":\"old_stream_name\"\
+    ,\"oldObjectStreamName\":\"old_sub_stream_name\",\n          \"newObjectStreamName\"\
+    :\"new_stream_name\", \"newObjectSubstreamName\":\"new_sub_stream_name\"}</Data>\n\
+    \          </Activity>\n        </Activities>\n      </Object>\n    </Event> \n\
+    \n<b>(f) New manager assignment</b><br>\nExample:\n\n    <Event Subscription=\"\
+    Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\"\
+    \ StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity\
+    \ Id=\"565443\" Type=\"6\" CreateDate=\"26-03-2017 \n          08:45:50\">\n \
     \         <User Id=\"4342094\">\n          <Identity Id=\"16982\" />\n       \
-    \   </User>\n          <Data>{\"tagId\":11,\"objectId\":4342094,\"isRemoveTag\"\
-    :false,\"name\":\"tag1\",\"group_name\":\"group1\"}</Data>\n          </Activity>\n\
-    \        </Activities>\n      </Object>\n    </Event>\n\n<b>(h) Follow up object\
-    \ activity</b></br>\nExample:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\"\
-    \ Brand=\"commbox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"\
-    0\">\n        <Activities>\n          <Activity Id=\"565443\" Type=\"8\" CreateDate=\"\
-    26-03-2017 \n          08:45:50\">\n          <User Id=\"433178\">\n         \
-    \ <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"text\": \"\
-    test follow up\" ,\n          \"scheduledTime\": \"03/28/2017 05:30:00\"}</Data>\n\
+    \   </User>\n          <Data>{\"managerId\":4342094,\"assignedManagerId\":4342094}</Data>\n\
     \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
-    \n<b>(i) Update object intent</b></br>\nExample:\n\n    <Event Subscription=\"\
-    Object\" Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object Id=\"901733\"\
+    \n<b>(g) Update object tag</b><br>\nExample:\n\n    <Event Subscription=\"Object\"\
+    \ Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\" StreamId=\"\
+    71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565443\"\
+    \ Type=\"7\" CreateDate=\"26-03-2017 \n          08:45:50\">\n          <User\
+    \ Id=\"4342094\">\n          <Identity Id=\"16982\" />\n          </User>\n  \
+    \        <Data>{\"tagId\":11,\"objectId\":4342094,\"isRemoveTag\":false,\"name\"\
+    :\"tag1\",\"group_name\":\"group1\"}</Data>\n          </Activity>\n        </Activities>\n\
+    \      </Object>\n    </Event>\n\n<b>(h) Follow up object activity</b><br>\nExample:\n\
+    \n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"CommBox\"\
+    >\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n\
+    \          <Activity Id=\"565443\" Type=\"8\" CreateDate=\"26-03-2017 \n     \
+    \     08:45:50\">\n          <User Id=\"433178\">\n          <Identity Id=\"16982\"\
+    \ />\n          </User>\n          <Data>{\"text\": \"test follow up\" ,\n   \
+    \       \"scheduledTime\": \"03/28/2017 05:30:00\"}</Data>\n          </Activity>\n\
+    \        </Activities>\n      </Object>\n    </Event>\n\n<b>(i) Update object\
+    \ intent</b><br>\nExample:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\"\
+    \ Brand=\"CommBox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"\
+    0\">\n        <Activities>\n          <Activity Id=\"565443\" Type=\"9\" CreateDate=\"\
+    26-03-2017 \n          08:45:50\">\n          <User Id=\"4342094\">\n        \
+    \  <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"intentIds\"\
+    :[11],\"objectId\":4342094,\"isRemoveIntent\":false,\"names\":[\"tag1\"]}</Data>\n\
+    \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
+    \n<b>(j) Update object attachments</b><br>\nExample:\n\n    <Event Subscription=\"\
+    Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\"\
     \ StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity\
-    \ Id=\"565443\" Type=\"9\" CreateDate=\"26-03-2017 \n          08:45:50\">\n \
-    \         <User Id=\"4342094\">\n          <Identity Id=\"16982\" />\n       \
-    \   </User>\n          <Data>{\"intentIds\":[11],\"objectId\":4342094,\"isRemoveIntent\"\
-    :false,\"names\":[\"tag1\"]}</Data>\n          </Activity>\n        </Activities>\n\
-    \      </Object>\n    </Event>\n\n<b>(j) Update object attachments</b></br>\n\
-    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"\
-    commbox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n \
-    \       <Activities>\n          <Activity Id=\"565443\" Type=\"10\" CreateDate=\"\
-    26-03-2017 \n          08:45:50\">\n          <User Id=\"4342094\">\n        \
-    \  <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"objectId\"\
-    :4342094,\"managerId\":452224,\n          \"attachments\":{\"attachments\":[{\"\
-    href\":\"/media/Brands/test//5-17/test_image.png\",\"name\":\"test_image\"}]},\n\
-    \          \"attachmentType\":\"videoCapture\"}</Data>\n          </Activity>\n\
-    \        </Activities>\n      </Object>\n    </Event>\n\n<b>(k) Object routed</b></br>\n\
-    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"\
-    commbox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n \
-    \       <Activities>\n          <Activity Id=\"565443\" Type=\"11\" CreateDate=\"\
-    26-03-2017 \n          08:45:50\">\n          <User Id=\"4342094\">\n        \
-    \  <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"originalStreamId\"\
-    :12222,\"destStreamId\":114444,\"destSubStreamId\":11,\"changedStatusId\":4,\n\
-    \          \"tagId\":353,\"tagName\":\"plus_tag\"}}</Data>\n          </Activity>\n\
-    \        </Activities>\n      </Object>\n    </Event>\n\n<b>(l) Update object\
-    \ publicity</b></br>\nExample:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\"\
-    \ Brand=\"commbox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"\
-    0\">\n        <Activities>\n          <Activity Id=\"565443\" Type=\"13\" CreateDate=\"\
-    26-03-2017 \n          08:45:50\">\n          <User Id=\"4342094\">\n        \
-    \  <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"changePublicityToPublic\"\
-    :false}</Data>\n          </Activity>\n        </Activities>\n      </Object>\n\
-    \    </Event>\n\n<b>(m) Unvalid extension file</b></br>\nExample:\n\n    <Event\
-    \ Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object\
-    \ Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n   \
-    \       <Activity Id=\"565443\" Type=\"15\" CreateDate=\"26-03-2017 \n       \
-    \   08:45:50\">\n          <User Id=\"4342094\">\n          <Identity Id=\"16982\"\
-    \ />\n          </User>\n          <Data>{\"fileName\":\"3c3b71_IMG_1988.jpeg\"\
-    ,\"status\":\"failed\",\n          \"description\":\"Unsupported file type: image/heic\
-    \ extension: jpeg\",\"unValidActivity\":15,\n          \"fileExtension\":\"jpeg\"\
-    }</Data>\n          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
-    \n<b>(n) Unvalid file size</b></br>\nExample:\n\n    <Event Subscription=\"Object\"\
-    \ Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object Id=\"901733\" StreamId=\"\
+    \ Id=\"565443\" Type=\"10\" CreateDate=\"26-03-2017 \n          08:45:50\">\n\
+    \          <User Id=\"4342094\">\n          <Identity Id=\"16982\" />\n      \
+    \    </User>\n          <Data>{\"objectId\":4342094,\"managerId\":452224,\n  \
+    \        \"attachments\":{\"attachments\":[{\"href\":\"/media/Brands/test//5-17/test_image.png\"\
+    ,\"name\":\"test_image\"}]},\n          \"attachmentType\":\"videoCapture\"}</Data>\n\
+    \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
+    \n<b>(k) Object routed</b><br>\nExample:\n\n    <Event Subscription=\"Object\"\
+    \ Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\" StreamId=\"\
+    71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565443\"\
+    \ Type=\"11\" CreateDate=\"26-03-2017 \n          08:45:50\">\n          <User\
+    \ Id=\"4342094\">\n          <Identity Id=\"16982\" />\n          </User>\n  \
+    \        <Data>{\"originalStreamId\":12222,\"destStreamId\":114444,\"destSubStreamId\"\
+    :11,\"changedStatusId\":4,\n          \"tagId\":353,\"tagName\":\"plus_tag\"}}</Data>\n\
+    \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
+    \n<b>(l) Update object publicity</b><br>\nExample:\n\n    <Event Subscription=\"\
+    Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\"\
+    \ StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity\
+    \ Id=\"565443\" Type=\"13\" CreateDate=\"26-03-2017 \n          08:45:50\">\n\
+    \          <User Id=\"4342094\">\n          <Identity Id=\"16982\" />\n      \
+    \    </User>\n          <Data>{\"changePublicityToPublic\":false}</Data>\n   \
+    \       </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\n\
+    <b>(m) Unvalid extension file</b><br>\nExample:\n\n    <Event Subscription=\"\
+    Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\"\
+    \ StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity\
+    \ Id=\"565443\" Type=\"15\" CreateDate=\"26-03-2017 \n          08:45:50\">\n\
+    \          <User Id=\"4342094\">\n          <Identity Id=\"16982\" />\n      \
+    \    </User>\n          <Data>{\"fileName\":\"3c3b71_IMG_1988.jpeg\",\"status\"\
+    :\"failed\",\n          \"description\":\"Unsupported file type: image/heic extension:\
+    \ jpeg\",\"unValidActivity\":15,\n          \"fileExtension\":\"jpeg\"}</Data>\n\
+    \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
+    \n<b>(n) Unvalid file size</b><br>\nExample:\n\n    <Event Subscription=\"Object\"\
+    \ Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\" StreamId=\"\
     71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565443\"\
     \ Type=\"16\" CreateDate=\"26-03-2017 \n          08:45:50\">\n          <User\
     \ Id=\"4342094\">\n          <Identity Id=\"16982\" />\n          </User>\n  \
     \        <Data>{\"status\":\"failed\",\"description\":\"File is too big\",\"maxFileSizeAllow\"\
     : 10,\n          \"unValidActivity\":16}</Data>\n          </Activity>\n     \
-    \   </Activities>\n      </Object>\n    </Event>\n\n<b>(o) Unallowed file upload</b></br>\n\
+    \   </Activities>\n      </Object>\n    </Event>\n\n<b>(o) Unallowed file upload</b><br>\n\
     Example:\n\n    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"\
-    commbox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n \
+    CommBox\">\n      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n \
     \       <Activities>\n          <Activity Id=\"565443\" Type=\"17\" CreateDate=\"\
     26-03-2017 \n          08:45:50\">\n          <User Id=\"4342094\">\n        \
     \  <Identity Id=\"16982\" />\n          </User>\n          <Data>{\"status\":\"\
     failed\",\"description\":\"media dos not enabled\",\"unValidActivity\":17}</Data>\n\
     \          </Activity>\n        </Activities>\n      </Object>\n    </Event>\n\
-    \n<b>(p) Inactivity logout</b></br>\nExample:\n\n    <Event Subscription=\"Object\"\
-    \ Name=\"OnNewActivity\" Brand=\"commbox\">\n      <Object Id=\"901733\" StreamId=\"\
+    \n<b>(p) Inactivity logout</b><br>\nExample:\n\n    <Event Subscription=\"Object\"\
+    \ Name=\"OnNewActivity\" Brand=\"CommBox\">\n      <Object Id=\"901733\" StreamId=\"\
     71\" SubStreamId=\"0\">\n        <Activities>\n          <Activity Id=\"565443\"\
     \ Type=\"18\" CreateDate=\"26-03-2017 \n          08:45:50\">\n          <User\
     \ Id=\"4342094\">\n          <Identity Id=\"16982\" />\n          </User>\n  \
     \        <Data>{}</Data>\n          </Activity>\n        </Activities>\n     \
-    \ </Object>\n    </Event>\n\n<b>(q) Participants change</b></br>\nExample:\n\n\
-    \    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"commbox\">\n\
+    \ </Object>\n    </Event>\n\n<b>(q) Participants change</b><br>\nExample:\n\n\
+    \    <Event Subscription=\"Object\" Name=\"OnNewActivity\" Brand=\"CommBox\">\n\
     \      <Object Id=\"901733\" StreamId=\"71\" SubStreamId=\"0\">\n        <Activities>\n\
     \          <Activity Id=\"565443\" Type=\"19\" CreateDate=\"26-03-2017 \n    \
     \      08:45:50\">\n          <User Id=\"4342094\">\n          <Identity Id=\"\
@@ -377,12 +376,12 @@ info:
     ,\"performingAgentId\":192229,\"isAgent\":true,\n          \"addedParticipantName\"\
     :\"tomer_b\"}</Data>\n          </Activity>\n        </Activities>\n      </Object>\n\
     \    </Event>\n    \n### OnUpdateTag\nThese events are triggered by an update\
-    \ of a tag relating to the object (conversation tag):</br></br>\n<b>(a) Add</b></br>\n\
+    \ of a tag relating to the object (conversation tag):<br><br>\n<b>(a) Add</b><br>\n\
     \    Example:\n\n    <Event Subscription=\"Object\" Name=\"OnUpdateTag\" Brand=\"\
-    commbox\">\n      <Object Id=\"901731\" StreamId=\"71\" SubStreamId=\"0\">\n \
+    CommBox\">\n      <Object Id=\"901731\" StreamId=\"71\" SubStreamId=\"0\">\n \
     \       <Tags>\n        <Tag Id=\"1608\" Action=\"Add\" />\n        </Tags>\n\
-    \      </Object>\n    </Event>\n<b>(b) Remove</b></br>\nExample:\n\n    <Event\
-    \ Subscription=\"Object\" Name=\"OnUpdateTag\" Brand=\"commbox\">\n      <Object\
+    \      </Object>\n    </Event>\n<b>(b) Remove</b><br>\nExample:\n\n    <Event\
+    \ Subscription=\"Object\" Name=\"OnUpdateTag\" Brand=\"CommBox\">\n      <Object\
     \ Id=\"901731\" StreamId=\"71\" SubStreamId=\"0\">\n        <Tags>\n        <Tag\
     \ Id=\"1611\" Action=\"Remove\" />\n        </Tags>\n      </Object>\n    </Event>\n\
     \n\n\n\n## User Events Subscriptions\nEvents in this section indicate a change\
@@ -390,21 +389,21 @@ info:
     \ a new user or an update of an existing one. All updates must contain the surrounding\
     \ \u201CEvent\u201D property and a \u201CUser\u201D property and may contain additional\
     \ properties. \n\n\n### OnNew\nThis event is triggered by the creation of a new\
-    \ user.</br></br>\nExample:\n\n    <Event Subscription=\"User\" Name=\"OnNew\"\
-    \ Brand=\"commbox\">\n      <User Id=\"1798714\" Phone1=\"97252570000\" Phone2=\"\
-    \" UniqueID=\"\" Email=\"john.doe@gmail.com\"\n       FirstName=\"michaeli\" LastName=\"\
-    \" NumIdentities=\"1\" Locale=\"en_US\" Remarks=\"\" NumObjects=\"0\">\n     \
-    \ <Content>{}</Content>\n      <Identity Id=\"2191862\" StreamProviderId=\"kantzmichaeli@gmail.com\"\
-    \ StreamProviderType=\"4\"\n       StreamProviderEmail=\"\" UserName=\"michaelk\"\
-    \ FirstName=\"michaeli\" LastName=\"kantz\" ThumbnailUrl=\"\" />\n      </User>\n\
-    \    </Event>\n\n### OnUpdate\nThis event is triggered by an update of a user.</br></br>\n\
-    Example:\n\n    <Event Subscription=\"User\" Name=\"OnUpdate\" Brand=\"commbox\"\
-    >\n      <User Id=\"1710055\" Phone1=\"97252570000\" Phone2=\"972525757054\" UniqueID=\"\
+    \ user.<br><br>\nExample:\n\n    <Event Subscription=\"User\" Name=\"OnNew\" Brand=\"\
+    CommBox\">\n      <User Id=\"1798714\" Phone1=\"97252570000\" Phone2=\"\" UniqueID=\"\
+    \" Email=\"john.doe@gmail.com\"\n       FirstName=\"michaeli\" LastName=\"\" NumIdentities=\"\
+    1\" Locale=\"en_US\" Remarks=\"\" NumObjects=\"0\">\n      <Content>{}</Content>\n\
+    \      <Identity Id=\"2191862\" StreamProviderId=\"kantzmichaeli@gmail.com\" StreamProviderType=\"\
+    4\"\n       StreamProviderEmail=\"\" UserName=\"michaelk\" FirstName=\"michaeli\"\
+    \ LastName=\"kantz\" ThumbnailUrl=\"\" />\n      </User>\n    </Event>\n\n###\
+    \ OnUpdate\nThis event is triggered by an update of a user.<br><br>\nExample:\n\
+    \n    <Event Subscription=\"User\" Name=\"OnUpdate\" Brand=\"CommBox\">\n    \
+    \  <User Id=\"1710055\" Phone1=\"97252570000\" Phone2=\"972525757054\" UniqueID=\"\
     206064\"\n       Email=\"kantzmichael@gmail.com\" FirstName=\"michael\" LastName=\"\
     kantz\" Gender=\"M\" NumIdentities=\"1\"\n       Locale=\"\" Remarks=\"New user\
     \ details\">\n      <Content>{}</Content>\n      </User />\n    </Event>\n\n###\
-    \ OnUpdateTag\nThis event is triggered by an update of a tag relating to the user.</br></br>\n\
-    Example:\n\n    <Event Subscription=\"User\" Name=\"OnUpdateTag\" Brand=\"commbox\"\
+    \ OnUpdateTag\nThis event is triggered by an update of a tag relating to the user.<br><br>\n\
+    Example:\n\n    <Event Subscription=\"User\" Name=\"OnUpdateTag\" Brand=\"CommBox\"\
     >\n      <User Id=\"1798718\" Phone1=\"972525757054\" Phone2=\"972525757054\"\
     \ \n      UniqueID=\"\" Email=\"michael.k@gmail.com\" FirstName=\"michael\" \n\
     \      LastName=\"\" NumIdentities=\"1\" Locale=\"\" Remarks=\"\" \n      Content=\"\
@@ -413,42 +412,42 @@ info:
     \ contains events that describe customer satisfaction reports. Updates must contain\
     \ a surrounding \u201CEvent\u201D property and a \u201CSatisfaction\u201D property.\
     \ \n\n### OnSubmit\nThis event is triggered by a submission of a satisfaction\
-    \ report relating to some object (conversation).</br></br>\nExample:\n\n    <Event\
-    \ Subscription=\"Satisfaction\" Name=\"OnSubmit\" Brand=\"commbox\">\n      <Satisfaction\
+    \ report relating to some object (conversation).<br><br>\nExample:\n\n    <Event\
+    \ Subscription=\"Satisfaction\" Name=\"OnSubmit\" Brand=\"CommBox\">\n      <Satisfaction\
     \ ObjectId=\"901733\">\n      <Score>100</Score>\n      <Description>excellent</Description>\n\
     \      </Satisfaction>\n    </Event>\n\n## Form Events Subscriptions\nThis section\
     \ contains events that occurred when a form is created or changed. Updates must\
     \ contain a surrounding \u201CEvent\u201D property and a \u201CForm\u201D property.\
     \ \n\n### OnSubmit\nThis event is triggered when a customer submits a form, and\
-    \ the form PDF file is saved on the disk.</br></br>\nExample:\n\n    <Event Subscription=\"\
-    Form\" Name=\"OnSubmit\" Brand=\"commbox\">\n      <Form\n      <ObjectId>901733</ObjectId>\n\
-    \      <FormUrl> https://apps.commboxdev.io/form...</FormUrl>\n      <Properties>{\u201C\
+    \ the form PDF file is saved on the disk.<br><br>\nExample:\n\n    <Event Subscription=\"\
+    Form\" Name=\"OnSubmit\" Brand=\"CommBox\">\n      <Form\n      <ObjectId>901733</ObjectId>\n\
+    \      <FormUrl> https://apps.CommBoxdev.io/form...</FormUrl>\n      <Properties>{\u201C\
     field_0\u201D:\u201DJhon\u201D,\u201Dmy_own_param\u201D:\u201D1234\u201D}</Properties>\n\
     \      </Form>\n    </Event>\n\n## Chat Events Subscriptions\nThis section contains\
     \ events that occurred when the user closes the chat window or disconnects.\n\n\
     ### OnUserExit\nThis event is triggered when the user closes the chat window or\
-    \ disconnect.</br></br>\nExample:\n\n    <Event Subscription=\"Chat\" Name=\"\
-    OnUserExit\" Brand=\"commbox\">\n      <Chat>\n        <User id=\"901733\"></User>\n\
-    \        <Object id=\"901735\"></Object>\n      </Chat>\n    </Event>\n\n# Customization\n\
-    \nWe provide customization of our functionalities to be tailored to the client\u2019\
-    s needs.</br></br> \n\n## An iFrame on 3rd party Assets \nWe enable our site to\
+    \ disconnect.<br><br>\nExample:\n\n    <Event Subscription=\"Chat\" Name=\"OnUserExit\"\
+    \ Brand=\"CommBox\">\n      <Chat>\n        <User id=\"901733\"></User>\n    \
+    \    <Object id=\"901735\"></Object>\n      </Chat>\n    </Event>\n\n# Customization\n\
+    \nWe provide customization of our functionalities to be tailored to the client's\
+    \ needs.<br><br> \n\n## An iFrame on 3rd party Assets \nWe enable our site to\
     \ be embedded on other web-based platforms as an iFrame. Such integrations enable\
     \ agents to work within the CRM or Contact platforms and utilize CommBox for communication\
     \ with customers. Data records are created and updated seamlessly between the\
-    \ two platforms.<br><br>  \n<img src=\"https://www.commbox.io/wp-content/uploads/2025/04/SAP-iFrame.png\"\
+    \ two platforms.<br><br>  \n<img src=\"https://www.CommBox.io/wp-content/uploads/2025/04/SAP-iFrame.png\"\
     >\n \n\nAvailable CRM integrations include **Salesforce**, **Microsoft Dynamics**,\
-    \ **SAP C4C** and more. </br></br>\n\n## Widgets\nWe provide several premade widgets\
+    \ **SAP C4C** and more. <br><br>\n\n## Widgets\nWe provide several premade widgets\
     \ for embedding our Inbox or Object (conversation) in your Dashboards or CRM.\
     \ These widgets isolate the Object from the rest of the platform, allowing CommBox\
-    \ clients to incorporate them into their 3rd party system.</br></br>\n  To only\
-    \ view the dialog box of the CommBox platform, use this URL:</br>\n  [https://manange.commbox.io](https://manange.commbox.io)</br>\n\
+    \ clients to incorporate them into their 3rd party system.<br><br>\n  To only\
+    \ view the dialog box of the CommBox platform, use this URL:<br>\n  [https://manange.CommBox.io](https://manange.CommBox.io)<br>\n\
     \  To only view a specific Object (conversation), use this URL with the Conversation\
-    \ Id:</br>\n  [https://manange.commbox.io/widget/object/{Object_Id}](https://manange.commbox.io/widget/object/{Object_Id})</br>\
+    \ Id:<br>\n  [https://manange.CommBox.io/widget/object/{Object_Id}](https://manange.CommBox.io/widget/object/{Object_Id})<br>\
     \ \nTo obtain the Object Id, click on the 3-vertical-dots menu at the top left\
-    \ corner of the main pane. The Id is displayed at the bottom of that window. </br></br>\
+    \ corner of the main pane. The Id is displayed at the bottom of that window. <br><br>\
     \  \n\n## Desktop Management Customization\nCommBox allows CSS customization for\
     \ most page elements and specific JavaScript code elements for client-side events.\
-    \ Contact us for more information.</br></br>\n\n# Data structures \nThis section\
+    \ Contact us for more information.<br><br>\n\n# Data structures \nThis section\
     \ outlines the data structures recognized and transmitted by the API.\n\n**Objects**\
     \ represent conversations between bots or agents and customers. Each segment within\
     \ a conversation is referred to as a **Child**. Every conversation is associated\
@@ -471,69 +470,68 @@ info:
     \ | int | Number of child objects relating to this parent object |  \nIsManager\
     \ | bool | Indicates whether this object was created by an agent |\nNumTags |\
     \ int | Number of tags assigned to this object|\nMessage| string | The text containing\
-    \ the object\u2019s primary message |\nContent | JSON string | String containing\
-    \ extended properties of the object |\nUser | object | The user that created the\
-    \ object| <a href=\"/api/#section/Data-structures/User\" title=\"title\">User</a>\n\
-    \n## Object Child\nProperty  | Value | Description | Notes\n------------- | -------------\
+    \ the object's primary message |\nContent | JSON string | String containing extended\
+    \ properties of the object |\nUser | object | The user that created the object|\
+    \ <a href=\"/api/#section/Data-structures/User\" title=\"title\">User</a>\n\n\
+    ## Object Child\nProperty  | Value | Description | Notes\n------------- | -------------\
     \ | - | -\nId  | int64 | Child ID. A CommBox generated number for the message\
     \ |\nType | short | The type of the child | <a href=\"/api#section/Enums/ObjectType\"\
     \ title=\"title\">Object Types</a>\nIsManager | bool | Indicates whether this\
     \ child was created by an agent |\nCreatedTime| datetime | When the child was\
-    \ created | In UTC time\nMessage| string | The text containing the child\u2019\
-    s primary message |\nContent | JSON string | String containing extended properties\
-    \ of the child |\nUser | object | The user that created the child| <a href=\"\
-    /api#section/Data-structures/User\" title=\"title\">User</a>\n\n## ObjectActivityLog\n\
+    \ created | In UTC time\nMessage| string | The text containing the child's primary\
+    \ message |\nContent | JSON string | String containing extended properties of\
+    \ the child |\nUser | object | The user that created the child| <a href=\"/api#section/Data-structures/User\"\
+    \ title=\"title\">User</a>\n\n## ObjectActivityLog\nProperty  | Value | Description\
+    \ | Notes\n------------- | ------------- | - | -\nText  | string | Text content\
+    \ in the activity log |\nSource | string | The source of the activity log (optional)\
+    \ | \nManagerId | Int64 | The manager who initialize the activity log (optional)\
+    \ |\n\n## Tag\nProperty  | Value | Description | Notes\n------------- | -------------\
+    \ | - | -\nId  | int64 | Tag ID. This is a CommBox generated number |\n\n ## User\n\
     Property  | Value | Description | Notes\n------------- | ------------- | - | -\n\
-    Text  | string | Text content in the activity log |\nSource | string | The source\
-    \ of the activity log (optional) | \nManagerId | Int64 | The manager who initialize\
-    \ the activity log (optional) |\n\n## Tag\nProperty  | Value | Description | Notes\n\
-    ------------- | ------------- | - | -\nId  | int64 | Tag ID. This is a CommBox\
-    \ generated number |\n\n ## User\nProperty  | Value | Description | Notes\n-------------\
-    \ | ------------- | - | -\nId  | int64 | User ID. A CommBox generated number for\
-    \ the agent/customer etc.|\nUniqueId | string(50) | User\u2019s unique identifier.\
-    \ This can be an email, social security number or any other type of unique string\
-    \ determined by the brand administrators |\nPhone1 | Numeric string(20) | User\u2019\
-    s phone number | Always contains country code and without leading + or 00\nPhone2|\
-    \ Numeric string(20) | User\u2019s additional phone number | Always contains country\
-    \ code and without leading + or 00\nEmail | string (255) | User\u2019s email address\
-    \ |\nFirstName | string (100) | User\u2019s first name |\nLastName | string (100)\
-    \ | User\u2019s last name |\nGender | string (1) | User\u2019s gender | \u2018\
-    M\u2019 for male, \u2018F\u2019 for female\nLocale | object | User\u2019s locale\
-    \ |\nBirthday | date | User\u2019s birthday | Date only\nNumIdentities | int |\
-    \ Number of active identities that are connected to this user |\nIsManager | bool\
-    \ |  Indicates whether this user is a agent or an admin (true) or a\n        customer\
-    \ (false) |\n\nRemarks | string | Free text containing general remarks about the\
-    \ user | \nIdentity | object | Identity object that is connected to the user |\
-    \ <a href=\"/api/#section/Data-structures/User-Identity\" title=\"title\">User\
-    \ Identity</a>\n\n## User Identity\nProperty  | Value | Description | Notes\n\
-    ------------- | ------------- | - | -\nId  | int64 | Identity ID. This is a CommBox\
-    \ generated number and used throughout all the updates |\nStreamProviderId | string(255)\
-    \ | Identity\u2019s unique identifier as it appears at the original provider |\n\
-    StreamProviderType | int64 | Type of the original provider | <a href=\"/api/#section/Enums/StreamProviderType\"\
-    \ title=\"title\">StreamProviderType</a>\nStreamProviderEmail| string(255) | Identity\u2019\
-    s email as it appears at the original provider |\nUserName | string (100) | Identity\u2019\
-    s user name as it appears at the original provider |\nFirstName | string (100)\
-    \ | Identity\u2019s first name as it appears at the original provider |\nLastName\
-    \ | string (100) | Identity\u2019s last name as it appears at the original provider\
-    \ |\nThumbnailUrl | string (255) | Link to the identity\u2019s profile image |\n\
-    NumObjects | int | Number of objects connected to this identity |\n\n## Manager\n\
-    Property  | Value | Description | Notes\n------------- | ------------- | - | -\n\
-    Id  | int64 | Manager ID. This is a CommBox generated number and used throughout\
-    \ all the updates |\nAsyncAssignedNoResponse | int | Current number of assigned\
-    \ asynchronous objects awaiting response |\nAsyncAssignedInProccess | int | Current\
-    \ number of assigned asynchronous objects that are being addressed by the manager\
-    \ |\nSyncAssignedNoResponse| int | Current number of assigned synchronous objects\
-    \ awaiting response (Chat/messenger conversations) |\nSyncAssignedInProccess |\
-    \ int | Current number of assigned synchronous objects that are being addressed\
-    \ by the manager (Chat/messenger conversations) |\nFaceToFaceStatus | bool | Returns\
-    \ true if the manager is busy with a face to face object (Voice/Video call) |\n\
-    TotalAsyncAssigned | int | Total number of currently assigned objects |\nTotalSyncAssigned\
-    \ | int | Total number of currently assigned synchronous objects (Chat/messenger\
-    \ conversations) |\n\n## Object custom indicator\nProperty  | Value | Description\
-    \ | Notes\n------------- | ------------- | - | -\nIndicatorId  | string | Indicator\
-    \ id (unique name) \u2013 to allow updating/ deleting existing indicator |\nDisplayClass\
-    \ | string | Indicator class. Mandatory only if Icon has not provided | You must\
-    \ provide DisplayClass or an Icon, or both\nIcon | string | An icon for the indicator.\
+    Id  | int64 | User ID. A CommBox generated number for the agent/customer etc.|\n\
+    UniqueId | string(50) | User's unique identifier. This can be an email, social\
+    \ security number or any other type of unique string determined by the brand administrators\
+    \ |\nPhone1 | Numeric string(20) | User's phone number | Always contains country\
+    \ code and without leading + or 00\nPhone2| Numeric string(20) | User's additional\
+    \ phone number | Always contains country code and without leading + or 00\nEmail\
+    \ | string (255) | User's email address |\nFirstName | string (100) | User's first\
+    \ name |\nLastName | string (100) | User's last name |\nGender | string (1) |\
+    \ User's gender | \u2018M' for male, \u2018F' for female\nLocale | object | User's\
+    \ locale |\nBirthday | date | User's birthday | Date only\nNumIdentities | int\
+    \ | Number of active identities that are connected to this user |\nIsManager |\
+    \ bool |  Indicates whether this user is a agent or an admin (true) or a\n   \
+    \     customer (false) |\n\nRemarks | string | Free text containing general remarks\
+    \ about the user | \nIdentity | object | Identity object that is connected to\
+    \ the user | <a href=\"/api/#section/Data-structures/User-Identity\" title=\"\
+    title\">User Identity</a>\n\n## User Identity\nProperty  | Value | Description\
+    \ | Notes\n------------- | ------------- | - | -\nId  | int64 | Identity ID. This\
+    \ is a CommBox generated number and used throughout all the updates |\nStreamProviderId\
+    \ | string(255) | Identity's unique identifier as it appears at the original provider\
+    \ |\nStreamProviderType | int64 | Type of the original provider | <a href=\"/api/#section/Enums/StreamProviderType\"\
+    \ title=\"title\">StreamProviderType</a>\nStreamProviderEmail| string(255) | Identity's\
+    \ email as it appears at the original provider |\nUserName | string (100) | Identity's\
+    \ user name as it appears at the original provider |\nFirstName | string (100)\
+    \ | Identity's first name as it appears at the original provider |\nLastName |\
+    \ string (100) | Identity's last name as it appears at the original provider |\n\
+    ThumbnailUrl | string (255) | Link to the identity's profile image |\nNumObjects\
+    \ | int | Number of objects connected to this identity |\n\n## Manager\nProperty\
+    \  | Value | Description | Notes\n------------- | ------------- | - | -\nId  |\
+    \ int64 | Manager ID. This is a CommBox generated number and used throughout all\
+    \ the updates |\nAsyncAssignedNoResponse | int | Current number of assigned asynchronous\
+    \ objects awaiting response |\nAsyncAssignedInProccess | int | Current number\
+    \ of assigned asynchronous objects that are being addressed by the manager |\n\
+    SyncAssignedNoResponse| int | Current number of assigned synchronous objects awaiting\
+    \ response (Chat/messenger conversations) |\nSyncAssignedInProccess | int | Current\
+    \ number of assigned synchronous objects that are being addressed by the manager\
+    \ (Chat/messenger conversations) |\nFaceToFaceStatus | bool | Returns true if\
+    \ the manager is busy with a face to face object (Voice/Video call) |\nTotalAsyncAssigned\
+    \ | int | Total number of currently assigned objects |\nTotalSyncAssigned | int\
+    \ | Total number of currently assigned synchronous objects (Chat/messenger conversations)\
+    \ |\n\n## Object custom indicator\nProperty  | Value | Description | Notes\n-------------\
+    \ | ------------- | - | -\nIndicatorId  | string | Indicator id (unique name)\
+    \ \u2013 to allow updating/ deleting existing indicator |\nDisplayClass | string\
+    \ | Indicator class. Mandatory only if Icon has not provided | You must provide\
+    \ DisplayClass or an Icon, or both\nIcon | string | An icon for the indicator.\
     \ Supports URL. Mandatory only if Icon has not provided (not relevant for DELETE\
     \ operation) |\nTitle| string | A title for the indicator (not relevant for DELETE\
     \ operation) |\n\n# Enums\n## ObjectType\n  Text = 0<br>\n  Link = 1<br>\n  Photo\
@@ -545,7 +543,7 @@ info:
     \ 2<br>\n  Forward = 3<br>\n  Irrelevant = 4<br>\n  Deleted = 5<br>\n  Forward\
     \ Reply = 6<br>\n  Draft = 7<br>\n  In Process = 8<br>\n  Scheduled = 9<br>\n\
     \  Follow Up = 10<br>\n  Automated = 11<br>\n  Sent = 13<br>\n  Archive = 14<br>\n\
-    \  Pending = 15<br>\n\n## StreamProviderType\n  Commbox = 0<br>\n  Facebook =\
+    \  Pending = 15<br>\n\n## StreamProviderType\n  CommBox = 0<br>\n  Facebook =\
     \ 1<br>\n  Twitter = 2<br>\n  YouTube = 3<br>\n  Mail = 4<br>\n  Telephone = 5<br>\n\
     \  Anonymous = 6<br>\n  WhatsApp = 7<br>\n  Web = 8<br>\n  AppleAppStore = 9<br>\n\
     \  Instagram= 10<br>\n  Google = 11<br>\n  Telegram = 12<br>\n  GoogleMyBusiness\
@@ -584,13 +582,13 @@ info:
     \  Customer Satisfaction = 101<br>\n  SLA = 102<br> \n  Customer Satisfaction\
     \ Open Answer = 103<br><br>\n  \n  \n  \n  \n# API CALLS\n  \n"
   version: '2.07'
-  termsOfService: https://www.commbox.io/end-user-license-agreement-eula/
+  termsOfService: https://www.CommBox.io/end-user-license-agreement-eula/
   contact:
-    name: commbox
-    url: https://www.commbox.io
-    email: contactus@commbox.io
+    name: CommBox
+    url: https://www.CommBox.io
+    email: contactus@CommBox.io
 servers:
-- url: https://api.commbox.io/
+- url: https://api.CommBox.io/
   description: Production server
 security:
 - BearerAuth: []
@@ -618,8 +616,8 @@ components:
       type: http
       scheme: bearer
       description: API key is needed to authorize requests. You can get your API key
-        via the management console. </br><b> A Bearer Token is needed to be set in
-        the Authorization header of every API call.</b></br> For additional support
+        via the management console. <br><b> A Bearer Token is needed to be set in
+        the Authorization header of every API call.</b><br> For additional support
         you can contact us.
     jwtAuth:
       type: http
@@ -841,8 +839,8 @@ components:
             for code
         StatusId:
           type: string
-          description: "The conversation\u2019s current state (Open, Resolved, etc.)\
-            \ \u2013 See Enum for code"
+          description: "The conversation's current state (Open, Resolved, etc.) \u2013\
+            \ See Enum for code"
         StreamProviderType:
           type: integer
           format: int64
@@ -902,7 +900,7 @@ components:
             message on their behalf
         UserStreamProviderType:
           type: integer
-          description: "The channel type\u2019s code. See Enum "
+          description: 'The channel type''s code. See Enum '
         Message:
           type: string
           description: The message on behalf of the agent / customer
@@ -925,30 +923,29 @@ components:
         Id:
           type: integer
           format: int64
-          description: Tag ID. This is a commbox generated number
+          description: Tag ID. This is a CommBox generated number
     User:
       type: object
       properties:
         Id:
           type: integer
           format: int64
-          description: User ID. This is a commbox generated number for the customer
+          description: User ID. This is a CommBox generated number for the customer
         UniqueId:
           type: string
           format: '50'
-          description: "User\u2019s unique identifier. This can be an email, social\
-            \ security number or any other type of unique string determined by the\
-            \ brand administrators"
+          description: User's unique identifier. This can be an email, social security
+            number or any other type of unique string determined by the brand administrators
         Phone1:
           type: string
           format: numeric string (20)
-          description: "User\u2019s phone number (should include country and area\
-            \ code without leading + or 00)"
+          description: User's phone number (should include country and area code without
+            leading + or 00)
         Phone2:
           type: string
           format: numeric string (20)
-          description: "User\u2019s additional phone number (should include country\
-            \ and area code without leading + or 00)"
+          description: User's additional phone number (should include country and
+            area code without leading + or 00)
         Email:
           type: string
           format: '255'
@@ -956,23 +953,22 @@ components:
         FirstName:
           type: string
           format: '100'
-          description: "User\u2019s first name"
+          description: User's first name
         LastName:
           type: string
           format: '100'
-          description: "User\u2019s last name"
+          description: User's last name
         Gender:
           type: string
           format: '1'
-          description: "User\u2019s gender (\u2018M\u2019 for male, \u2018F\u2019\
-            \ for female)"
+          description: "User's gender (\u2018M' for male, \u2018F' for female)"
         Locale:
           type: object
-          description: "User\u2019s locale"
+          description: User's locale
         Birthday:
           type: string
           format: date
-          description: "User\u2019s birthday"
+          description: User's birthday
         NumIdentities:
           type: integer
           description: Number of active identities that are connected to this user
@@ -992,17 +988,16 @@ components:
         UniqueId:
           type: string
           format: '50'
-          description: "User\u2019s unique identifier. This can be an email, social\
-            \ security number or any other type of unique string determined by the\
-            \ brand administrators"
+          description: User's unique identifier. This can be an email, social security
+            number or any other type of unique string determined by the brand administrators
         FirstName:
           type: string
           format: '100'
-          description: "User\u2019s first name"
+          description: User's first name
         LastName:
           type: string
           format: '100'
-          description: "User\u2019s last name"
+          description: User's last name
         Email:
           type: string
           format: '255'
@@ -1010,11 +1005,11 @@ components:
         Phone1:
           type: string
           format: '100'
-          description: "User\u2019s main phone number"
+          description: User's main phone number
         Phone2:
           type: string
           format: '100'
-          description: "User\u2019s secondary phone number"
+          description: User's secondary phone number
         Remarks:
           type: string
           description: Free text containing general remarks about the user
@@ -1033,7 +1028,7 @@ components:
         Id:
           type: integer
           format: int64
-          description: Identity ID. This is a commbox generated number and used throughout
+          description: Identity ID. This is a CommBox generated number and used throughout
             all the updates
         StreamProviderId:
           type: string
@@ -1047,23 +1042,23 @@ components:
         StreamProviderEmail:
           type: string
           format: '255'
-          description: "Identity\u2019s email as it appears at the original provider"
+          description: Identity's email as it appears at the original provider
         UserName:
           type: string
           format: '100'
-          description: "Identity\u2019s user name as it appears at the original provider"
+          description: Identity's user name as it appears at the original provider
         FirstName:
           type: string
           format: '100'
-          description: "Identity\u2019s first name as it appears at the original provider"
+          description: Identity's first name as it appears at the original provider
         LastName:
           type: string
           format: '100'
-          description: "Identity\u2019s last name as it appears at the original provider"
+          description: Identity's last name as it appears at the original provider
         ThumbnailUrl:
           type: string
           format: '255'
-          description: "Link to the identity\u2019s profile image"
+          description: Link to the identity's profile image
         NumObjects:
           type: integer
           description: Number of objects connected to this identity
@@ -1073,7 +1068,7 @@ components:
         Id:
           type: integer
           format: int64
-          description: Manager ID. This is a commbox generated number and used throughout
+          description: Manager ID. This is a CommBox generated number and used throughout
             all the updates
         AsyncAssignedNoResponse:
           type: integer
@@ -1398,7 +1393,7 @@ components:
         response_time:
           type: string
           description: Timestamp of the response
-          example: '2024-08-06T07:51:52.2581942Z'
+          example: '2025-07-27T15:28:43.089834Z'
         data:
           type: array
           description: Array of recipient results
@@ -1440,7 +1435,7 @@ components:
         response_time:
           type: string
           description: Timestamp of the response
-          example: '2024-08-06T07:51:52.2581942Z'
+          example: '2025-07-27T15:28:43.089834Z'
         data:
           type: array
           description: Array of recipient results (mix of success and failure)
@@ -1490,7 +1485,7 @@ components:
         response_time:
           type: string
           description: Timestamp of the response
-          example: '2024-08-06T07:51:52.2581942Z'
+          example: '2025-07-27T15:28:43.089834Z'
         data:
           type: array
           description: Array of recipient error details
@@ -1553,7 +1548,7 @@ components:
     StreamProviderType:
       type: string
       enum:
-      - Commbox = 0
+      - CommBox = 0
       - Facebook = 1
       - Twitter = 2
       - YouTube = 3
@@ -1662,8 +1657,8 @@ paths:
       tags:
       - Core
       summary: System Status
-      description: returns the current state of the system</br></br><b>JSON Example:</b>
-        <br>https://api.commbox.io/core/systemstatus</br>
+      description: returns the current state of the system<br><br><b>JSON Example:</b>
+        <br>https://api.CommBox.io/core/systemstatus<br>
       operationId: systemStatus
       responses:
         '200':
@@ -1681,7 +1676,7 @@ paths:
                     example: System is operational
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.081112Z'
                   data:
                     type: string
                     example: null
@@ -1707,14 +1702,14 @@ paths:
       - Streams
       summary: Get Stream Availability
       description: "This API checks the availability of the stream (channel) and returns\
-        \ the channel\u2019s state.<br><br>Enum:<br>Channel is not active = 0 <br>Available\
+        \ the channel's state.<br><br>Enum:<br>Channel is not active = 0 <br>Available\
         \ (during business hours) = 1<br>Busy (Overload on agents during business\
         \ hours) = 2<br>Unavailable (Off business hours or during a special day) =\
         \ 3<br><br>Note: Path parameters include a Boolean regarding the automation\
         \ function within that steam (since the bot is always available, the busy\
         \ and unavailable states will not reflect)<br><br>**True** \u2013 Ignore automation<br>**False**\
-        \ \u2013 Include automation in the checking</br></br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance\
-        \  <br> <br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false"
+        \ \u2013 Include automation in the checking<br><br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance\
+        \  <br><br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false"
       operationId: Get_Stream_Availability
       parameters:
       - name: STREAM_ID
@@ -1744,7 +1739,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.078809Z'
                   data:
                     type: object
                     properties:
@@ -1778,7 +1773,7 @@ paths:
       parameters:
       - name: STREAM_ID
         in: path
-        description: Stream ID. This is a commbox generated number
+        description: Stream ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/STREAM_ID/schema'
@@ -1942,7 +1937,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: object
                     properties:
@@ -1989,7 +1984,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.078809Z'
                   data:
                     type: array
                     items:
@@ -2051,8 +2046,8 @@ paths:
       summary: Get SLA Breach Summary
       description: "A service-level agreement (SLA) defines the service standards\
         \ the provider is obligated to provide to the customer. The First Response\
-        \ time to the customer\u2019s inquiry is an example of a typical SLA measured\
-        \ by CommBox. After that time passes, the SLA is breached.<br><br> There are\
+        \ time to the customer's inquiry is an example of a typical SLA measured by\
+        \ CommBox. After that time passes, the SLA is breached.<br><br> There are\
         \ 2 SLA Warnings that can be set in the SLA settings page:<br> - A warning\
         \ is activated after 50% (default settings) of the time allotted by the SLA\
         \ past.<br> - A critical warning is activated when there is only 20% (default\
@@ -2080,7 +2075,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.078809Z'
                   data:
                     items:
                       oneOf:
@@ -2187,22 +2182,22 @@ paths:
       summary: Create Child Object
       description: " This API creates a message (child) in a conversation (object)\
         \ on behalf of the agent, sending it to the customer, or on behalf of the\
-        \ customer, displaying it to the agent.<br> The API returns the new child\u2019\
-        s ID.<br><br><br>Required path parameters include the Stream (channel) ID\
-        \ and the Object (conversation) ID.<br><br>Required body parameters for a\
-        \ message on behalf of the customer:<br> a) The data \u201CType\u201D see\
-        \ Enum at https://www.commbox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId\
+        \ customer, displaying it to the agent.<br> The API returns the new child's\
+        \ ID.<br><br>Required path parameters include the Stream (channel) ID and\
+        \ the Object (conversation) ID.<br><br>Required body parameters for a message\
+        \ on behalf of the customer:<br> a) The data \u201CType\u201D see Enum at\
+        \ https://www.CommBox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId\
         \ \u2013 the email or phone number of the person you are sending the message\
         \ on their behalf.<br> c) UserStreamProviderType of the channel. See Enum\
-        \ at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> d)\
+        \ at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> d)\
         \ The messages<br><br>Required body parameters for a message on behalf of\
-        \ the agent:<br> a) The data \u201CType\u201D - See Enum at https://www.commbox.io/api/#section/Enums/ObjectType\
-        \ <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent\u2019\
-        s user ID 'UserIdentity' : 34168, <br> Get the agent's User ID by using the\
-        \ Get Managers API https://api.commbox.io/managers <br> d) UserStreamProviderId\
+        \ the agent:<br> a) The data \u201CType\u201D - See Enum at https://www.CommBox.io/api/#section/Enums/ObjectType\
+        \ <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent's\
+        \ user ID 'UserIdentity' : 34168, <br> Get the agent's User ID by using the\
+        \ Get Managers API https://api.CommBox.io/managers <br> d) UserStreamProviderId\
         \ \u2013 the email or phone number of the person you are sending the message\
         \ on their behalf. <br> e) UserStreamProviderType of the channel. See Enum\
-        \ at https://www.commbox.io/api/#section/Enums/StreamProviderType <br> f)\
+        \ at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> f)\
         \ The messages <br><br>**Note:** After 24 hours from last sent message, APIs\
         \ messages sent to customers will be blocked by WhatsApp.<br><br>POST /streams/STREAM_ID/objects/OBJECT_ID/child<br>POST\
         \ /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child"
@@ -2234,7 +2229,7 @@ paths:
                     IsManager: true
                     UserIdentity: 36574658
                     Type: 4
-                    UserStreamProviderId: best.agent@commbox.com
+                    UserStreamProviderId: best.agent@CommBox.com
                     UserStreamProviderType: 4
                     Message: A new message on behalf of the agent
               On behalf of Agent - Sending a WhatsApp message:
@@ -2269,7 +2264,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: object
                     properties:
@@ -2302,11 +2297,11 @@ paths:
         of the messages (Child) of the conversation (Object).<br>  Note that the last
         communication will appear at the top of the report.<br>Required path params
         are the **Stream (channel) Id** and **Object (conversation) Id** - Stream
-        Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br>
-        <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854<br><br>Note:
-        When Children are not included in the request, the API only returns the last
-        message. When requesting logs (optional), the return will include all system
-        actions (for example, CRM activity) for the conversation.   '
+        Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br><br><b>Example:</b>
+        <br>https://api.CommBox.io/streams/532/objects/293854<br><br>Note: When Children
+        are not included in the request, the API only returns the last message. When
+        requesting logs (optional), the return will include all system actions (for
+        example, CRM activity) for the conversation.   '
       operationId: Get_Object
       parameters:
       - name: STREAM_ID
@@ -2339,7 +2334,7 @@ paths:
                     example: System is operational
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: array
                     items:
@@ -2394,16 +2389,16 @@ paths:
                               to agent, acceptance of email, etc.), subject matter
                               (emails), and an initiation time.
                             type: string
-                            example: '{\"guidRT\":\"82c952166e0b4989b932c41d1\",\"languages\":[{\"Item1\":\"he\",\"Item2\":1329062}],\"originUrl\":\"https://apps.commbox.com/Demo\",\"isConnected\"true,\"first_assigned_time\":\"2023-09-05T08:44:20\",\"sequence_start_time\":\"2023-09-0508:55:06.000000\",\"dropOutAggregationState\":1}'
+                            example: '{\"guidRT\":\"82c952166e0b4989b932c41d1\",\"languages\":[{\"Item1\":\"he\",\"Item2\":1329062}],\"originUrl\":\"https://apps.CommBox.com/Demo\",\"isConnected\"true,\"first_assigned_time\":\"2023-09-05T08:44:20\",\"sequence_start_time\":\"2023-09-0508:55:06.000000\",\"dropOutAggregationState\":1}'
                           message:
                             type: string
                             example: I need some help
                           createdTime:
                             type: string
-                            example: '2024-08-06T07:51:52.2581942Z'
+                            example: '2025-07-27T15:28:43.096637Z'
                           updatedTime:
                             type: string
-                            example: '2024-08-06T07:51:52.2581942Z'
+                            example: '2025-07-27T15:28:43.096637Z'
                           closeTime:
                             type: string
                             example: 'null'
@@ -2486,7 +2481,7 @@ paths:
                                         example: some message...
                                       createdTime:
                                         type: string
-                                        example: '2024-08-06T07:51:52.2581942Z'
+                                        example: '2025-07-27T15:28:43.096637Z'
                                       streamProviderType:
                                         type: integer
                                         example: '5'
@@ -2539,7 +2534,7 @@ paths:
                                         example: some other message...
                                       createdTime:
                                         type: string
-                                        example: '2024-08-06T07:55:52.2581942Z'
+                                        example: '2025-07-27T15:28:43.096637Z'
                                       streamProviderType:
                                         type: integer
                                         example: '5'
@@ -2600,7 +2595,7 @@ paths:
       description: 'This API returns the data of a specific Activity Type listed in
         the query param of a specific conversation (object). Use the ActivityType
         Enum listed above to receive the desired information.<br><br>(GET) /objects/OBJECT_ID/activities?activityType=X_from_Enum<br><br>Example:
-        To see the remarks added to the conversation (activity type #1)<br>https://api.commbox.io/objects/56575395/activities?activityType=1'
+        To see the remarks added to the conversation (activity type #1)<br>https://api.CommBox.io/objects/56575395/activities?activityType=1'
       operationId: Get_Object_Activities
       parameters:
       - name: OBJECT_ID
@@ -2695,8 +2690,8 @@ paths:
         channel, sub-channel.<br> Note: The transcript field includes the conversation
         transcript with an external hyperlink to the Object (conversation) .<br>Required
         path params are the **Stream (channel) Id** and **Object (conversation) Id**
-        - Stream Id could be encrypted or not.   </br></br>(GET) /streams/STREAM_ID/objects/OBJECT_ID/transcript  <br>
-        <br><b>Example:</b> <br>https://api.commbox.io/streams/532/objects/293854/transcript<br>'
+        - Stream Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID/transcript  <br><br><b>Example:</b>
+        <br>https://api.CommBox.io/streams/532/objects/293854/transcript<br>'
       operationId: Get_Object_Transcript
       parameters:
       - name: STREAM_ID
@@ -2758,7 +2753,7 @@ paths:
                               \ 12:21:05 PM] \\nJohn Doe: \\nAttachments: \\nmashu_mashu_251a989981_25a7e7f517.png\
                               \ \\n[2/29/2024 12:21:22 PM] \\nRan Itzhaki: \\nok \\\
                               n[2/29/2024 12:21:29 PM] \\nBot : \\nResolved \\nWispp\
-                              \ Object Id: 378015 \\nCommbox Ticket Link: https://qawispp.wispp.com/widget/object/378015"
+                              \ Object Id: 378015 \\nCommBox Ticket Link: https://qawispp.wispp.com/widget/object/378015"
                           user:
                             type: object
                             properties:
@@ -2821,8 +2816,8 @@ paths:
       tags:
       - Objects
       summary: Set Object Status
-      description: "The conversation\u2019s status indicates where the conversation\
-        \ has reached or heading. Statuses include \u201COpen\u201D, \u201CResolved\u201D\
+      description: "The conversation's status indicates where the conversation has\
+        \ reached or heading. Statuses include \u201COpen\u201D, \u201CResolved\u201D\
         , \u201CArchived\u201D, etc.<br>This API updates the status of the conversation.\
         \ See the Enum section for the Object Status Type.<br><br>Required path parameters\
         \ include the Object (Conversation) Id and the desired updated status Id."
@@ -2830,13 +2825,13 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
       - name: STATUS_ID
         in: path
-        description: Status ID. This is a commbox generated number
+        description: Status ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/STATUS_ID/schema'
@@ -2856,7 +2851,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -2887,8 +2882,8 @@ paths:
         \ (Texting) \u2192 SMS<li>Email \u2192 Email<li>Chat \u2192 Chat<br><br><h4>Cross-Channel\
         \ Routing (Conversations transfer to different channel types):</h4><li>SMS\
         \ (Texting) \u2192 Email / Chat<br><li>Email \u2192 SMS / Chat<br><li>Chat\
-        \ \u2192 SMS / Email<br><li>Any channel \u2192 Theme<br><br><br>- For the\
-        \ General subchannel ID, enter \u201C0\u201D in the substreamId field."
+        \ \u2192 SMS / Email<br><li>Any channel \u2192 Theme<br><br>- For the General\
+        \ subchannel ID, enter \u201C0\u201D in the substreamId field."
       operationId: Update_Object_Stream
       parameters:
       - name: OBJECT_ID
@@ -3237,7 +3232,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -3268,7 +3263,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -3298,7 +3293,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -3330,7 +3325,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -3360,7 +3355,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -3391,7 +3386,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -3424,7 +3419,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number for the conversation
+        description: Object ID. This is a CommBox generated number for the conversation
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -3458,7 +3453,7 @@ paths:
                       type: string
                       description: (Optional) Enter a link that will open when the
                         user clicks on the icon
-                      example: www.commbox.io
+                      example: www.CommBox.io
       responses:
         '200':
           description: OK
@@ -3475,7 +3470,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -3508,7 +3503,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -3534,7 +3529,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.096637Z'
                   data:
                     type: string
                     example: null
@@ -3561,7 +3556,7 @@ paths:
       summary: Set Object Tag
       description: This API is used to tag a conversation with a specific tag.<br>
         Required path parameters included the Stream (channel) Id, Object (conversation)
-        Id, and the desired Tag Id.</br></br>(POST) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}<br><br><b>Example:</b>
+        Id, and the desired Tag Id.<br><br>(POST) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}<br><br><b>Example:</b>
         https://api.wispp.com/streams/17566/objects/372235/tags/2789
       operationId: Set_Object_Tag
       parameters:
@@ -3599,7 +3594,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: string
                     example: null
@@ -3625,7 +3620,7 @@ paths:
       summary: Delete Object Tag
       description: This API is used to delete a specific tag from a conversation.<br>
         Required path parameters included the Stream (Channel) Id, Object (conversation)
-        Id, and the desired Tag Id.</br></br> (DELETE) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}
+        Id, and the desired Tag Id.<br><br> (DELETE) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}
         <br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789
       operationId: Delete_Object_Tag
       parameters:
@@ -3663,7 +3658,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: string
                     example: null
@@ -3709,7 +3704,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: array
                     items:
@@ -3756,13 +3751,12 @@ paths:
       tags:
       - Tags
       summary: Create a Tag
-      description: "This API creates a new tag, where the name/content of the tag\
-        \ is part of the body parameters.<br>If you want this new tag to be part of\
-        \ a group of tags, you\u2019ll need to place the group Id in the TagGroupId\
-        \ field.<br><br> Tags can be attached to a conversation (object), to a specific\
-        \ comment or a reply (child), or to a customer (user). Set the tag\u2019s\
-        \ attachment options in the boolean parameters (true/false)<br><br>The API\
-        \ returns Tag Id."
+      description: This API creates a new tag, where the name/content of the tag is
+        part of the body parameters.<br>If you want this new tag to be part of a group
+        of tags, you'll need to place the group Id in the TagGroupId field.<br><br>
+        Tags can be attached to a conversation (object), to a specific comment or
+        a reply (child), or to a customer (user). Set the tag's attachment options
+        in the boolean parameters (true/false)<br><br>The API returns Tag Id.
       operationId: Create_tag
       requestBody:
         description: Optional description for new mail object in  *Markdown*
@@ -3805,7 +3799,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -3833,14 +3827,14 @@ paths:
       tags:
       - Tags
       summary: Updating a Tag
-      description: "This API updates/changes the name/content of a tag.<br> The tag\u2019\
-        s Id is required as part of the URL. The actual changes to the tag are part\
-        \ of the Body Params - the new name/content and the associated group (optional).<br>"
+      description: This API updates/changes the name/content of a tag.<br> The tag's
+        Id is required as part of the URL. The actual changes to the tag are part
+        of the Body Params - the new name/content and the associated group (optional).<br>
       operationId: Update_tag
       parameters:
       - name: TAG_ID
         in: path
-        description: Tag ID. This is a commbox generated number
+        description: Tag ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/TAG_ID/schema'
@@ -3878,7 +3872,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -3905,9 +3899,8 @@ paths:
       tags:
       - Tags
       summary: Delete a Tag
-      description: "This API deletes a tag.<br> The tag\u2019s Id is required as part\
-        \ of the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags\
-        \ - https://api.commbox.io/tags"
+      description: This API deletes a tag.<br> The tag's Id is required as part of
+        the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags - https://api.CommBox.io/tags
       operationId: Delete_tag
       parameters:
       - name: TAG_ID
@@ -3932,7 +3925,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -3980,7 +3973,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: array
                     items:
@@ -4062,7 +4055,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -4090,13 +4083,15 @@ paths:
       tags:
       - Tags
       summary: Update Tags Group
-      description: "A few tags with similar purposes or originating team can be grouped\
-        \ together by the organization.<br>This API lets you change the name of such\
-        \ a group of tags.<br>All the tags associated with the old name of the tags\
-        \ group will now be associated with the new name.<br><br>The Tags Group Id\
-        \ is required.<br>\nTo add a specific tag to the new group, use the **Update\
-        \ Tag API** (Tag\u2019s Id required).<br> To delete a specific tag from the\
-        \ new group, use the **Delete Tag API** (Tag\u2019s Id required).<br>"
+      description: 'A few tags with similar purposes or originating team can be grouped
+        together by the organization.<br>This API lets you change the name of such
+        a group of tags.<br>All the tags associated with the old name of the tags
+        group will now be associated with the new name.<br><br>The Tags Group Id is
+        required.<br>
+
+        To add a specific tag to the new group, use the **Update Tag API** (Tag''s
+        Id required).<br> To delete a specific tag from the new group, use the **Delete
+        Tag API** (Tag''s Id required).<br>'
       operationId: Update_tags_group
       parameters:
       - name: TAGS_GROUP_ID
@@ -4135,7 +4130,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -4190,7 +4185,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.075179Z'
                   data:
                     type: object
                     properties:
@@ -4218,13 +4213,13 @@ paths:
       tags:
       - Users
       summary: Get User
-      description: Get user information</br></br>In order to get data, must use either
+      description: Get user information<br><br>In order to get data, must use either
         UserId or both streamProviderId and streamProviderType of the user identity
       operationId: Get_User
       parameters:
       - name: USER_ID
         in: path
-        description: User ID. This is a commbox generated number
+        description: User ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/USER_ID/schema'
@@ -4256,7 +4251,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.100157Z'
                   data:
                     type: object
                     properties:
@@ -4412,7 +4407,7 @@ paths:
       parameters:
       - name: USER_ID
         in: path
-        description: User ID. This is a commbox generated number
+        description: User ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/USER_ID/schema'
@@ -4450,7 +4445,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.100157Z'
                   data:
                     type: object
                     properties:
@@ -4478,9 +4473,8 @@ paths:
       tags:
       - Users
       summary: Get User Objects
-      description: Get user objects</br></br>In order to get data, must use either
-        userIdentityId or both streamProviderId and streamProviderType of the user
-        identity
+      description: Get user objects<br><br>In order to get data, must use either userIdentityId
+        or both streamProviderId and streamProviderType of the user identity
       operationId: Get_User_Objects
       parameters:
       - name: USER_IDENTITY_ID
@@ -4558,7 +4552,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.100157Z'
                   data:
                     type: array
                     items:
@@ -4603,7 +4597,7 @@ paths:
                             example: some message
                           createdTime:
                             type: string
-                            example: '2024-08-06T07:51:52.2581942Z'
+                            example: '2025-07-27T15:28:43.100157Z'
                           updatedTime:
                             type: string
                             example: '2024-08-07T06:51:52.2581942Z'
@@ -4612,10 +4606,10 @@ paths:
                             example: '2024-08-07T07:51:52.2581942Z'
                           firstResponseTime:
                             type: string
-                            example: '2024-08-06T08:00:52.2581942Z'
+                            example: '2025-07-27T15:28:43.100157Z'
                           lastResponseTime:
                             type: string
-                            example: '2024-08-06T08:00:52.2581942Z'
+                            example: '2025-07-27T15:28:43.100157Z'
                           statusId:
                             type: integer
                             example: 1
@@ -4690,7 +4684,7 @@ paths:
                                     example: some message...
                                   createdTime:
                                     type: string
-                                    example: '2024-08-06T07:51:52.2581942Z'
+                                    example: '2025-07-27T15:28:43.100157Z'
                                   streamProviderType:
                                     type: integer
                                     example: '5'
@@ -4743,7 +4737,7 @@ paths:
                                     example: some other message...
                                   createdTime:
                                     type: string
-                                    example: '2024-08-06T07:55:52.2581942Z'
+                                    example: '2025-07-27T15:28:43.100157Z'
                                   streamProviderType:
                                     type: integer
                                     example: '5'
@@ -4801,15 +4795,15 @@ paths:
       tags:
       - Managers
       summary: Get Manager Stats
-      description: "Based on the agent\u2019s Id, this API returns information about\
-        \ the current number of assignments based on the different statuses.<br><br>Required\
-        \ parameter is the Manager Id (agent/admin Id number generated by CommBox)<br>API\
-        \ returns the Agent\u2019s current assignments tally."
+      description: Based on the agent's Id, this API returns information about the
+        current number of assignments based on the different statuses.<br><br>Required
+        parameter is the Manager Id (agent/admin Id number generated by CommBox)<br>API
+        returns the Agent's current assignments tally.
       operationId: Get_Manager_stats
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -4829,7 +4823,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: object
                     properties:
@@ -4899,7 +4893,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -4919,19 +4913,19 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
                         example: 520760
-                        description: "The manager\u2019s id number"
+                        description: The manager's id number
                       content:
                         type: string
                         example: '{"user_color":"","_isEmailVerified":true,"_activationState":"Handled"}'
                         description: "Lists related statuses about the agent/admin:\
-                          \ Active state \u2013 shows the user\u2019s status, Password\
+                          \ Active state \u2013 shows the user's status, Password\
                           \ verification, Email verification, Chosen color"
                       identityId:
                         type: integer
@@ -4975,8 +4969,7 @@ paths:
                       teamId:
                         type: integer
                         example: 431
-                        description: "Lists the teams\u2019 Id associated with the\
-                          \ agent/admin"
+                        description: Lists the teams' Id associated with the agent/admin
                       teamName:
                         type: string
                         example: VIP
@@ -5026,7 +5019,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -5062,7 +5055,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: object
                     properties:
@@ -5095,7 +5088,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -5115,7 +5108,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: object
                     properties:
@@ -5163,7 +5156,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: array
                     items:
@@ -5172,7 +5165,7 @@ paths:
                         properties:
                           id:
                             type: integer
-                            description: "The agent\u2019s or admin\u2019s Id number"
+                            description: The agent's or admin's Id number
                             example: 520760
                           identityId:
                             type: integer
@@ -5340,7 +5333,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.094327Z'
                   data:
                     type: object
                     properties:
@@ -5374,7 +5367,7 @@ paths:
       parameters:
       - name: PROFILE_ID
         in: path
-        description: Profile ID. This is a commbox generated number
+        description: Profile ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/PROFILE_ID/schema'
@@ -5394,7 +5387,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.088196Z'
                   data:
                     type: array
                     items:
@@ -5466,10 +5459,10 @@ paths:
       tags:
       - Profiles
       summary: Get Profiles
-      description: "A profile is a set of permissions the agent has access to.<br>\
-        \ This API returns a list of all agents\u2019 profile Ids and profile names.<br><br>API\
-        \ Returns <br> \"Id\" refers to the profile Id number <br> \"Name\" is the\
-        \ name of the profile <br> \"UniqueName\" is a secondary name (optional)"
+      description: A profile is a set of permissions the agent has access to.<br>
+        This API returns a list of all agents' profile Ids and profile names.<br><br>API
+        Returns <br> "Id" refers to the profile Id number <br> "Name" is the name
+        of the profile <br> "UniqueName" is a secondary name (optional)
       operationId: Get_profiles
       responses:
         '200':
@@ -5487,7 +5480,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.088196Z'
                   data:
                     type: array
                     items:
@@ -5562,7 +5555,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.088196Z'
                   data:
                     type: string
                     example: ''
@@ -5589,17 +5582,17 @@ paths:
       description: "This API Adds or changes the profiles of a specific agent/admin.<br>The\
         \ Manager Id of the agent is required, as well as the specific profile Id\
         \ or name.<br><br>To <b>Add</b> profiles, set the Query parameter to \u201C\
-        add\u201D and enter the profile\u2019s name or Id. Separate multiple profiles\
-        \ with a comma.<br><br>To <b>Change</b> profiles (delete the current and add\
-        \ the new), set the Query parameter to \u201Cset\u201D and enter the profile\u2019\
-        s name or Id. Separate multiple profiles with a comma.<br><br><b>Note that\
+        add\u201D and enter the profile's name or Id. Separate multiple profiles with\
+        \ a comma.<br><br>To <b>Change</b> profiles (delete the current and add the\
+        \ new), set the Query parameter to \u201Cset\u201D and enter the profile's\
+        \ name or Id. Separate multiple profiles with a comma.<br><br><b>Note that\
         \ only one query parameter should be used \u2013 not both.</b><br>API Sends\
-        \ URL + Manager\u2019s Id q=[profile id]"
+        \ URL + Manager's Id q=[profile id]"
       operationId: Add_Profiles
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -5639,7 +5632,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.088196Z'
                   data:
                     type: array
                     items:
@@ -5695,13 +5688,13 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
       - name: PROFILE_ID
         in: path
-        description: Profile ID. This is a commbox generated number
+        description: Profile ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/PROFILE_ID/schema'
@@ -5721,7 +5714,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.088196Z'
                   data:
                     type: string
                     example: ''
@@ -5752,7 +5745,7 @@ paths:
       parameters:
       - name: TEAM_ID
         in: path
-        description: Team ID. This is a commbox generated number
+        description: Team ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/TEAM_ID/schema'
@@ -5772,7 +5765,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.077611Z'
                   data:
                     type: array
                     items:
@@ -5848,7 +5841,7 @@ paths:
       parameters:
       - name: TEAM_ID
         in: path
-        description: Team ID. This is a commbox generated number
+        description: Team ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/TEAM_ID/schema'
@@ -5868,7 +5861,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.077611Z'
                   data:
                     type: string
                     example: ''
@@ -5897,7 +5890,7 @@ paths:
       parameters:
       - name: TEAM_ID
         in: path
-        description: Team ID. This is a commbox generated number
+        description: Team ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/TEAM_ID/schema'
@@ -5917,7 +5910,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.077611Z'
                   data:
                     type: string
                     example: ''
@@ -5966,7 +5959,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.077611Z'
                   data:
                     type: array
                     items:
@@ -6007,8 +6000,8 @@ paths:
       tags:
       - Teams
       summary: Create a Team
-      description: "This API is used to create a new Team.<br><br> Enter the new Team\u2019\
-        s name in the query parameter.<br>The API returns a new Team Id number."
+      description: This API is used to create a new Team.<br><br> Enter the new Team's
+        name in the query parameter.<br>The API returns a new Team Id number.
       operationId: Create_Team
       parameters:
       - name: Name
@@ -6032,7 +6025,7 @@ paths:
                     example: OK
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.077611Z'
                   data:
                     type: object
                     properties:
@@ -6066,7 +6059,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -6086,7 +6079,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.076767Z'
                   data:
                     type: object
                     properties:
@@ -6125,7 +6118,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -6151,7 +6144,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.076767Z'
                   data:
                     type: object
                     properties:
@@ -6204,7 +6197,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.076767Z'
                   data:
                     type: array
                     items:
@@ -6259,7 +6252,7 @@ paths:
       parameters:
       - name: MANAGER_ID
         in: path
-        description: Manager ID. This is a commbox generated number
+        description: Manager ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/MANAGER_ID/schema'
@@ -6279,7 +6272,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.087342Z'
                   data:
                     type: array
                     items:
@@ -6348,7 +6341,7 @@ paths:
       summary: Assign Manager
       description: This API assigns a conversation to a specific agent.<br> Manager
         (agent) Id is a required path parameter, and the Object (conversation) Id
-        is a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>
+        is a required query parameter. </b> <br><br> Example<br> https://api.CommBox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>
       operationId: Assign_Manager
       parameters:
       - name: MANAGER_ID
@@ -6379,7 +6372,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.087342Z'
                   data:
                     type: string
                     example: null
@@ -6405,7 +6398,7 @@ paths:
       summary: Unassign Manager
       description: This API unassigns a conversation to a specific agent.<br> Manager
         (agent)Id is a required path parameter, and the Object (conversation) Id is
-        a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>
+        a required query parameter. </b> <br><br> Example<br> https://api.CommBox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>
       operationId: Unassign_Manager
       parameters:
       - name: MANAGER_ID
@@ -6436,7 +6429,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.087342Z'
                   data:
                     type: string
                     example: null
@@ -6492,7 +6485,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.093499Z'
                   data:
                     type: string
                     example: ''
@@ -6560,7 +6553,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.093499Z'
                   data:
                     type: string
                     example: ''
@@ -6592,14 +6585,14 @@ paths:
         \ (attached document, image, or video), a footer, and a call for action or\
         \ quick reply buttons.<br>The API can also create CommBox object(s), support\
         \ subchannels, and enable scheduled publishing by adding unix timestamp code\
-        \ to the schedule field (see the 'Send a template with text' example).<br><br></br>\n\
+        \ to the schedule field (see the 'Send a template with text' example).<br><br><br>\n\
         \n **Send Templated Message + Object data**<br><br>\n Sending any templated\
         \ WhatsApp message with Object data also creates a conversation (Object) on\
         \ the CommBox platform.<br><br>**Note:** Adding the **ManagerId** field with\
-        \ the agent\u2019s Id (optional) will ensure the agent is reflected in various\
+        \ the agent's Id (optional) will ensure the agent is reflected in various\
         \ reports. Objects without a managerId will display conversations as being\
         \ initiated by 'customer'. <br><br> The required and optional fields are described\
-        \ here: https://www.commbox.io/api/#operation/Create_Object\n\n<br><br> **Send\
+        \ here: https://www.CommBox.io/api/#operation/Create_Object\n\n<br><br> **Send\
         \ Templated Message with an Attached Media**<br><br>\n There are two ways\
         \ to do so: \n\na) Sending a Templated Message with a link to the file. Example\
         \ below: 'Send a template with an attachment (doc)'.\n<br><br>\n OR<br>\n\n\
@@ -6608,7 +6601,7 @@ paths:
         \ response for sending a templated message with the attachment ID. See the\
         \ 'Send a template with an attachment ID (video)' example. \n\n<br><br>**Authentication\
         \ Templates**<br><br>\n\n See the Examples for sending an authentication template.\
-        \ <br><br>For more information:\n<li> https://help.commbox.io/docs/creating-new-whatsapp-authentication-templates<br>\n\
+        \ <br><br>For more information:\n<li> https://help.CommBox.io/docs/creating-new-whatsapp-authentication-templates<br>\n\
         <li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n\
         \   "
       operationId: Send_Templated_Message_V2
@@ -6738,11 +6731,11 @@ paths:
                         - type: body
                           parameters:
                           - type: text
-                            text: https://www.commbox.io
+                            text: https://www.CommBox.io
                           - type: text
-                            text: https://www.commbox.io2
+                            text: https://www.CommBox.io2
                           - type: text
-                            text: https://www.commbox.io3
+                            text: https://www.CommBox.io3
                     object_data:
                       createChildObject: true
                       SubStreamId: 0
@@ -7274,7 +7267,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.083646Z'
                   data:
                     type: array
                     items:
@@ -7295,7 +7288,7 @@ paths:
                           type: integer
                           format: int64
                           example: 38383744
-                          description: Object ID. This is a commbox generated number
+                          description: Object ID. This is a CommBox generated number
                             (optional)
         '206':
           description: Provider returned failure
@@ -7312,7 +7305,7 @@ paths:
                     example: Missing template parameter
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.083646Z'
                   data:
                     type: array
                     items:
@@ -7334,7 +7327,7 @@ paths:
                             type: integer
                             format: int64
                             example: 38383744
-                            description: Object ID. This is a commbox generated number
+                            description: Object ID. This is a CommBox generated number
                               (optional)
                       - type: object
                         properties:
@@ -7364,7 +7357,7 @@ paths:
                     example: Missing parameter template_name
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.083646Z'
                   data:
                     type: array
                     items:
@@ -7436,7 +7429,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.083646Z'
                   data:
                     type: array
                     items:
@@ -7508,7 +7501,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.083646Z'
                   data:
                     type: object
                     properties:
@@ -7573,7 +7566,7 @@ paths:
                   to: '9725551234'
                   templateName: multiple_params_in_body
                   template.language.code: en_GB
-                  body.1.value: https://www.commbox.io
+                  body.1.value: https://www.CommBox.io
                   body.2.value: Product Launch
                   body.3.value: March 15th
               templateWithHeaderParam:
@@ -7647,7 +7640,7 @@ paths:
                   to: '9725551234'
                   templateName: dynamic_url
                   template.language.code: en
-                  button.value: https://www.commbox.io/support?user=12345
+                  button.value: https://www.CommBox.io/support?user=12345
                   body.1.value: Click for support
               callButton:
                 summary: Template with Call a Phone Number button
@@ -7863,7 +7856,7 @@ paths:
                   description: (Optional) Name of the audience in the uploaded file
               example:
                 audience_file: aud1.csv
-                notify_mail: eddie.doe@commbox.io
+                notify_mail: eddie.doe@CommBox.io
                 scheduled_date: '2025-01-22T11:15:55Z'
                 expiration_data: '2025-01-22T11:45:55'
                 template_name: end_of_year_sale
@@ -8002,7 +7995,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.080493Z'
                   data:
                     type: object
                     properties:
@@ -8011,7 +8004,7 @@ paths:
                         example: '312345'
                       form_link:
                         type: string
-                        example: https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a
+                        example: https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a
         '400':
           description: Bad Request - The request could not be understood by the server.
             Incoming parameters might not be valid
@@ -8104,7 +8097,7 @@ paths:
                         example: '312345'
                       form_link:
                         type: string
-                        example: https://apps.commbox.io/form/commbox/499fdc93aa804a4b8266251224944d6a
+                        example: https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a
         '400':
           description: Bad Request - The request could not be understood by the server.
             Incoming parameters might not be valid
@@ -8129,20 +8122,20 @@ paths:
       description: "This API allows organizations to grant users access to the CommBox\
         \ platform while bypassing standard authentication methods. The Ticket API\
         \ returns a session cookie that is added to the login URL. You can limit the\
-        \ token\u2019s lifespan when making the API call or by configuring it in the\
-        \ Privacy and Security module in the CommBox platform.<br><br>See important\
-        \ information about the body params in the schema below. <br><br>**Agent Login\
-        \ Bypass**<br>To bypass the login page without entering the agent\u2019s credentials,\
-        \ append the session cookie returned by the API to the login URL:<br><br>Format:\
-        \ Login URL / ?ta= / authentication token (without the quotation marks)<br>Example:\
-        \ https://commbox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer\
+        \ token's lifespan when making the API call or by configuring it in the Privacy\
+        \ and Security module in the CommBox platform.<br><br>See important information\
+        \ about the body params in the schema below. <br><br>**Agent Login Bypass**<br>To\
+        \ bypass the login page without entering the agent's credentials, append the\
+        \ session cookie returned by the API to the login URL:<br><br>Format: Login\
+        \ URL / ?ta= / authentication token (without the quotation marks)<br>Example:\
+        \ https://CommBox.com/login?ta=9M3Wg_fALiPm2gUeX2FinOJz...<br><br>**Customer\
         \ Chat Access**<br>To start the chat without manual identification, append\
         \ the session cookie to the chat login page URL:<br><br>Format: apps.Brand\
         \ URL / chat / the channel ID in the encrypted code / ?ta= / authentication\
-        \ token (without the quotation marks)<br>Example: https://apps.commbox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo**\
+        \ token (without the quotation marks)<br>Example: https://apps.CommBox.com/chat/nex9tHPKdBkD_fAfbuUPABg%3d%3d?ta=9M3Wg_fALiPm2gUeX...<br><br>**OverrideUserInfo**\
         \ \u2013 Optional param for editing the Customer Information record at login.<br>**OneTimeUse**\
         \ \u2013 Optional param that limits the token to one usage.<br><br>Learn more:\
-        \ [https://help.commbox.io/docs/ticket-authentication](https://help.commbox.io/docs/ticket-authentication)\
+        \ [https://help.CommBox.io/docs/ticket-authentication](https://help.CommBox.io/docs/ticket-authentication)\
         \        "
       operationId: Create_Ticket
       requestBody:
@@ -8158,11 +8151,11 @@ paths:
                   properties:
                     brand:
                       type: string
-                      example: commbox
+                      example: CommBox
                     username:
                       type: string
-                      description: "Applicable only for agent authentication; found\
-                        \ in the agent\u2019s record"
+                      description: Applicable only for agent authentication; found
+                        in the agent's record
                       example: john.d
                     email:
                       type: string
@@ -8239,7 +8232,7 @@ paths:
       - Automation
       summary: Get Object Context
       description: Returns object data context. <b>Must include desierd data propertie
-        for query (comma separated)</b> </br></br> Example</br> https://api.commbox.io/automation/objects/{OBJECT_ID}/context?<b>properties=data.plus,data.name
+        for query (comma separated)</b> <br><br> Example<br> https://api.CommBox.io/automation/objects/{OBJECT_ID}/context?<b>properties=data.plus,data.name
       operationId: Get_Object_Context
       parameters:
       - name: OBJECT_ID
@@ -8263,7 +8256,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.081553Z'
                   data:
                     type: object
                     properties:
@@ -8295,7 +8288,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: Object ID. This is a commbox generated number
+        description: Object ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -8335,7 +8328,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.081553Z'
                   data:
                     type: object
                     properties:
@@ -8368,7 +8361,7 @@ paths:
       parameters:
       - name: OBJECT_ID
         in: path
-        description: OBJECT ID. This is a commbox generated number
+        description: OBJECT ID. This is a CommBox generated number
         required: true
         schema:
           $ref: '#/components/parameters/OBJECT_ID/schema'
@@ -8402,7 +8395,7 @@ paths:
                     example: Operation successful
                   response_time:
                     type: string
-                    example: '2024-08-06T07:51:52.2581942Z'
+                    example: '2025-07-27T15:28:43.081553Z'
                   data:
                     type: object
                     properties:

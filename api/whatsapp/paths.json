@@ -6,7 +6,7 @@
           "WhatsApp"
         ],
         "summary": "Send WhatsApp Templated Message V2",
-        "description": "\n\n This API sends a generated WhatsApp template from the **WhatsApp Business Account** (WABA) to a single recipient or to multiple recipients (up to 20).<br><br>\n **Key New Capabilities of V2 version**<br><br> \nMarketing and Utility Templates may have a header with text or added media (attached document, image, or video), a footer, and a call for action or quick reply buttons.<br>The API can also create CommBox object(s), support subchannels, and enable scheduled publishing by adding unix timestamp code to the schedule field (see the 'Send a template with text' example).<br><br></br>\n\n **Send Templated Message + Object data**<br><br>\n Sending any templated WhatsApp message with Object data also creates a conversation (Object) on the CommBox platform.<br><br>**Note:** Adding the **ManagerId** field with the agent\u2019s Id (optional) will ensure the agent is reflected in various reports. Objects without a managerId will display conversations as being initiated by 'customer'. <br><br> The required and optional fields are described here: https://www.commbox.io/api/#operation/Create_Object\n\n<br><br> **Send Templated Message with an Attached Media**<br><br>\n There are two ways to do so: \n\na) Sending a Templated Message with a link to the file. Example below: 'Send a template with an attachment (doc)'.\n<br><br>\n OR<br>\n\nb) Use the /whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID} API endpoint to upload the file to WhatsApp servers and then fetch the uploaded file ID from the response for sending a templated message with the attachment ID. See the 'Send a template with an attachment ID (video)' example. \n\n<br><br>**Authentication Templates**<br><br>\n\n See the Examples for sending an authentication template. <br><br>For more information:\n<li> https://help.commbox.io/docs/creating-new-whatsapp-authentication-templates<br>\n<li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n   ",
+        "description": "\n\n This API sends a generated WhatsApp template from the **WhatsApp Business Account** (WABA) to a single recipient or to multiple recipients (up to 20).<br><br>\n **Key New Capabilities of V2 version**<br><br> \nMarketing and Utility Templates may have a header with text or added media (attached document, image, or video), a footer, and a call for action or quick reply buttons.<br>The API can also create CommBox object(s), support subchannels, and enable scheduled publishing by adding unix timestamp code to the schedule field (see the 'Send a template with text' example).<br><br><br>\n\n **Send Templated Message + Object data**<br><br>\n Sending any templated WhatsApp message with Object data also creates a conversation (Object) on the CommBox platform.<br><br>**Note:** Adding the **ManagerId** field with the agent's Id (optional) will ensure the agent is reflected in various reports. Objects without a managerId will display conversations as being initiated by 'customer'. <br><br> The required and optional fields are described here: https://www.CommBox.io/api/#operation/Create_Object\n\n<br><br> **Send Templated Message with an Attached Media**<br><br>\n There are two ways to do so: \n\na) Sending a Templated Message with a link to the file. Example below: 'Send a template with an attachment (doc)'.\n<br><br>\n OR<br>\n\nb) Use the /whatsapp/uploadmedia/{ENCRYPTED_STREAM_ID} API endpoint to upload the file to WhatsApp servers and then fetch the uploaded file ID from the response for sending a templated message with the attachment ID. See the 'Send a template with an attachment ID (video)' example. \n\n<br><br>**Authentication Templates**<br><br>\n\n See the Examples for sending an authentication template. <br><br>For more information:\n<li> https://help.CommBox.io/docs/creating-new-whatsapp-authentication-templates<br>\n<li> https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/#authentication-templates\n   ",
         "operationId": "Send_Templated_Message_V2",
         "parameters": [
           {
@@ -217,15 +217,15 @@
                                 "parameters": [
                                   {
                                     "type": "text",
-                                    "text": "https://www.commbox.io"
+                                    "text": "https://www.CommBox.io"
                                   },
                                   {
                                     "type": "text",
-                                    "text": "https://www.commbox.io2"
+                                    "text": "https://www.CommBox.io2"
                                   },
                                   {
                                     "type": "text",
-                                    "text": "https://www.commbox.io3"
+                                    "text": "https://www.CommBox.io3"
                                   }
                                 ]
                               }
@@ -1138,7 +1138,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.083646Z"
                     },
                     "data": {
                       "type": "array",
@@ -1163,7 +1163,7 @@
                             "type": "integer",
                             "format": "int64",
                             "example": 38383744,
-                            "description": "Object ID. This is a commbox generated number (optional)"
+                            "description": "Object ID. This is a CommBox generated number (optional)"
                           }
                         }
                       }
@@ -1190,7 +1190,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.083646Z"
                     },
                     "data": {
                       "type": "array",
@@ -1217,7 +1217,7 @@
                                 "type": "integer",
                                 "format": "int64",
                                 "example": 38383744,
-                                "description": "Object ID. This is a commbox generated number (optional)"
+                                "description": "Object ID. This is a CommBox generated number (optional)"
                               }
                             }
                           },
@@ -1265,7 +1265,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.083646Z"
                     },
                     "data": {
                       "type": "array",
@@ -1368,7 +1368,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.083646Z"
                     },
                     "data": {
                       "type": "array",
@@ -1458,7 +1458,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.083646Z"
                     },
                     "data": {
                       "type": "object",
@@ -1541,7 +1541,7 @@
                     "to": "9725551234",
                     "templateName": "multiple_params_in_body",
                     "template.language.code": "en_GB",
-                    "body.1.value": "https://www.commbox.io",
+                    "body.1.value": "https://www.CommBox.io",
                     "body.2.value": "Product Launch",
                     "body.3.value": "March 15th"
                   }
@@ -1631,7 +1631,7 @@
                     "to": "9725551234",
                     "templateName": "dynamic_url",
                     "template.language.code": "en",
-                    "button.value": "https://www.commbox.io/support?user=12345",
+                    "button.value": "https://www.CommBox.io/support?user=12345",
                     "body.1.value": "Click for support"
                   }
                 },
@@ -1902,7 +1902,7 @@
                 },
                 "example": {
                   "audience_file": "aud1.csv",
-                  "notify_mail": "eddie.doe@commbox.io",
+                  "notify_mail": "eddie.doe@CommBox.io",
                   "scheduled_date": "2025-01-22T11:15:55Z",
                   "expiration_data": "2025-01-22T11:45:55",
                   "template_name": "end_of_year_sale",

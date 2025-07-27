@@ -12,7 +12,7 @@
           {
             "name": "MANAGER_ID",
             "in": "path",
-            "description": "Manager ID. This is a commbox generated number",
+            "description": "Manager ID. This is a CommBox generated number",
             "required": true,
             "schema": {
               "$ref": "#/components/parameters/MANAGER_ID/schema"
@@ -37,7 +37,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.087342Z"
                     },
                     "data": {
                       "type": "array",
@@ -139,7 +139,7 @@
           "Assignments"
         ],
         "summary": "Assign Manager",
-        "description": "This API assigns a conversation to a specific agent.<br> Manager (agent) Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
+        "description": "This API assigns a conversation to a specific agent.<br> Manager (agent) Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> <br><br> Example<br> https://api.CommBox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
         "operationId": "Assign_Manager",
         "parameters": [
           {
@@ -179,7 +179,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.087342Z"
                     },
                     "data": {
                       "type": "string",
@@ -215,7 +215,7 @@
           "Assignments"
         ],
         "summary": "Unassign Manager",
-        "description": "This API unassigns a conversation to a specific agent.<br> Manager (agent)Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> </br></br> Example</br> https://api.commbox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
+        "description": "This API unassigns a conversation to a specific agent.<br> Manager (agent)Id is a required path parameter, and the Object (conversation) Id is a required query parameter. </b> <br><br> Example<br> https://api.CommBox.io/managers/{MANAGER_ID}/assignments?objectId={OBJECT_ID}<b>",
         "operationId": "Unassign_Manager",
         "parameters": [
           {
@@ -255,7 +255,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.087342Z"
                     },
                     "data": {
                       "type": "string",

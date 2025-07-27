@@ -6,7 +6,7 @@
           "Streams"
         ],
         "summary": "Get Stream Availability",
-        "description": "This API checks the availability of the stream (channel) and returns the channel\u2019s state.<br><br>Enum:<br>Channel is not active = 0 <br>Available (during business hours) = 1<br>Busy (Overload on agents during business hours) = 2<br>Unavailable (Off business hours or during a special day) = 3<br><br>Note: Path parameters include a Boolean regarding the automation function within that steam (since the bot is always available, the busy and unavailable states will not reflect)<br><br>**True** \u2013 Ignore automation<br>**False** \u2013 Include automation in the checking</br></br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance  <br> <br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false",
+        "description": "This API checks the availability of the stream (channel) and returns the channel's state.<br><br>Enum:<br>Channel is not active = 0 <br>Available (during business hours) = 1<br>Busy (Overload on agents during business hours) = 2<br>Unavailable (Off business hours or during a special day) = 3<br><br>Note: Path parameters include a Boolean regarding the automation function within that steam (since the bot is always available, the busy and unavailable states will not reflect)<br><br>**True** \u2013 Ignore automation<br>**False** \u2013 Include automation in the checking<br><br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance  <br><br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false",
         "operationId": "Get_Stream_Availability",
         "parameters": [
           {
@@ -45,7 +45,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.078809Z"
                     },
                     "data": {
                       "type": "object",
@@ -240,7 +240,7 @@
                               },
                               "priorityTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.078809Z"
                               },
                               "statusId": {
                                 "type": "integer",
@@ -398,19 +398,19 @@
                               },
                               "createdTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.078809Z"
                               },
                               "updatedTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.078809Z"
                               },
                               "lastResponseTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.078809Z"
                               },
                               "priorityTime": {
                                 "type": "string",
-                                "example": "2024-08-06T07:51:52.2581942Z"
+                                "example": "2025-07-27T15:28:43.078809Z"
                               },
                               "streamProviderId": {
                                 "type": "string",
@@ -531,7 +531,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.078809Z"
                     },
                     "data": {
                       "type": "array",
@@ -622,7 +622,7 @@
           "Streams"
         ],
         "summary": "Get SLA Breach Summary",
-        "description": "A service-level agreement (SLA) defines the service standards the provider is obligated to provide to the customer. The First Response time to the customer\u2019s inquiry is an example of a typical SLA measured by CommBox. After that time passes, the SLA is breached.<br><br> There are 2 SLA Warnings that can be set in the SLA settings page:<br> - A warning is activated after 50% (default settings) of the time allotted by the SLA past.<br> - A critical warning is activated when there is only 20% (default settings) of the time left before an SLA breach.<br> (For example, if the Service Level Agreement is 5 minutes, conversations waiting for the First Response will be painted in orange after 2.5 minutes and in red after 4 minutes.)<br><br> This API returns the number of SLA breaches for the entire account divided by communication channel Id, longest conversations, and specific agent/bot SLA.<br> Note:\u201cExceptions\u201d refers to Breaches, and \u201cSlaCritical\u201d refers to the SLA critical warning.",
+        "description": "A service-level agreement (SLA) defines the service standards the provider is obligated to provide to the customer. The First Response time to the customer's inquiry is an example of a typical SLA measured by CommBox. After that time passes, the SLA is breached.<br><br> There are 2 SLA Warnings that can be set in the SLA settings page:<br> - A warning is activated after 50% (default settings) of the time allotted by the SLA past.<br> - A critical warning is activated when there is only 20% (default settings) of the time left before an SLA breach.<br> (For example, if the Service Level Agreement is 5 minutes, conversations waiting for the First Response will be painted in orange after 2.5 minutes and in red after 4 minutes.)<br><br> This API returns the number of SLA breaches for the entire account divided by communication channel Id, longest conversations, and specific agent/bot SLA.<br> Note:\u201cExceptions\u201d refers to Breaches, and \u201cSlaCritical\u201d refers to the SLA critical warning.",
         "operationId": "Get_SLA_streams_stats",
         "responses": {
           "200": {
@@ -642,7 +642,7 @@
                     },
                     "response_time": {
                       "type": "string",
-                      "example": "2024-08-06T07:51:52.2581942Z"
+                      "example": "2025-07-27T15:28:43.078809Z"
                     },
                     "data": {
                       "items": {
