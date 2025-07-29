@@ -67,6 +67,15 @@ npm run lint
 
 ### Testing
 ```bash
+# Run unit tests for OpenAPI specification
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate test coverage report
+npm run test:coverage
+
 # Test API authentication (requires valid token in .env)
 npm run test:api
 
