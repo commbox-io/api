@@ -30,6 +30,9 @@ temp/
 
 # Node modules (if needed for tooling)
 node_modules/
+package-lock.json
+npm-debug.log*
+.npm/
 
 # Python cache
 __pycache__/
@@ -38,3 +41,62 @@ __pycache__/
 
 # Generated files (keep our manually created ones)
 # Only exclude if auto-generated in future
+
+# AI/Assistant files
+.claude/
+.copilot/
+.cursor/
+.ai/
+*.claude
+claude.json
+.clauderc
+
+# Example and demo files
+examples/
+demos/
+samples/
+*.example
+*.sample
+*.demo
+
+# Documentation drafts and notes
+*.draft
+*.notes
+scratch/
+drafts/
+notes/
+
+# Test data and fixtures (unless needed for tests)
+test-data/
+fixtures/
+*.test-data
+
+# Coverage reports
+coverage/
+.nyc_output/
+*.lcov
+
+# Backup files
+*.bak
+*.backup
+*.old
+*_backup
+*_old
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Development artifacts
+.history/
+.cache/
+*.orig
+
+# Personal configuration
+*.personal
+*.private
+personal/
+private/

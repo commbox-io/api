@@ -1,0 +1,122 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CommBox API",
+    "x-logo": {
+      "url": "https://www.CommBox.io/logo/CommBox_logo_large.png"
+    },
+    "description": "CommBox API - Modular Structure\n\nThis is the main entry point for the modular OpenAPI specification.\nThe full API documentation is split across multiple files for better maintainability.",
+    "version": "2.07",
+    "termsOfService": "https://www.CommBox.io/end-user-license-agreement-eula/",
+    "contact": {
+      "name": "CommBox",
+      "url": "https://www.CommBox.io",
+      "email": "contactus@CommBox.io"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.CommBox.io/",
+      "description": "Production server"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Core",
+      "description": "Systemwide verification"
+    },
+    {
+      "name": "Objects",
+      "description": "Objects are conversations between the bot or the agent and the customers"
+    },
+    {
+      "name": "Streams",
+      "description": "Streams are communication channels used in CommBox"
+    },
+    {
+      "name": "Tags",
+      "description": "Tags are a classification tool for summarizing aspects"
+    },
+    {
+      "name": "SMS",
+      "description": "Sending customers SMS messages"
+    },
+    {
+      "name": "WhatsApp",
+      "description": "CommBox facilitates activities in WABA"
+    },
+    {
+      "name": "Users",
+      "description": "Users are people recorded in CommBox"
+    },
+    {
+      "name": "Managers",
+      "description": "APIs for Admins, Team Leaders, and Agents"
+    },
+    {
+      "name": "Profiles",
+      "description": "System permissions and enabled activities"
+    },
+    {
+      "name": "Presence",
+      "description": "Agent availability status"
+    },
+    {
+      "name": "Assignments",
+      "description": "Conversations assigned to agents"
+    },
+    {
+      "name": "Teams",
+      "description": "Groups of agents with specific roles"
+    },
+    {
+      "name": "Forms",
+      "description": "APIs for form management"
+    },
+    {
+      "name": "Authentication",
+      "description": "Authentication APIs"
+    },
+    {
+      "name": "Automation",
+      "description": "Bot capabilities"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API key is needed to authorize requests."
+      }
+    }
+  },
+  "x-tagGroups": [
+    {
+      "name": "API Calls",
+      "tags": [
+        "Core",
+        "Objects",
+        "Streams",
+        "Tags",
+        "SMS",
+        "WhatsApp",
+        "Users",
+        "Managers",
+        "Profiles",
+        "Presence",
+        "Assignments",
+        "Teams",
+        "Forms",
+        "Authentication",
+        "Automation"
+      ]
+    }
+  ]
+}

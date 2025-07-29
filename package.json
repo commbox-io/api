@@ -1,5 +1,28 @@
 {
+  "name": "commbox-api",
+  "version": "1.0.0",
+  "description": "CommBox API Development Environment",
+  "scripts": {
+    "bundle:modular": "node scripts/bundle-openapi.js",
+    "validate": "swagger-cli validate openapi.json",
+    "validate:yaml": "swagger-cli validate openapi.yaml",
+    "validate:bundled": "swagger-cli validate openapi-bundled.json",
+    "bundle": "swagger-cli bundle openapi.json -o dist/bundled.json",
+    "preview": "http-server -p 8080 -o commbox.html",
+    "serve": "http-server -p 8080 -o",
+    "test:api": "curl -X GET https://api.commbox.io/v2/authentication/me -H 'Authorization: Bearer YOUR_API_TOKEN'",
+    "format": "prettier --write \"**/*.{json,yaml,md}\"",
+    "lint": "spectral lint openapi.json",
+    "build": "npm run bundle:modular && npm run validate:bundled"
+  },
   "dependencies": {
     "swagger-parser": "^10.0.3"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@stoplight/spectral-cli": "^6.11.0",
+    "prettier": "^3.2.4",
+    "http-server": "^14.1.1",
+    "concurrently": "^8.2.2"
   }
 }
