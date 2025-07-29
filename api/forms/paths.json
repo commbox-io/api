@@ -1,0 +1,245 @@
+{
+  "paths": {
+    "/forms/createlink/{FORM_ID}": {
+      "post": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "Create Form Link",
+        "description": "This API creates a link to a specified organizational form that can be sent to the customer to fill and/or sign.<br><br>Path parameters include the Form ID (appears next to the name of the form in the forms list screen).<br><b>Body Params:</b><br>Data \u2013 A JSON string consists of the following fields:<br>\u2022\tstreamProviderId \u2013 The identifier of the receiving customer by their phone number or email.<br>\u2022\tstreamProviderType \u2013 The type of the streamProviderId:  4 for email, 5 for phone number.<br>\u2022\treferringObjectId (optional) \u2013 When the form link is opened, a new form object is created in the system. This object can be linked to another object, for example the initiating conversation, to give the agent an indicator of the filled form.<br>\u2022\tproperties (optional) \u2013 a JSON string contains initial values for the form fields. When the customers open the form, those are the values they will see.<br> The format includes the exact name of the field as it appears in the form, with the initial value as follows:<br> {\u201cfield 1 Name\u201d: \u201cfield 1 Value\u201d, \u201cfield 2 Name\u201d: \u201cfield 2 Value\u201d, etc\u2026}<br>For example: {\u201cfirst_name\u201d: \u201cFirst Name\u201d, \u201clast_name\u201d: \u201cLast Name, \u201cuniqueId\u201d : \u201c123-45-6789\u201d}<br><br>autoUpload - A Boolean field (optional)<br> \u2022\tWhen true: The system automatically finalizes and uploads the form to S3, and a new object is created with no additional action required from the customer. In a typical use case, the information in the form came from a bot or other internal mechanisms.<br> \u2022\tWhen false (default): The system only creates a link that needs to be sent to the customer. Object is created when the customer clicks Send.",
+        "operationId": "Get_New_Form_Link",
+        "parameters": [
+          {
+            "name": "FORM_ID",
+            "in": "path",
+            "description": "Form Id - Form number (as seen on the forms list screen)",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/FORM_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "streamProviderId": {
+                        "type": "string",
+                        "description": "The identifier of the receiving customer by their phone number or email",
+                        "example": "19175552345"
+                      },
+                      "streamProviderType": {
+                        "type": "integer",
+                        "description": "4 for email, 5 for phone number",
+                        "example": 5
+                      },
+                      "referringObjectId": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The object ID of the conversation related to the Form",
+                        "example": 312345
+                      },
+                      "autoUpload": {
+                        "type": "boolean",
+                        "description": "When 'true', the form is finalized and uploaded to S3 with no additional action required by the customer",
+                        "example": true
+                      },
+                      "properties": {
+                        "type": "object",
+                        "properties": {
+                          "field_0": {
+                            "type": "string",
+                            "example": "John"
+                          },
+                          "field_1": {
+                            "type": "string",
+                            "example": "Doe"
+                          },
+                          "my_own_field": {
+                            "type": "string",
+                            "example": 123456
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.080493Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "conversation_id": {
+                          "type": "string",
+                          "example": "312345"
+                        },
+                        "form_link": {
+                          "type": "string",
+                          "example": "https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/forms/createpredefinedlink/{FORM_ID}": {
+      "post": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "Create Predefined Form Link",
+        "description": "This API generates a link to a blank form that is overlaid onto a specified PDF or image. The fillable fields from the form are embedded into the newly created PDF.<br><br> Note that the fields will always appear on the Last page of the background document.<br><br> Path parameters include the Form ID (appears next to the name of the form in the forms list screen) with the data fields.<br><br>Body Param includes the following form-data fields: <br>\u2022\tstreamProviderId \u2013 The identifier of the receiving customer by their phone number or email. (file type: text)<br>\u2022\tstreamProviderType \u2013 The type of the streamProviderId:  4 for email, 5 for phone number. (file type: text)<br>\u2022\treferringObjectId (optional) \u2013 When the form link is opened, a new form object is created in the system. This object can be linked to another object, for example the initiating conversation, to give the agent an indicator of the filled form. Enter the related conversation ID here. (file type: text)<br>\u2022\tIn the value column, upload the file of the background form. (file type: file)<br>",
+        "operationId": "Create_Predefined_Form_Link",
+        "parameters": [
+          {
+            "name": "FORM_ID",
+            "in": "path",
+            "description": "Form Id - Form number (as seen on the forms list screen)",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/FORM_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "streamProviderId": {
+                    "format": "text",
+                    "description": "The identifier of the receiving customer by their phone number or email",
+                    "example": "19175552345"
+                  },
+                  "streamProviderType": {
+                    "format": "text",
+                    "description": "4 for email, 5 for phone number"
+                  },
+                  "referringObjectId": {
+                    "format": "text",
+                    "description": "(optional) The object ID of the conversation related to the Form",
+                    "example": 312345
+                  },
+                  "(an_empty_Key)": {
+                    "format": "file",
+                    "description": "Upload the file to the Value section"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-02-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "conversation_id": {
+                          "type": "string",
+                          "example": "312345"
+                        },
+                        "form_link": {
+                          "type": "string",
+                          "example": "https://apps.CommBox.io/form/CommBox/499fdc93aa804a4b8266251224944d6a"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

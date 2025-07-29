@@ -1,0 +1,272 @@
+{
+  "paths": {
+    "/managers/{MANAGER_ID}/presence": {
+      "get": {
+        "tags": [
+          "Presence"
+        ],
+        "summary": "Get Manager Presence",
+        "description": "This API returns the Presence status(es) of a specific agent.<br> The Manager (agent) Id is a required path parameter.",
+        "operationId": "Get_Manager_presence",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.076767Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "presence_type": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "type_id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Active"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/managers/{MANAGER_ID}/presence/{ACTIVITY_ID}": {
+      "post": {
+        "tags": [
+          "Presence"
+        ],
+        "summary": "Update Manager Presence",
+        "description": "Update manager presence activity id",
+        "operationId": "Update_Manager_presence",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          },
+          {
+            "name": "ACTIVITY_ID",
+            "in": "path",
+            "description": "Valid ACTIVITY_ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/ACTIVITY_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.076767Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "presence_type": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "type_id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Active"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/managers/presence": {
+      "get": {
+        "tags": [
+          "Presence"
+        ],
+        "summary": "Get Presence Types",
+        "description": "This API returns a list of presence Ids, names, and types within the system.",
+        "operationId": "Get_presence_types",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.076767Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Active"
+                              },
+                              "presenceType": {
+                                "type": "integer",
+                                "example": 1
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Busy"
+                              },
+                              "presenceType": {
+                                "type": "integer",
+                                "example": 2
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

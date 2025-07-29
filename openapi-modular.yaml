@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: CommBox API
+  x-logo:
+    url: https://www.CommBox.io/logo/CommBox_logo_large.png
+  description: |
+    # About CommBox
+    ## Overview
+    CommBox redefines the way businesses interact with their customers by providing seamless interactions between different communication modalities, deep integration with customer relations management platforms, and innovative business solutions to improve agents' productivity and service abilities, all while saving time by reducing manual efforts via our automation.
+
+    This document provides the information needed for developers to use CommBox's resources, whether server-based or client-side.
+
+    The CommBox Developers platform lets you access CommBox data and functionality using code instead of the user interface.<br><br> 
+    For example, you can use the platform to:
+    * Create a new agent and assign that agent to a specific team.
+    * Create a WhatsApp template. 
+    * Send follow-up SMS/text reminders. 
+    * Receive Webhooks based on pre-set triggers in CommBox.<br><br>
+
+  version: '2.07'
+  termsOfService: https://www.CommBox.io/end-user-license-agreement-eula/
+  contact:
+    name: CommBox
+    url: https://www.CommBox.io
+    email: contactus@CommBox.io
+
+servers:
+  - url: https://api.CommBox.io/
+    description: Production server
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: Core
+    description: Systemwide verification
+  - name: Objects
+    description: Objects are conversations between the bot or the agent and the customers
+  - name: Streams
+    description: Streams are communication channels used in CommBox
+  - name: Tags
+    description: Tags are a classification tool for summarizing aspects of the conversation or the user
+  - name: SMS
+    description: Sending customers SMS messages (Texting)
+  - name: WhatsApp
+    description: CommBox facilitates activities in WABA for the clients
+  - name: Users
+    description: Users are people recorded in CommBox
+  - name: Managers
+    description: The MANAGERS APIs category relates to activities involving the Admins, Team Leaders, Agents
+  - name: Profiles
+    description: Profiles relate to system permissions and enabled activities assigned to a group of agents
+  - name: Presence
+    description: The Presence APIs relate to the agent availability status
+  - name: Assignments
+    description: The Assignments category relates to conversations (Objects) assigned to a specific agent
+  - name: Teams
+    description: A Team is a group of agents with specific business agendas, roles, and permissions
+  - name: Forms
+    description: The Forms APIs allow agents to assist customers in completing and signing forms
+  - name: Authentication
+    description: Authentication APIs provide accessibility to the system
+  - name: Automation
+    description: Automation APIs are related to bot capabilities
+
+paths:
+  # Core endpoints
+  /core/systemstatus:
+    $ref: './api/core/paths.json#/paths/~1core~1systemstatus'
+  
+  # Authentication endpoints
+  /v2/authentication/me:
+    $ref: './api/authentication/paths.json#/paths/~1v2~1authentication~1me'
+  /authentication/ticket:
+    $ref: './api/authentication/paths.json#/paths/~1authentication~1ticket'
+  
+  # Add other endpoints similarly...
+
+components:
+  schemas:
+    $ref: './api/components/schemas/schemas.json'
+  securitySchemes:
+    $ref: './api/components/security-schemes.json'
+
+x-tagGroups:
+  - name: API Calls
+    tags:
+      - Core
+      - Objects
+      - Streams
+      - Tags
+      - SMS
+      - WhatsApp
+      - Users
+      - Managers
+      - Profiles
+      - Presence
+      - Assignments
+      - Teams
+      - Forms
+      - Authentication
+      - Automation

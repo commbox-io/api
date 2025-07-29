@@ -1,0 +1,804 @@
+{
+  "paths": {
+    "/streams/{STREAM_ID}/streamavailability": {
+      "get": {
+        "tags": [
+          "Streams"
+        ],
+        "summary": "Get Stream Availability",
+        "description": "This API checks the availability of the stream (channel) and returns the channel's state.<br><br>Enum:<br>Channel is not active = 0 <br>Available (during business hours) = 1<br>Busy (Overload on agents during business hours) = 2<br>Unavailable (Off business hours or during a special day) = 3<br><br>Note: Path parameters include a Boolean regarding the automation function within that steam (since the bot is always available, the busy and unavailable states will not reflect)<br><br>**True** \u2013 Ignore automation<br>**False** \u2013 Include automation in the checking<br><br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance  <br><br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false",
+        "operationId": "Get_Stream_Availability",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream ID. is a CommBox generated number for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "ignoreAutomationExsistance",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.078809Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/streams/{STREAM_ID}/objects": {
+      "get": {
+        "tags": [
+          "Streams"
+        ],
+        "summary": "Get Stream Objects",
+        "description": "This API returns information about all Objects (conversations) in the requested Stream (channel).<br><br>**Required query params:**<br>Note: Without limiting the request, the call will fail.<br><br>a)**Time range** - For all Objects within a range of time, enter both **unixStartTime** and **unixEndTime** (Unix Time Stamp format). Max: 100 objects \u2013 for larger data additional calls are required.<br><br> b) **Specific user** - For all Objects of a specific user, enter both **identityStreamProviderId** and **IdentityStreamProviderType**.<br>Parameters are found in the \u201cidentities\u201d section of the Get Users API. Enter the data found in streamProviderId and StreamProviderType <br><br> c) **Specific user** - For all Objects of a specific user, enter the userIdentityId \u2013 the Id of the identity as it appears in the Get Users API (Not to be confused with the \u201cuserId\u201d field) <br><br> Use the Sort, Order, etc. optional parameters to limit and organize the output.<br>Note: Object's children and activity logs are False by default.",
+        "operationId": "Get_Stream_Objects",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "A CommBox generated number for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/userIdentityId"
+          },
+          {
+            "$ref": "#/components/parameters/identityStreamProviderId"
+          },
+          {
+            "$ref": "#/components/parameters/identityStreamProviderType"
+          },
+          {
+            "$ref": "#/components/parameters/unixStartTime"
+          },
+          {
+            "$ref": "#/components/parameters/unixEndTime"
+          },
+          {
+            "$ref": "#/components/parameters/subStream"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/order"
+          },
+          {
+            "$ref": "#/components/parameters/includeChilds"
+          },
+          {
+            "$ref": "#/components/parameters/includeActivityLog"
+          },
+          {
+            "$ref": "#/components/parameters/timeFilter"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/status"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-26T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "objectId": {
+                                "type": "integer",
+                                "example": 62824402
+                              },
+                              "streamId": {
+                                "type": "integer",
+                                "example": 345
+                              },
+                              "substreamId": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": "6523da845b1a435cbfb039a3bff043d350cent@bumpyard.com"
+                              },
+                              "streamProviderType": {
+                                "type": "integer",
+                                "example": 4
+                              },
+                              "user_identity": {
+                                "type": "integer",
+                                "example": 37389853
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "example": "null"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "example": "null"
+                              },
+                              "userStreamProviderId": {
+                                "type": "string",
+                                "example": "johndoe@gmail.com"
+                              },
+                              "userStreamProviderType": {
+                                "type": "string",
+                                "example": "4"
+                              },
+                              "content": {
+                                "type": "string",
+                                "example": "{\"{\\\"cc\\\": [{\\\"name\\\": \\\"\\\", \\\"address\\\": \\\"\\\"}], \\\"to\\\": [{\\\"name\\\": \\\"BumpYard\\\", \\\"address\\\": \\\"contact@bumpyardpro.com\\\"}, {\\\"name\\\": \\\"johndoe@gmail.com\\\", \\\"address\\\": \\\"johndoe@gmail.com\\\"}], \\\"bcc\\\": [{\\\"name\\\": \\\"\\\", \\\"address\\\": \\\"\\\"}], \\\"SAP_C4C\\\": {\\\"accept_conversation\\\": true}, \\\"subject\\\": \\\"Re: checking up on you\\\", \\\"is_email\\\": false, \\\"is_public\\\": true, \\\"languages\\\": [{\\\"Item1\\\": \\\"en\\\", \\\"headers_references\\\": \\\"010201921a02fe6c-4c1286f2-dce4-41f3-9921-38d29d1311e4-000000@eu-west-1.amazonses.com\\\", \\\"originalSubStreamId\\\": 0, \\\"sequence_start_time\\\": \\\"2024-09-17 07:43:59\\\", \\\"has_only_manager_childs\\\": false, \\\"first_client_response_time\\\": \\\"2024-09-17T07:43:59.2320185Z\\\", \\\"first_message_sending_failure\\\": true, \\\"headers_references_addition_count\\\": 2}\"}  "
+                              },
+                              "message": {
+                                "type": "string",
+                                "example": ">Hi!&nbsp;<br><br>How are you today?"
+                              },
+                              "createdTime": {
+                                "type": "string",
+                                "example": "2024-09-17T07:51:52.2581942Z"
+                              },
+                              "updatedTime": {
+                                "type": "string",
+                                "example": "2024-09-17T07:51:52.2581942Z"
+                              },
+                              "closedTime": {
+                                "type": "string",
+                                "example": "null,"
+                              },
+                              "firstResponseTime": {
+                                "type": "string",
+                                "example": "2024-09-17T07:51:52.2581942Z"
+                              },
+                              "lastResponseTime": {
+                                "type": "string",
+                                "example": "2024-09-17T07:51:52.2581942Z"
+                              },
+                              "priorityTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.078809Z"
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 14
+                              },
+                              "assignedManagerId": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "lastAssignedManagerId": {
+                                "type": "integer",
+                                "example": 27184982
+                              },
+                              "type": {
+                                "type": "integer",
+                                "example": 5
+                              },
+                              "numTags": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "user": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "example": 36167229
+                                  },
+                                  "uniqueId": {
+                                    "type": "integer",
+                                    "example": 12387654
+                                  },
+                                  "phone1": {
+                                    "type": "integer",
+                                    "example": 12129871234
+                                  },
+                                  "phone2": {
+                                    "type": "integer",
+                                    "example": 19173121122
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "example": "johndoe@gmail.com"
+                                  },
+                                  "firstName": {
+                                    "type": "string",
+                                    "example": "null"
+                                  },
+                                  "lastName": {
+                                    "type": "string",
+                                    "example": "null"
+                                  },
+                                  "gender": {
+                                    "type": "string",
+                                    "example": ""
+                                  },
+                                  "numberIdentities": {
+                                    "type": "integer",
+                                    "description": "number of listings for the user",
+                                    "example": 1
+                                  },
+                                  "Locale": {
+                                    "type": "string",
+                                    "example": ""
+                                  },
+                                  "birthday": {
+                                    "type": "string",
+                                    "example": ""
+                                  },
+                                  "remarks": {
+                                    "type": "string",
+                                    "description": "system remarks",
+                                    "example": ""
+                                  },
+                                  "content": {
+                                    "type": "string",
+                                    "example": "{\"brand_name\":\"\",\"Account_Number\":\"\",\"GF\":\"0\",\"BOD\":\"\",\"Phone_12\":\"\",\"hbgfdghh\":\"0\",\"test1\":\"\",\"Opening_date_of_account\":\"\"}"
+                                  }
+                                }
+                              },
+                              "isManager": {
+                                "type": "boolean",
+                                "description": "true = agent , false = customer",
+                                "example": false
+                              },
+                              "childs": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "example": 460525246
+                                  },
+                                  "objectId": {
+                                    "type": "integer",
+                                    "example": 62824402
+                                  },
+                                  "content": {
+                                    "type": "string",
+                                    "example": "{ \"{\\\"subject\\\":\\\"RE: checking up on you\\\",\\\"attachments\\\":null,\\\"to\\\":[{\\\"name\\\":\\\"samadams@gmail.com\\\",\\\"address\\\":\\\"samadams@gmail.com\\\"}]}\" },   "
+                                  },
+                                  "message": {
+                                    "type": "string",
+                                    "example": "<div style=\"direction: ltr\">Hi!&nbsp;<br>Trying to check up on you<br><br><br></div><div><div dir=\"ltr\"><strong>From: </strong>Contact [contact@bumpyardpro.com]</div><div dir=\"ltr\"><strong>Sent: </strong>9/17/2024, 10:33:28 AM</div><div dir=\"ltr\"><strong>To:</strong> samadams@gmail.com</div><div dir=\"ltr\"><strong>Subject: </strong>checking up on you</div><span><span><br></span></span><div dir=\"ltr\">Hi!&nbsp;<br><br>How are you today?</div></div>"
+                                  },
+                                  "createdTime": {
+                                    "type": "string",
+                                    "example": "2024-08-17T07:51:52.2581942Z"
+                                  },
+                                  "streamProviderId": {
+                                    "type": "string",
+                                    "example": "17325641121"
+                                  },
+                                  "streamProviderType": {
+                                    "type": "integer",
+                                    "example": 1
+                                  },
+                                  "streamProviderEmail": {
+                                    "type": "string",
+                                    "example": "eddiehakim@gmail.com"
+                                  },
+                                  "firstName": {
+                                    "type": "string",
+                                    "example": "Eddie"
+                                  },
+                                  "lastName": {
+                                    "type": "string",
+                                    "example": "Hakim"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 234
+                              },
+                              "streamid": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "substreamid": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "type": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "createdTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.078809Z"
+                              },
+                              "updatedTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.078809Z"
+                              },
+                              "lastResponseTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.078809Z"
+                              },
+                              "priorityTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.078809Z"
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": "eddiesmith@gmail.com"
+                              },
+                              "streamProviderType": {
+                                "type": "integer",
+                                "example": 7
+                              },
+                              "message": {
+                                "type": "string",
+                                "example": "New status from facebook, Hello world!"
+                              },
+                              "content": {
+                                "type": "string",
+                                "example": "{\"num_likes\":5,\"user_likes\":false,\"num_shares\":2}"
+                              },
+                              "numChilds": {
+                                "type": "integer",
+                                "example": "2"
+                              },
+                              "numTags": {
+                                "type": "integer",
+                                "example": "0"
+                              },
+                              "user": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "example": 123
+                                  },
+                                  "identity": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "example": 7861234
+                                      },
+                                      "streamProviderId": {
+                                        "type": "string",
+                                        "example": "eddiesmith@gmail.com"
+                                      },
+                                      "streamProviderType": {
+                                        "type": "integer",
+                                        "example": 7
+                                      },
+                                      "streamProviderEmail": {
+                                        "type": "string",
+                                        "example": "eddie@gmail.com"
+                                      },
+                                      "firstName": {
+                                        "type": "string",
+                                        "example": "Eddie"
+                                      },
+                                      "lastName": {
+                                        "type": "string",
+                                        "example": "Smith"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/stats/streams": {
+      "get": {
+        "tags": [
+          "Streams"
+        ],
+        "summary": "Get Streams Stats",
+        "description": "returns the current object statuses in all streams for the requested brand",
+        "operationId": "Get_streams_stats",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.078809Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "moduleId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "streamId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "subStreamId": {
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "c": {
+                                "type": "integer",
+                                "example": 93
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "moduleId": {
+                                "type": "integer",
+                                "example": 3
+                              },
+                              "streamId": {
+                                "type": "integer",
+                                "example": 18
+                              },
+                              "subStreamId": {
+                                "type": "integer",
+                                "example": 25
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "c": {
+                                "type": "integer",
+                                "example": 28
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/stats/streamsSLAExceptions": {
+      "get": {
+        "tags": [
+          "Streams"
+        ],
+        "summary": "Get SLA Breach Summary",
+        "description": "A service-level agreement (SLA) defines the service standards the provider is obligated to provide to the customer. The First Response time to the customer's inquiry is an example of a typical SLA measured by CommBox. After that time passes, the SLA is breached.<br><br> There are 2 SLA Warnings that can be set in the SLA settings page:<br> - A warning is activated after 50% (default settings) of the time allotted by the SLA past.<br> - A critical warning is activated when there is only 20% (default settings) of the time left before an SLA breach.<br> (For example, if the Service Level Agreement is 5 minutes, conversations waiting for the First Response will be painted in orange after 2.5 minutes and in red after 4 minutes.)<br><br> This API returns the number of SLA breaches for the entire account divided by communication channel Id, longest conversations, and specific agent/bot SLA.<br> Note:\u201cExceptions\u201d refers to Breaches, and \u201cSlaCritical\u201d refers to the SLA critical warning.",
+        "operationId": "Get_SLA_streams_stats",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.078809Z"
+                    },
+                    "data": {
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "Item1": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "moduleId": {
+                                          "type": "integer",
+                                          "example": 3
+                                        },
+                                        "streamId": {
+                                          "type": "integer",
+                                          "example": 18
+                                        },
+                                        "subStreamId": {
+                                          "type": "integer",
+                                          "example": 25
+                                        },
+                                        "statusId": {
+                                          "type": "integer",
+                                          "example": 1
+                                        },
+                                        "c": {
+                                          "type": "integer",
+                                          "example": 28
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "moduleId": {
+                                          "type": "integer",
+                                          "example": 3
+                                        },
+                                        "streamId": {
+                                          "type": "integer",
+                                          "example": 18
+                                        },
+                                        "subStreamId": {
+                                          "type": "integer",
+                                          "example": 25
+                                        },
+                                        "statusId": {
+                                          "type": "integer",
+                                          "example": 1
+                                        },
+                                        "c": {
+                                          "type": "integer",
+                                          "example": 28
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "Item2": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "moduleId": {
+                                          "type": "integer",
+                                          "example": 3
+                                        },
+                                        "streamId": {
+                                          "type": "integer",
+                                          "example": 18
+                                        },
+                                        "subStreamId": {
+                                          "type": "integer",
+                                          "example": 25
+                                        },
+                                        "statusId": {
+                                          "type": "integer",
+                                          "example": 1
+                                        },
+                                        "c": {
+                                          "type": "integer",
+                                          "example": 28
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "moduleId": {
+                                          "type": "integer",
+                                          "example": 3
+                                        },
+                                        "streamId": {
+                                          "type": "integer",
+                                          "example": 18
+                                        },
+                                        "subStreamId": {
+                                          "type": "integer",
+                                          "example": 25
+                                        },
+                                        "statusId": {
+                                          "type": "integer",
+                                          "example": 1
+                                        },
+                                        "c": {
+                                          "type": "integer",
+                                          "example": 28
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

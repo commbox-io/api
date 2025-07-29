@@ -1,0 +1,2113 @@
+{
+  "paths": {
+    "/streams/{STREAM_ID}/objects": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Create Object",
+        "description": "This API creates a Conversation in a specified channel and returns an Object Id.<br>Sends the Stream (channel) id with body parameters.",
+        "operationId": "Create_Object",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Description of request body parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Object"
+              },
+              "examples": {
+                "Mail": {
+                  "value": {
+                    "data": {
+                      "Type": 5,
+                      "StatusId": 1,
+                      "StreamProviderType": 4,
+                      "StreamProviderId": "b9910a75a46c492c9cf46a910cdba0012",
+                      "UserStreamProviderId": "john.doe@gmail.com",
+                      "UserStreamProviderType": 4,
+                      "ManagerId": 12345,
+                      "Content": {
+                        "subject": "mail subject",
+                        "to": [
+                          {
+                            "address": "john.doe@gmail.com"
+                          }
+                        ]
+                      },
+                      "Message": "some message",
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "05055555555",
+                        "Email": "john.doe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                },
+                "Mail with attachments": {
+                  "value": {
+                    "data": {
+                      "Type": 5,
+                      "StatusId": 13,
+                      "StreamProviderType": 4,
+                      "UserStreamProviderId": "john.doe@gmail.com",
+                      "UserStreamProviderType": 4,
+                      "ManagerId": 28361974,
+                      "Content": {
+                        "subject": "Email with an attachment",
+                        "to": [
+                          {
+                            "address": "john.doe@gmail.com"
+                          }
+                        ],
+                        "attachments": [
+                          {
+                            "path": "https://ebigh.com/wp-content/uploads/2017/12/Basketball-Stars.jpg",
+                            "name": "basketball.png"
+                          }
+                        ]
+                      },
+                      "Message": "some message",
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "1800958458",
+                        "Email": "john.doe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                },
+                "SMS": {
+                  "value": {
+                    "data": {
+                      "Type": 4,
+                      "StatusId": 1,
+                      "StreamProviderType": 5,
+                      "StreamProviderId": "972544444444",
+                      "UserStreamProviderId": "972544444444",
+                      "UserStreamProviderType": 5,
+                      "ManagerId": 36197,
+                      "Message": "some message",
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "180095845823",
+                        "Email": "john.doe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                },
+                "SMS Multi-recipient": {
+                  "value": {
+                    "data": {
+                      "Type": 4,
+                      "StatusId": 1,
+                      "StreamProviderType": 5,
+                      "UserStreamProviderId": "972544444444",
+                      "UserStreamProviderType": 5,
+                      "ManagerId": 36197,
+                      "sendToClient": true,
+                      "Content": {
+                        "to": [
+                          "972522222222"
+                        ]
+                      },
+                      "Message": "some message",
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "972544444444",
+                        "Email": "john.doe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                },
+                "WhatsApp": {
+                  "value": {
+                    "data": {
+                      "Type": 4,
+                      "StatusId": 1,
+                      "StreamProviderType": 7,
+                      "StreamProviderId": "972544444444",
+                      "UserStreamProviderId": "972544444444",
+                      "UserStreamProviderType": 5,
+                      "ManagerId": 36197,
+                      "Content": {
+                        "to": [
+                          "972522222222"
+                        ],
+                        "whatsapp_hsm_name": "test_template",
+                        "whatsapp_localizable_params": [
+                          "check_1"
+                        ],
+                        "whatsapp_language_code": "en"
+                      },
+                      "Message": "some message",
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "972544444444",
+                        "Email": "john.doe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                },
+                "Chat": {
+                  "value": {
+                    "data": {
+                      "Type": 4,
+                      "StatusId": 1,
+                      "StreamProviderType": 0,
+                      "UserStreamProviderId": "972544444444",
+                      "UserStreamProviderType": 5,
+                      "UserIdentity": 100000000419660,
+                      "ManagerId": 36197,
+                      "Message": "some message",
+                      "createChildObject": true,
+                      "User": {
+                        "UniqueId": "01234567",
+                        "LastName": "Doe",
+                        "FirstName": "John",
+                        "Phone1": "972544444444",
+                        "Email": "JohnDoe@gmail.com",
+                        "Remarks": "some remark for user"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "description": "send object as JSON",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 294159
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/streams/{STREAM_ID}/objects/{OBJECT_ID}/child": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Create Child Object",
+        "description": " This API creates a message (child) in a conversation (object) on behalf of the agent, sending it to the customer, or on behalf of the customer, displaying it to the agent.<br> The API returns the new child's ID.<br><br>Required path parameters include the Stream (channel) ID and the Object (conversation) ID.<br><br>Required body parameters for a message on behalf of the customer:<br> a) The data \u201cType\u201d see Enum at https://www.CommBox.io/api/#section/Enums/ObjectType <br> b) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf.<br> c) UserStreamProviderType of the channel. See Enum at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> d) The messages<br><br>Required body parameters for a message on behalf of the agent:<br> a) The data \u201cType\u201d - See Enum at https://www.CommBox.io/api/#section/Enums/ObjectType <br> b) Add this Boolean field 'IsManager': true,<br> c) Enter the agent's user ID 'UserIdentity' : 34168, <br> Get the agent's User ID by using the Get Managers API https://api.CommBox.io/managers <br> d) UserStreamProviderId \u2013 the email or phone number of the person you are sending the message on their behalf. <br> e) UserStreamProviderType of the channel. See Enum at https://www.CommBox.io/api/#section/Enums/StreamProviderType <br> f) The messages <br><br>**Note:** After 24 hours from last sent message, APIs messages sent to customers will be blocked by WhatsApp.<br><br>POST /streams/STREAM_ID/objects/OBJECT_ID/child<br>POST /streams/STREAM_ID/objects/STREAM_PROVIDER_ID/STREAM_PROVIDER_TYPE/child",
+        "operationId": "Create_Child_Object",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "The unique identifier for the stream (CommBox channel)",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "The unique identifier for the object (CommBox conversation)",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Payload containing child object information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Object_Child"
+              },
+              "examples": {
+                "On behalf of Agent - Sending an email": {
+                  "value": {
+                    "data": {
+                      "IsManager": true,
+                      "UserIdentity": 36574658,
+                      "Type": 4,
+                      "UserStreamProviderId": "best.agent@CommBox.com",
+                      "UserStreamProviderType": 4,
+                      "Message": "A new message on behalf of the agent"
+                    }
+                  }
+                },
+                "On behalf of Agent - Sending a WhatsApp message": {
+                  "value": {
+                    "data": {
+                      "IsManager": true,
+                      "UserIdentity": 36574658,
+                      "Type": 4,
+                      "UserStreamProviderId": "972542660000",
+                      "UserStreamProviderType": 7,
+                      "Message": "A new message on behalf of the agent"
+                    }
+                  }
+                },
+                "On behalf of Customer": {
+                  "value": {
+                    "data": {
+                      "Type": 4,
+                      "UserStreamProviderId": "MrDoe@gmail.com",
+                      "UserStreamProviderType": 4,
+                      "Message": "A message on behalf of Mr. John Doe"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 294159
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/streams/{STREAM_ID}/objects/{OBJECT_ID}": {
+      "get": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Get Object",
+        "description": "This API returns the details of a specific conversation (object).<br> Data includes information about the customer, the agent, and a separate account of the messages (Child) of the conversation (Object).<br>  Note that the last communication will appear at the top of the report.<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID  <br><br><b>Example:</b> <br>https://api.CommBox.io/streams/532/objects/293854<br><br>Note: When Children are not included in the request, the API only returns the last message. When requesting logs (optional), the return will include all system actions (for example, CRM activity) for the conversation.   ",
+        "operationId": "Get_Object",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream Id is a CommBox generated number for the channel.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object Id is a CommBox generated number for the conversation.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/includeChilds"
+          },
+          {
+            "$ref": "#/components/parameters/includeActivityLog"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "System is operational"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "objectId": {
+                                "description": "A CommBox generated number for the conversation",
+                                "type": "integer",
+                                "example": 293854
+                              },
+                              "streamid": {
+                                "description": "A CommBox generated number for the channel \u2013 This will be the unencrypted format of the channel Id.",
+                                "type": "integer",
+                                "example": 53211
+                              },
+                              "substreamid": {
+                                "description": "A CommBox generated number for the subchannel. A Sub-stream is not required when calling an API.",
+                                "type": "integer",
+                                "example": 2432
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": "972505555555"
+                              },
+                              "streamProviderType": {
+                                "type": "integer",
+                                "example": "5"
+                              },
+                              "user_identity": {
+                                "type": "integer",
+                                "example": "528986"
+                              },
+                              "firstName": {
+                                "description": "When not provided, system will use the email address.",
+                                "type": "string",
+                                "example": "Eddie"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "example": "Doe"
+                              },
+                              "userStreamProviderId": {
+                                "description": "The unique Id for communication (email, phone number)",
+                                "type": "string",
+                                "example": "972505555555_by"
+                              },
+                              "userStreamProviderType": {
+                                "description": "A CommBox generated number \u2013 see Enums",
+                                "type": "integer",
+                                "example": "5"
+                              },
+                              "content": {
+                                "description": "<br>Summary of the technical aspects of communication. May include the language used, direction (Rt. for Arabic and Hebrew), URL of origin, system details (assignments to agent, acceptance of email, etc.), subject matter (emails), and an initiation time.",
+                                "type": "string",
+                                "example": "{\\\"guidRT\\\":\\\"82c952166e0b4989b932c41d1\\\",\\\"languages\\\":[{\\\"Item1\\\":\\\"he\\\",\\\"Item2\\\":1329062}],\\\"originUrl\\\":\\\"https://apps.CommBox.com/Demo\\\",\\\"isConnected\\\"true,\\\"first_assigned_time\\\":\\\"2023-09-05T08:44:20\\\",\\\"sequence_start_time\\\":\\\"2023-09-0508:55:06.000000\\\",\\\"dropOutAggregationState\\\":1}"
+                              },
+                              "message": {
+                                "type": "string",
+                                "example": "I need some help"
+                              },
+                              "createdTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.096637Z"
+                              },
+                              "updatedTime": {
+                                "type": "string",
+                                "example": "2025-07-27T15:28:43.096637Z"
+                              },
+                              "closeTime": {
+                                "type": "string",
+                                "example": "null"
+                              },
+                              "statusId": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "assignedManagerId": {
+                                "description": "Id of agent / admin",
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "type": {
+                                "type": "integer",
+                                "example": 4
+                              },
+                              "isManager": {
+                                "description": "If True: User is an agent / admin If False: User is a customer",
+                                "type": "boolean",
+                                "example": false
+                              },
+                              "user": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "example": 520760
+                                  },
+                                  "uniqueId": {
+                                    "type": "string",
+                                    "example": 12345
+                                  },
+                                  "phone1": {
+                                    "description": "As appears in the Customer Info section. System adds country code.",
+                                    "type": "string",
+                                    "example": 972531234567
+                                  },
+                                  "phone2": {
+                                    "type": "string",
+                                    "example": 972501234332
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "example": "eddiedoe053@gmail.com"
+                                  },
+                                  "firstName": {
+                                    "type": "string",
+                                    "example": "Eddie"
+                                  },
+                                  "lastName": {
+                                    "type": "string",
+                                    "example": "Doe"
+                                  },
+                                  "gender": {
+                                    "type": "string",
+                                    "example": "Male"
+                                  },
+                                  "numberIdentities": {
+                                    "type": "integer",
+                                    "example": 3
+                                  },
+                                  "locale": {
+                                    "type": "string",
+                                    "example": "en_US"
+                                  },
+                                  "birthday": {
+                                    "type": "string",
+                                    "example": "01/01/1980"
+                                  },
+                                  "remarks": {
+                                    "type": "string",
+                                    "example": "test remark.."
+                                  },
+                                  "content": {
+                                    "type": "string",
+                                    "example": "{}"
+                                  },
+                                  "childs": {
+                                    "type": "array",
+                                    "items": {
+                                      "oneOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "example": 123456
+                                            },
+                                            "object_id": {
+                                              "type": "integer",
+                                              "example": 1234
+                                            },
+                                            "content": {
+                                              "type": "string",
+                                              "example": "{}"
+                                            },
+                                            "message": {
+                                              "type": "string",
+                                              "example": "some message..."
+                                            },
+                                            "createdTime": {
+                                              "type": "string",
+                                              "example": "2025-07-27T15:28:43.096637Z"
+                                            },
+                                            "streamProviderType": {
+                                              "type": "integer",
+                                              "example": "5"
+                                            },
+                                            "user": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "integer",
+                                                  "example": 520760
+                                                },
+                                                "managerId": {
+                                                  "type": "integer",
+                                                  "example": 0
+                                                },
+                                                "isManager": {
+                                                  "type": "boolean",
+                                                  "example": false
+                                                },
+                                                "identity": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "integer",
+                                                      "example": 531826
+                                                    },
+                                                    "streamProviderId": {
+                                                      "type": "string",
+                                                      "example": "972505555555"
+                                                    },
+                                                    "streamProviderType": {
+                                                      "type": "integer",
+                                                      "example": "5"
+                                                    },
+                                                    "firstName": {
+                                                      "type": "string",
+                                                      "example": null
+                                                    },
+                                                    "lastName": {
+                                                      "type": "string",
+                                                      "example": null
+                                                    },
+                                                    "thumbnailUrl": {
+                                                      "type": "string",
+                                                      "example": null
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "example": 978944
+                                            },
+                                            "object_id": {
+                                              "type": "integer",
+                                              "example": 1234
+                                            },
+                                            "content": {
+                                              "type": "string",
+                                              "example": "{}"
+                                            },
+                                            "message": {
+                                              "type": "string",
+                                              "example": "some other message..."
+                                            },
+                                            "createdTime": {
+                                              "type": "string",
+                                              "example": "2025-07-27T15:28:43.096637Z"
+                                            },
+                                            "streamProviderType": {
+                                              "type": "integer",
+                                              "example": "5"
+                                            },
+                                            "user": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "integer",
+                                                  "example": 520803
+                                                },
+                                                "managerId": {
+                                                  "type": "integer",
+                                                  "example": 520803
+                                                },
+                                                "isManager": {
+                                                  "type": "boolean",
+                                                  "example": true
+                                                },
+                                                "identity": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "integer",
+                                                      "example": 531811
+                                                    },
+                                                    "streamProviderId": {
+                                                      "type": "string",
+                                                      "example": "michae12@gmail.com"
+                                                    },
+                                                    "streamProviderType": {
+                                                      "type": "integer",
+                                                      "example": 0
+                                                    },
+                                                    "firstName": {
+                                                      "type": "string",
+                                                      "example": "michael"
+                                                    },
+                                                    "lastName": {
+                                                      "type": "string",
+                                                      "example": "null"
+                                                    },
+                                                    "thumbnailUrl": {
+                                                      "type": "string",
+                                                      "example": null
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/activities": {
+      "get": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Get Object's Activities",
+        "description": "This API returns the data of a specific Activity Type listed in the query param of a specific conversation (object). Use the ActivityType Enum listed above to receive the desired information.<br><br>(GET) /objects/OBJECT_ID/activities?activityType=X_from_Enum<br><br>Example: To see the remarks added to the conversation (activity type #1)<br>https://api.CommBox.io/objects/56575395/activities?activityType=1",
+        "operationId": "Get_Object_Activities",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object Id is a CommBox generated number for the conversation.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "200"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-10-30T10:45:41.6038344Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "objectId": {
+                            "description": "Conversation ID",
+                            "type": "string",
+                            "example": "383591"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 536267
+                              },
+                              "first_name": {
+                                "type": "string",
+                                "example": "Sam"
+                              },
+                              "last_name": {
+                                "type": "string",
+                                "example": "Adams"
+                              },
+                              "identity": {
+                                "type": "object",
+                                "properties": {
+                                  "identityId": {
+                                    "description": "Agent's ID",
+                                    "type": "integer",
+                                    "example": 547219
+                                  },
+                                  "thumbnailUrl": {
+                                    "type": "string",
+                                    "example": ""
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "type": {
+                            "description": "The activity type - see Enum",
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "data": {
+                            "description": "The content of activity recorded",
+                            "type": "string",
+                            "example": "{\"text\":\"Sent a link to video Chat - not responded\"}"
+                          },
+                          "createdTime": {
+                            "description": "Activity creation time",
+                            "type": "string",
+                            "example": "2024-10-30T13:23:33"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/streams/{STREAM_ID}/objects/{OBJECT_ID}/transcript": {
+      "get": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Get Object's Transcript",
+        "description": "This API returns the transcript of a specific conversation (object).<br> Data includes information about the conversation (objectId), customer, the channel, sub-channel.<br> Note: The transcript field includes the conversation transcript with an external hyperlink to the Object (conversation) .<br>Required path params are the **Stream (channel) Id** and **Object (conversation) Id** - Stream Id could be encrypted or not.   <br><br>(GET) /streams/STREAM_ID/objects/OBJECT_ID/transcript  <br><br><b>Example:</b> <br>https://api.CommBox.io/streams/532/objects/293854/transcript<br>",
+        "operationId": "Get_Object_Transcript",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream Id is a CommBox generated number for the channel.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object Id is a CommBox generated number for the conversation.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-03-19T10:45:41.6038344Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "objectId": {
+                                "description": "A CommBox generated number for the conversation",
+                                "type": "integer",
+                                "example": 378015
+                              },
+                              "streamid": {
+                                "description": "A CommBox generated number for the channel \u2013 This will be the unencrypted format of the channel Id.",
+                                "type": "integer",
+                                "example": 17558
+                              },
+                              "substreamid": {
+                                "description": "A CommBox generated number for the subchannel. A Sub-stream is not required when calling an API.",
+                                "type": "integer",
+                                "example": 0
+                              },
+                              "trasncript": {
+                                "description": "<br>trasncript of the conversation.",
+                                "type": "string",
+                                "example": "\\n[2/29/2024 12:20:25 PM] \\nBot : \\nTEST!@$$%^&*()}{\\\":<>?\ud83d\ude41\ud83d\ude41\ud83d\ude41\ud83d\ude41 6_312aac6109.jpg \\n[2/29/2024 12:20:30 PM] \\nJohn Doe: \\nhi \\n[2/29/2024 12:21:05 PM] \\nJohn Doe: \\nAttachments: \\nmashu_mashu_251a989981_25a7e7f517.png \\n[2/29/2024 12:21:22 PM] \\nRan Itzhaki: \\nok \\n[2/29/2024 12:21:29 PM] \\nBot : \\nResolved \\nWispp Object Id: 378015 \\nCommBox Ticket Link: https://qawispp.wispp.com/widget/object/378015"
+                              },
+                              "user": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "example": 537385
+                                  },
+                                  "uniqueId": {
+                                    "type": "string",
+                                    "example": 537385
+                                  },
+                                  "phone1": {
+                                    "description": "As appears in the Customer Info section. System adds country code.",
+                                    "type": "string",
+                                    "example": 972505445875
+                                  },
+                                  "phone2": {
+                                    "type": "string",
+                                    "example": ""
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "example": "test115@gmail.com"
+                                  },
+                                  "firstName": {
+                                    "type": "string",
+                                    "example": "John"
+                                  },
+                                  "lastName": {
+                                    "type": "string",
+                                    "example": "Doe"
+                                  },
+                                  "gender": {
+                                    "type": "string",
+                                    "example": "Male"
+                                  },
+                                  "numberIdentities": {
+                                    "type": "integer",
+                                    "example": 3
+                                  },
+                                  "locale": {
+                                    "type": "string",
+                                    "example": "en_US"
+                                  },
+                                  "birthday": {
+                                    "type": "string",
+                                    "example": "01/01/1980"
+                                  },
+                                  "remarks": {
+                                    "type": "string",
+                                    "example": null
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/status/{STATUS_ID}": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Set Object Status",
+        "description": "The conversation's status indicates where the conversation has reached or heading. Statuses include \u201cOpen\u201d, \u201cResolved\u201d, \u201cArchived\u201d, etc.<br>This API updates the status of the conversation. See the Enum section for the Object Status Type.<br><br>Required path parameters include the Object (Conversation) Id and the desired updated status Id.",
+        "operationId": "Set_Object_Status",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          },
+          {
+            "name": "STATUS_ID",
+            "in": "path",
+            "description": "Status ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STATUS_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/stream": {
+      "patch": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Update Object's Stream",
+        "description": "This API enables developers to change streams (channels) of an object (conversation).<br><br><h3>Available routes:</h3><br><h4>Same-Channel Routing (Conversations remain within the same channel type):</h4><li>SMS (Texting) \u2192 SMS<li>Email \u2192 Email<li>Chat \u2192 Chat<br><br><h4>Cross-Channel Routing (Conversations transfer to different channel types):</h4><li>SMS (Texting) \u2192 Email / Chat<br><li>Email \u2192 SMS / Chat<br><li>Chat \u2192 SMS / Email<br><li>Any channel \u2192 Theme<br><br>- For the General subchannel ID, enter \u201c0\u201d in the substreamId field.",
+        "operationId": "Update_Object_Stream",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "description": "Conversation Id number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the streamId of the target channel (where the conversation is routed to)",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "streamId": {
+                        "type": "string",
+                        "description": "Enter the streamId of the target channel",
+                        "example": 3172
+                      },
+                      "subStreamId": {
+                        "type": "string",
+                        "description": "Enter the substreamId (subchannel) of the target channel (optional).<br> For routing conversation to the main channel set the subStreamId to \u201c0\u201d",
+                        "example": 812
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Update stream": {
+                  "value": {
+                    "data": {
+                      "streamId": 12345
+                    }
+                  }
+                },
+                "Update stream and sub-stream": {
+                  "value": {
+                    "data": {
+                      "streamId": 12345,
+                      "subStreamId": 67890
+                    }
+                  }
+                },
+                "Reset substream": {
+                  "value": {
+                    "data": {
+                      "streamId": 12345,
+                      "subStreamId": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful or no change needed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer",
+                          "example": 200
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Stream and sub-stream values unchanged"
+                        },
+                        "response_time": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2025-04-15T07:17:54.6612907Z"
+                        },
+                        "data": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer",
+                          "example": 200
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Operation successful"
+                        },
+                        "response_time": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2025-04-15T07:23:18.4795014Z"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "streamId": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The updated stream ID"
+                            },
+                            "subStreamId": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The updated sub-stream ID"
+                            },
+                            "updatedTime": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "Timestamp of the update operation",
+                              "example": "2025-04-15T07:23:18:479"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "status": 200,
+                      "description": "Operation successful",
+                      "response_time": "2025-04-15T07:23:18.4795014Z",
+                      "data": {
+                        "streamId": 15524,
+                        "subStreamId": 2341,
+                        "updatedTime": "2025-04-15T07:23:18:479"
+                      }
+                    }
+                  },
+                  "no-change": {
+                    "value": {
+                      "status": 200,
+                      "description": "Stream and sub-stream values unchanged",
+                      "response_time": "2025-04-15T07:17:54.6612907Z",
+                      "data": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The server could not process the request due to missing or invalid information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer",
+                          "example": 400
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "response_time": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "data": {
+                          "type": "string",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer",
+                          "example": 400
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "response_time": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "errors": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "code": {
+                                    "type": "string"
+                                  },
+                                  "message": {
+                                    "oneOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "object"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "examples": {
+                  "Invalid parameters": {
+                    "value": {
+                      "status": 400,
+                      "description": "Invalid parameters",
+                      "response_time": "2025-04-15T07:04:20.6572144Z",
+                      "data": ""
+                    }
+                  },
+                  "Missing streamId": {
+                    "value": {
+                      "status": 400,
+                      "description": "Invalid parameters - missing mandatory field - streamId",
+                      "response_time": "2025-04-15T07:04:20.6572144Z",
+                      "data": ""
+                    }
+                  },
+                  "Object not found": {
+                    "value": {
+                      "status": 400,
+                      "description": "Object not found",
+                      "response_time": "2025-04-15T07:00:52.1683555Z",
+                      "data": ""
+                    }
+                  },
+                  "invalid stream": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INVALID_STREAM",
+                            "message": "The specified stream ID does not exist"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Invalid stream transfer": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INVALID_STREAM_TRANSFER",
+                            "message": "Transfers to 'WHATSAPP' are blocked"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Invalid stream type transfer": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INVALID_STREAM_TYPE_TRANSFER",
+                            "message": {
+                              "content": "Objects can only be transferred between allowed channel types. Allowed transfer",
+                              "allowed_transfers": {
+                                "SMS": [
+                                  "MAILBOX_CONNECTOR",
+                                  "CHAT"
+                                ],
+                                "MAILBOX_CONNECTOR": [
+                                  "SMS",
+                                  "CHAT"
+                                ],
+                                "CHAT": [
+                                  "SMS",
+                                  "MAILBOX_CONNECTOR"
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Invalid theme transfer": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INVALID_THEME_TRANSFER",
+                            "message": "This theme channel can only be transferred to its original channel type"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Missing Email": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "MISSING_EMAIL_ADDRESS",
+                            "message": "Email address is required for EMAIL channel"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Missing phone": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "MISSING_PHONE_NUMBER",
+                            "message": "Phone number is required for SMS channel"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Invalid sub-stream": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:29:29.7227607Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INVALID_SUBSTREAM",
+                            "message": "The specified subStreamId does not belong to the provided streamId"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Inactive sub-stream": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": {
+                        "errors": [
+                          {
+                            "code": "INACTIVE_SUBSTREAM",
+                            "message": "The specified subStreamId is inactive and cannot be assigned"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Update object's stream failed": {
+                    "value": {
+                      "status": 400,
+                      "description": "Operation failed",
+                      "response_time": "2025-04-15T07:24:52.956691Z",
+                      "data": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 401
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The requested resource is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Not found"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 429
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Too Many Requests"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - The server could not return the representation due to an internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 500
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation failed"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                "example": {
+                  "status": 500,
+                  "description": "Operation failed",
+                  "response_time": "2025-04-15T07:24:52.956691Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/content": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Set Object Content",
+        "description": "Set the object's content",
+        "operationId": "Set_Object_Content",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "data": {
+                    "num_likes": 8,
+                    "is_hidden": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/activitylog": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Add Activity Log",
+        "description": "Add activity log to object",
+        "operationId": "Set_Activity_Log",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "data": {
+                    "Text": "test!",
+                    "Source": "testing",
+                    "ManagerId": 1111
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/remarks": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Add Remark Log",
+        "description": "Add remark log to object",
+        "operationId": "Set_Remark_Log",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "data": {
+                    "Text": "test!",
+                    "ManagerId": 1111
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/indicators": {
+      "post": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Set Custom Indicator",
+        "description": "This API sets an icon at the top of the conversation page to give an indication to the agent about the customer or the conversation.<br> When the agent hovers over it, the title appears, and when the agent clicks on it, it can open a link (optional settings).<br><br>See Schema for details.",
+        "operationId": "Set_Object_Indicator",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number for the conversation",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "IndicatorId": {
+                        "type": "string",
+                        "description": "Enter a name for the icon. This name (ID) is required when you want to delete this icon",
+                        "example": "home"
+                      },
+                      "Title": {
+                        "type": "string",
+                        "description": "Enter the wording that will appear once the user hovers over the icon",
+                        "example": "Working from home"
+                      },
+                      "DisplayClass": {
+                        "type": "string",
+                        "description": "Enter the icon name as it appears in icomoon.io site, with the 'icon-' heading",
+                        "example": "icon-home"
+                      },
+                      "Link": {
+                        "type": "string",
+                        "description": "(Optional) Enter a link that will open when the user clicks on the icon",
+                        "example": "www.CommBox.io"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/objects/{OBJECT_ID}/indicators/{INDICATOR_ID}": {
+      "delete": {
+        "tags": [
+          "Objects"
+        ],
+        "summary": "Delete Custom Indicator",
+        "description": "This API deletes a custom indicator from the conversation.<br> The Conversation (Object) ID and the Indicator ID are required.<br> The Indicator ID is the name used to add the specific icon (\u201chome\u201d in our example above).",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          },
+          {
+            "name": "INDICATOR_ID",
+            "in": "path",
+            "description": "Indicator ID. This is the name given to the icon at time of creation",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/INDICATOR_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.096637Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

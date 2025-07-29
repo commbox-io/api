@@ -1,0 +1,888 @@
+{
+  "paths": {
+    "/streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}": {
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Set Object Tag",
+        "description": "This API is used to tag a conversation with a specific tag.<br> Required path parameters included the Stream (channel) Id, Object (conversation) Id, and the desired Tag Id.<br><br>(POST) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID}<br><br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
+        "operationId": "Set_Object_Tag",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream ID. This is a CommBox generated number for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number for the conversation",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          },
+          {
+            "name": "TAG_ID",
+            "in": "path",
+            "description": "Tag ID. This is a CommBox generated number for each tag",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAG_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Delete Object Tag",
+        "description": "This API is used to delete a specific tag from a conversation.<br> Required path parameters included the Stream (Channel) Id, Object (conversation) Id, and the desired Tag Id.<br><br> (DELETE) /streams/{STREAM_ID}/objects/{OBJECT_ID}/tags/{TAG_ID} <br><b>Example:</b> https://api.wispp.com/streams/17566/objects/372235/tags/2789",
+        "operationId": "Delete_Object_Tag",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream ID. This is a CommBox generated number for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "OBJECT_ID",
+            "in": "path",
+            "description": "Object ID. This is a CommBox generated number for the conversation",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/OBJECT_ID/schema"
+            }
+          },
+          {
+            "name": "TAG_ID",
+            "in": "path",
+            "description": "Tag ID. This is a CommBox generated number for each tag",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAG_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Get Tags",
+        "description": "This API returns a list of all Tags in the account/brand as recognized by the authentication.<br>Data includes the tag's Id number, name (identity id), and type (as a code).  A listing of Tag types is found in the Enum section in the Getting Started section.<br>",
+        "operationId": "get_tags",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "identityId": {
+                                "type": "string",
+                                "example": "test"
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": null
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "identityId": {
+                                "type": "string",
+                                "example": "test2"
+                              },
+                              "streamProviderId": {
+                                "type": "string",
+                                "example": null
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Create a Tag",
+        "description": "This API creates a new tag, where the name/content of the tag is part of the body parameters.<br>If you want this new tag to be part of a group of tags, you'll need to place the group Id in the TagGroupId field.<br><br> Tags can be attached to a conversation (object), to a specific comment or a reply (child), or to a customer (user). Set the tag's attachment options in the boolean parameters (true/false)<br><br>The API returns Tag Id.",
+        "operationId": "Create_tag",
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string"
+                      },
+                      "TagGroupId": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "ObjectTag": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "UserTag": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "ChildTag": {
+                        "type": "boolean",
+                        "example": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": 21221
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters may not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/tags/{TAG_ID}": {
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Updating a Tag",
+        "description": "This API updates/changes the name/content of a tag.<br> The tag's Id is required as part of the URL. The actual changes to the tag are part of the Body Params - the new name/content and the associated group (optional).<br>",
+        "operationId": "Update_tag",
+        "parameters": [
+          {
+            "name": "TAG_ID",
+            "in": "path",
+            "description": "Tag ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAG_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "example": "TAG Name"
+                      },
+                      "Tag Group Id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 123
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Delete a Tag",
+        "description": "This API deletes a tag.<br> The tag's Id is required as part of the URL.<br> Obtain a list of tags and their Ids with [GET]  Get Tags - https://api.CommBox.io/tags",
+        "operationId": "Delete_tag",
+        "parameters": [
+          {
+            "name": "TAG_ID",
+            "in": "path",
+            "description": "Tag Id is a CommBox unique identifier.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAG_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/tags/groups": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Get Tags Group",
+        "description": "A few tags with similar purposes, or originating teams, can be grouped together by the organization.<br>This API lists all the Tags Groups in the account. The API does not list the specific tags within each group.",
+        "operationId": "Get_Tags_Group",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test"
+                              },
+                              "brandId": {
+                                "type": "string",
+                                "example": 1
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test2"
+                              },
+                              "brandId": {
+                                "type": "string",
+                                "example": 1
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Create Tags Group",
+        "description": "A few tags with similar purposes or originating teams can be grouped together by the organization.<br>This API creates the name of the group of tags and returns a Tags Group Id.<br><br> To add tags to this new group, use the **Create Tag API** or the **Update Tag API**.",
+        "operationId": "Create_Tags_Group",
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "example": "Group's name"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": 21221
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/tags/groups/{TAGS_GROUP_ID}": {
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Update Tags Group",
+        "description": "A few tags with similar purposes or originating team can be grouped together by the organization.<br>This API lets you change the name of such a group of tags.<br>All the tags associated with the old name of the tags group will now be associated with the new name.<br><br>The Tags Group Id is required.<br>\nTo add a specific tag to the new group, use the **Update Tag API** (Tag's Id required).<br> To delete a specific tag from the new group, use the **Delete Tag API** (Tag's Id required).<br>",
+        "operationId": "Update_tags_group",
+        "parameters": [
+          {
+            "name": "TAGS_GROUP_ID",
+            "in": "path",
+            "description": "Tags Group Id. is a CommBox unique identifier",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAGS_GROUP_ID/schema"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Optional description for new mail object in  *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "example": "TAG's Name"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Delete a Tags group",
+        "description": "This API deletes a Tags Group - Group ID is required.<br>Use the **Get Tags Group** API to obtain a list of tags group names and their Id. <br><br>**Note:** Deleting a group of tags will delete all tags included in that group.",
+        "operationId": "Delete_tags_group",
+        "parameters": [
+          {
+            "name": "TAGS_GROUP_ID",
+            "in": "path",
+            "description": "TAGS_GROUP_ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/TAGS_GROUP_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.075179Z"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

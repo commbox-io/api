@@ -1,0 +1,516 @@
+{
+  "paths": {
+    "/managers/profiles/{PROFILE_ID}": {
+      "get": {
+        "tags": [
+          "Profiles"
+        ],
+        "summary": "Get Managers By Profile ID",
+        "description": "This API returns a list of all the agents that share the specified Profile Id.",
+        "operationId": "Get_manager_by_profile_id",
+        "parameters": [
+          {
+            "name": "PROFILE_ID",
+            "in": "path",
+            "description": "Profile ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/PROFILE_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.088196Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "Id": {
+                                "type": "integer",
+                                "example": 520760
+                              },
+                              "FirstName": {
+                                "type": "string",
+                                "example": "John"
+                              },
+                              "LastName": {
+                                "type": "string",
+                                "example": "smith"
+                              },
+                              "Permission": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "Email": {
+                                "type": "string",
+                                "example": "john.s@gmail.com"
+                              },
+                              "UserName": {
+                                "type": "string",
+                                "example": "john.s"
+                              },
+                              "TeamId": {
+                                "type": "integer",
+                                "example": 0
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "Id": {
+                                "type": "integer",
+                                "example": 520761
+                              },
+                              "FirstName": {
+                                "type": "string",
+                                "example": "John"
+                              },
+                              "LastName": {
+                                "type": "string",
+                                "example": "Doe"
+                              },
+                              "Permission": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "Email": {
+                                "type": "string",
+                                "example": "john.d@gmail.com"
+                              },
+                              "UserName": {
+                                "type": "string",
+                                "example": "john.d"
+                              },
+                              "TeamId": {
+                                "type": "integer",
+                                "example": 0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/managers/profiles": {
+      "get": {
+        "tags": [
+          "Profiles"
+        ],
+        "summary": "Get Profiles",
+        "description": "A profile is a set of permissions the agent has access to.<br> This API returns a list of all agents' profile Ids and profile names.<br><br>API Returns <br> \"Id\" refers to the profile Id number <br> \"Name\" is the name of the profile <br> \"UniqueName\" is a secondary name (optional)",
+        "operationId": "Get_profiles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.088196Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test"
+                              },
+                              "UniqueName": {
+                                "type": "string",
+                                "example": "unique test"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test 2"
+                              },
+                              "UniqueName": {
+                                "type": "string",
+                                "example": "unique test 2"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/managers/{MANAGER_ID}/profiles": {
+      "delete": {
+        "tags": [
+          "Profiles"
+        ],
+        "summary": "Remove All Agent Profiles",
+        "description": "This API removes all profiles from a specific agent/admin.<br> The agent Id is a required path parameter. You can obtain a list of agent Ids from the Get Manager API.",
+        "operationId": "Remove_All_Manager_Profiles",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager Id is a CommBox generated number for the agent Id.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.088196Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Profiles"
+        ],
+        "summary": "Add Profiles",
+        "description": "This API Adds or changes the profiles of a specific agent/admin.<br>The Manager Id of the agent is required, as well as the specific profile Id or name.<br><br>To <b>Add</b> profiles, set the Query parameter to \u201cadd\u201d and enter the profile's name or Id. Separate multiple profiles with a comma.<br><br>To <b>Change</b> profiles (delete the current and add the new), set the Query parameter to \u201cset\u201d and enter the profile's name or Id. Separate multiple profiles with a comma.<br><br><b>Note that only one query parameter should be used \u2013 not both.</b><br>API Sends URL + Manager's Id q=[profile id]",
+        "operationId": "Add_Profiles",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          },
+          {
+            "name": "add",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            "style": "form",
+            "explode": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.088196Z"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test"
+                              },
+                              "UniqueName": {
+                                "type": "string",
+                                "example": "unique test"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "test 2"
+                              },
+                              "UniqueName": {
+                                "type": "string",
+                                "example": "unique test 2"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/managers/{MANAGER_ID}/profiles/{PROFILE_ID}": {
+      "delete": {
+        "tags": [
+          "Profiles"
+        ],
+        "summary": "Delete Manager Profile",
+        "description": "This API removes a specific profile from a specific agent/admin.<br> The agent Id and profile Id are required path parameters. You can obtain a list of agent Ids from the Get Manager API and a list of profiles from the Get Profile API.",
+        "operationId": "Delete_Manager_Profile",
+        "parameters": [
+          {
+            "name": "MANAGER_ID",
+            "in": "path",
+            "description": "Manager ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/MANAGER_ID/schema"
+            }
+          },
+          {
+            "name": "PROFILE_ID",
+            "in": "path",
+            "description": "Profile ID. This is a CommBox generated number",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/PROFILE_ID/schema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2025-07-27T15:28:43.088196Z"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    }
+  }
+}

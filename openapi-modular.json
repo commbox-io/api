@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "$ref": "./api/openapi-base.json#/info"
+  },
+  "servers": {
+    "$ref": "./api/openapi-base.json#/servers"
+  },
+  "security": {
+    "$ref": "./api/openapi-base.json#/security"
+  },
+  "tags": {
+    "$ref": "./api/openapi-base.json#/tags"
+  },
+  "paths": {
+    "$ref": "./api/core/paths.json#/paths",
+    "$ref": "./api/authentication/paths.json#/paths",
+    "$ref": "./api/assignments/paths.json#/paths",
+    "$ref": "./api/automation/paths.json#/paths",
+    "$ref": "./api/forms/paths.json#/paths",
+    "$ref": "./api/managers/paths.json#/paths",
+    "$ref": "./api/objects/paths.json#/paths",
+    "$ref": "./api/presence/paths.json#/paths",
+    "$ref": "./api/profiles/paths.json#/paths",
+    "$ref": "./api/sms/paths.json#/paths",
+    "$ref": "./api/streams/paths.json#/paths",
+    "$ref": "./api/tags/paths.json#/paths",
+    "$ref": "./api/teams/paths.json#/paths",
+    "$ref": "./api/users/paths.json#/paths",
+    "$ref": "./api/whatsapp/paths.json#/paths"
+  },
+  "components": {
+    "$ref": "./api/components/components.json"
+  },
+  "x-tagGroups": {
+    "$ref": "./api/openapi-base.json#/x-tagGroups"
+  }
+}
