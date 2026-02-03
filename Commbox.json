@@ -174,7 +174,7 @@
           "Streams"
         ],
         "summary": "Get Stream Availability",
-        "description": "This API checks the availability of the stream (channel) and returns the channel’s state.<br><br>Enum:<br>Channel is not active = 0 <br>Available (during business hours) = 1<br>Busy (Overload on agents during business hours) = 2<br>Unavailable (Off business hours or during a special day) = 3<br><br>Note: Path parameters include a Boolean regarding the automation function within that steam (since the bot is always available, the busy and unavailable states will not reflect)<br><br>**True** – Ignore automation<br>**False** – Include automation in the checking</br></br>(GET) /streams/STREAM_ID/streamavailability/ignoreAutomationExsistance  <br> <br><b>Example:</b> <br>https://api.bumpyardpro.com/streams/STREAM_ID/streamavailability/false",
+        "description": "This API checks the availability of the stream (channel) and returns the channel's state.<br><br>**Availability States:**<br>- 0: Channel is not active<br>- 1: Available (during business hours)<br>- 2: Busy (Overload on agents during business hours)<br>- 3: Unavailable (Off business hours or during a special day)<br><br>**Query Parameter:**<br>- `ignoreAutomationExsistance` (boolean): Controls whether automation (bot) availability is considered in the check. Since the bot is always available, setting this to false may affect busy and unavailable states.",
         "operationId": "Get_Stream_Availability",
         "parameters": [
           {
@@ -223,6 +223,185 @@
                           "example": 1
                         }
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request could not be understood by the server. Incoming parameters might not be valid"
+          },
+          "401": {
+            "description": "Unauthorized - The supplied credentials, if any, are not sufficient to access the resource"
+          },
+          "404": {
+            "description": "Not found - The requested resource is not found"
+          },
+          "429": {
+            "description": "Too Many Requests - Too many requests have been made in a short period of time (Throttling)"
+          },
+          "500": {
+            "description": "Server Error - The server could not return the representation due to an internal server error"
+          },
+          "501": {
+            "description": "Not Implemented - The requested operation is not supported"
+          }
+        }
+      }
+    },
+    "/streams/{STREAM_ID}/substreams/{SUBSTREAM_ID}/streamavailability": {
+      "get": {
+        "tags": [
+          "Streams"
+        ],
+        "summary": "Get Substream Availability",
+        "description": "This API checks the availability of a specific substream (subchannel) and returns its state.<br><br>**Availability States:**<br>- 0: Channel is not active<br>- 1: Available (during business hours)<br>- 2: Busy (Overload on agents during business hours)<br>- 3: Unavailable (Off business hours or during a special day)<br><br>**Query Parameters:**<br>- `ignoreAutomationExsistance` (boolean): Controls whether automation (bot) availability is considered<br>- `autoAssign` (boolean, optional): When true, automatically assigns the conversation to an available agent<br>- `includeDetails` (boolean, optional): When true, returns detailed agent information in the response<br><br>**Auto-Assignment Behavior:**<br>When `autoAssign=true`, the system will attempt to assign the conversation to an available agent. The response will include assignment status and agent details.<br><br>**Response Details:**<br>When `includeDetails=true`, the response includes comprehensive agent information including availability, status, and current load metrics.",
+        "operationId": "Get_Substream_Availability",
+        "parameters": [
+          {
+            "name": "STREAM_ID",
+            "in": "path",
+            "description": "Stream ID. A CommBox generated number for the channel",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/parameters/STREAM_ID/schema"
+            }
+          },
+          {
+            "name": "SUBSTREAM_ID",
+            "in": "path",
+            "description": "Substream ID. The identifier for the specific subchannel",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "ignoreAutomationExsistance",
+            "in": "query",
+            "description": "Controls whether automation availability is considered",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "autoAssign",
+            "in": "query",
+            "description": "Automatically assign to an available agent",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeDetails",
+            "in": "query",
+            "description": "Include detailed agent information in the response",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Operation successful"
+                    },
+                    "response_time": {
+                      "type": "string",
+                      "example": "2024-08-06T07:51:52.2581942Z"
+                    },
+                    "data": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "description": "Simple response (when includeDetails=false)",
+                          "properties": {
+                            "state": {
+                              "type": "integer",
+                              "example": 1,
+                              "description": "Availability state: 0=Not Active, 1=Available, 2=Busy, 3=Unavailable"
+                            },
+                            "assigned": {
+                              "type": "boolean",
+                              "example": false,
+                              "description": "Whether auto-assignment occurred (only present when autoAssign=true)"
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "description": "Detailed response (when includeDetails=true)",
+                          "properties": {
+                            "state": {
+                              "type": "integer",
+                              "example": 1,
+                              "description": "Availability state: 0=Not Active, 1=Available, 2=Busy, 3=Unavailable"
+                            },
+                            "assigned": {
+                              "type": "boolean",
+                              "example": true,
+                              "description": "Whether auto-assignment occurred"
+                            },
+                            "agentDetails": {
+                              "type": "object",
+                              "description": "Detailed agent information",
+                              "properties": {
+                                "totalAgents": {
+                                  "type": "integer",
+                                  "example": 5,
+                                  "description": "Total number of agents in the substream"
+                                },
+                                "availableAgents": {
+                                  "type": "integer",
+                                  "example": 3,
+                                  "description": "Number of currently available agents"
+                                },
+                                "busyAgents": {
+                                  "type": "integer",
+                                  "example": 2,
+                                  "description": "Number of busy agents"
+                                },
+                                "assignedAgent": {
+                                  "type": "object",
+                                  "description": "Details of the assigned agent (when autoAssign=true)",
+                                  "properties": {
+                                    "agentId": {
+                                      "type": "integer",
+                                      "example": 12345
+                                    },
+                                    "agentName": {
+                                      "type": "string",
+                                      "example": "John Doe"
+                                    },
+                                    "agentStatus": {
+                                      "type": "string",
+                                      "example": "available"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 }
